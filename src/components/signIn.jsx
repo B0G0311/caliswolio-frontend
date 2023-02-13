@@ -1,6 +1,6 @@
-import React from 'react'
-import {Link } from 'react-router-dom'
-import './css/sign_in.css';
+import React from 'react';
+import {Link } from 'react-router-dom';
+import '../css/signIn.css';
 export default function Sign_in()
 {
   return(
@@ -24,7 +24,7 @@ export default function Sign_in()
         <br></br>
         
         <Link to="/terms">
-          <button> use as guest</button>
+          <button> Use as guest</button>
         </Link>
       </div>   
   </div>
