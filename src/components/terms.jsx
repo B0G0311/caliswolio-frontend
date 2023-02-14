@@ -1,6 +1,5 @@
 import React from 'react';
 import '../css/terms.css';
-import {Link } from 'react-router-dom';
 
 export default function Terms(){
   return(
@@ -25,30 +24,9 @@ export default function Terms(){
               <br></br>
               <input type="checkbox" id="Agree_Liability" name="Terms&Cond" value="AcceptLiability" required/>
               <label htmlFor="Agree_Liability"> Accept Liability Terms</label>
-              
-              <div className = "GoForward">
-                <Link to="/level">
-                <button type="submit" name="Next" value="Next_page" className="btn-link">Next</button>
-                </Link>
-              </div>
             </section>
           </div>
-      </form>
-      
-        <div className = "GoBack">
-            <section>
-              <Link to="/">
-                <p>Back</p>
-              </Link>
-            </section>            
-        </div>
-
-        <div className="Settings_Button">      
-            <section>
-              <a href= "https://Google.com"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRos4_NptMgg3_8qKtMyxUufTojeMlT34mGvw&usqp=CAU" alt="Settings" id="Settings_Icon" width="50" height="50"></img></a>
-            </section>
-          </div> 
-    
+      </form>    
 </div>
   )
 }

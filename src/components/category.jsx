@@ -1,6 +1,5 @@
 import React from "react";
 import '../css/category.css';
-import {Link } from 'react-router-dom';
 
 export default function Category()
 {
@@ -26,25 +25,7 @@ export default function Category()
                     <input type="radio" id="Full" name="Chosen_Category" required/>
                     <label htmlFor="Full" title="The full body means the full body my g">Full Body</label>
                 </div>
-
-                <div className = "GoForward">
-                    <button type="submit" name="Next" value="Next_page" className="btn-link">Next </button>
-                </div>
             </form>
-
-            <div className = "GoBack">
-                <section>
-                <Link to="/level">
-                        <p>Back</p>
-                </Link>
-                </section>
-            </div>
-
-            <div className="Settings_Button">      
-                <section>
-                <a href= "https://Google.com"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRos4_NptMgg3_8qKtMyxUufTojeMlT34mGvw&usqp=CAU" alt="Settings" id="Settings_Icon" width="50" height="50"></img></a>
-                </section>
-            </div> 
         </div>
     )
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import '../css/level.css';
-import {Link } from 'react-router-dom';
 
 export default function Level()
 {
@@ -28,23 +27,7 @@ export default function Level()
                      <label htmlFor="Advanced" title="Choose this if you know your stuff and want to do more advanced exercises">Advanced</label>
                   </section>
                 </div>
-
-                <div className = "GoForward">    
-                    <section>
-                        <Link to="/category"> 
-                        <button type="submit" name="Next" value="Next_page" className="btn-link">Next </button>
-                        </Link>    
-                    </section>   
-                </div>
             </form>
-
-            <div className = "GoBack">
-                <section>
-                    <Link to="/">
-                        <p>Back</p>
-                    </Link>
-                </section>
-            </div>
 
             <div className = "Settings_Button">      
                 <section>
