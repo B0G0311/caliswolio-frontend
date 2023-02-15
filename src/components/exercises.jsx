@@ -7,7 +7,7 @@ class Exercises extends Component {
 
   async componentDidMount() {
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/getExercises')
+      const res = await fetch('http://127.0.0.1:8000/api/getExercises/')
       const exercises = await res.json();
       this.setState({
         exercises

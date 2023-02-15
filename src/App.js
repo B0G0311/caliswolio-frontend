@@ -6,7 +6,7 @@ import Level from "./components/level";
 import Category from "./components/category";
 import Exercises from "./components/exercises";
 import Navigation from "./components/navigation";
-import Settings from "./components/settings"
+import Settings from "./components/settings";
 
 const App = () => {
   return (
