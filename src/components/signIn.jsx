@@ -18,13 +18,13 @@ export default function Sign_in()
       </div>
       
       <div className = "button-group">
-        <button type="button" id="Login"> Login</button>
+        <button type="button" id="Login" className='Sign-in_Button'> Login</button>
         <br></br>      
-        <button type="button" id ="Register"> Register</button>
+        <button type="button" id ="Register" className='Sign-in_Button'> Register</button>
         <br></br>
         
         <Link to="/terms">
-          <button> Use as guest</button>
+          <button className='Sign-in_Button'> Use as guest</button>
         </Link>
       </div>   
   </div>
