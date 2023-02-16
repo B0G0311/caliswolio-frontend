@@ -1,20 +1,49 @@
-import React from "react";
+import React, {useContext, useState} from "react";
+import WorkoutContext from "../context/workoutContext";
 import"../css/login.css"
-// import { Link } from "react-router-dom";
 
 export default function Login()
 {
+  const [formData, setFormData] = useState([
+    {
+      email: ' ',
+      password: ' '
+    }
+  ])
+
+  const { catchUser, setActivePage } = useContext(WorkoutContext)
+
+  const handleTextChange = (e) => {
+    if (e.target.id === 'Email') {
+      setFormData(prevState => ({
+        ...prevState,
+        email: e.target.value,
+      }))
+    }
+    else if (e.target.id === 'Password') {
+      setFormData(prevState => ({
+        ...prevState,
+        password: e.target.value
+      }))
+    }
+  }
+
   return(
       <div className="Login">
-        <form>
+        <form onSubmit={(e) => {
+              e.preventDefault()
+              catchUser(formData.email, formData.password)
+              setActivePage('Level')
+            }
+        }>
           <div className="info">
-            <label> Username: 
-                <input type="text" className="Member" id="username"required/>
+            <label> Email: 
+                <input onChange={handleTextChange} type="text" className="Member" id="Email" value={formData.email || ''} required/>
                 <br/><br/>
             </label>
 
             <label> Password: 
-                <input type="text" className="Member" id="Password"required/>
+                <input onChange={handleTextChange} type="text" className="Member" id="Password" value={formData.password || ''} required/>
                 <br/><br/>
             </label>
 

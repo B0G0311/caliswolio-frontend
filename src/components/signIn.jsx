@@ -16,9 +16,9 @@ function SignIn()
       </div>
       
       <div className = "button-group">
-        <button type="button" id="Login" className='Sign-in_Button'> Login</button>
+        <button onClick={() => setActivePage('Login')} type="button" id="Login" className='Sign-in_Button'> Login</button>
         <br></br>      
-        <button type="button" id ="Register" className='Sign-in_Button'> Register</button>
+        <button onClick={() => setActivePage('Register')} type="button" id ="Register" className='Sign-in_Button'> Register</button>
         <br></br>
         <button onClick={() => setActivePage('Terms') } className='Sign-in_Button'>Use as guest</button>
       </div>   
