@@ -1,23 +1,24 @@
 import React from "react";
-import { useNavigate, useLocation, Link } from "react-router-dom";
+import { useContext } from "react";
+import WorkoutContext from "../context/workoutContext";
+import { useNavigate } from "react-router-dom";
 import "../css/footer.css"
 
 export default function Navigation() 
 {
+    const { activePage, setActivePage } = useContext(WorkoutContext)
+
     const navigate = useNavigate();
-    const location = useLocation();
 
     function nextLocation() {
-        const currentPath = location.pathname;
-        switch (currentPath) {
-            case "/terms": 
-                return "/level";
-            case "/level": 
-                return "/category";
-            case "/category":
-                return "/";
-            default:
-                return 1;
+        if (activePage === 'Terms') {
+            setActivePage('Level');
+        } 
+        else if (activePage === 'Level') {
+            setActivePage('Category')
+        }
+        else if (activePage === 'Category') {
+            setActivePage('Exercises')
         }
     }
 
@@ -25,12 +26,11 @@ export default function Navigation()
         <div>
             <nav>
             <ul>
-                {location.pathname !== "/" && (
+                {activePage !== "SignIn" && (
                     <button onClick={() => navigate(-1)} value="Back" className="btn-link" id="GoBack">Previous</button>
                 )}
-                {location.pathname !== "/" && (
-                    <Link to={nextLocation()}><button value="Forward" className="btn-link" id="GoForward">Next</button></Link>
-                    // <button onClick={} value="Forward" className="btn-link" id="GoForward">Next</button>
+                {activePage !== "SignIn" && (
+                    <button onClick={() => nextLocation()} value="Forward" className="btn-link" id="GoForward">Next</button>
                 )}
             </ul>
             </nav>

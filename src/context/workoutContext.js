@@ -1,13 +1,13 @@
 import React, { createContext, useState } from 'react';
 
-export const WorkoutContext = createContext();
+const WorkoutContext = createContext();
 
 export const WorkoutProvider = ({ children }) => {
     const [activePage, setActivePage] = useState('SignIn')
+    const [isMember, setIsMember] = useState(false)
     const [user, setUser] = useState([
     {
-        guest: false,
-        member_id: 1,
+        member_id: 0,
         email: '',
         password: '',
         phone_number: '',
@@ -17,21 +17,19 @@ export const WorkoutProvider = ({ children }) => {
         zipcode: ''
     }
     ]);
-  const [selectedLevel, setSelectedLevel] = useState([
-    {
-        level_id: 1,
-    }
-    ]);
+  const [selectedLevel, setSelectedLevel] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedExercises, setSelectedExercises] = useState([]);
   const [priorWorkout, setPriorWorkout] = useState({});
   const [priorWorkoutExercises, setPriorWorkoutExercises] = useState([]);
-
+  
   return (
     <WorkoutContext.Provider
       value={{
         activePage,
         setActivePage,
+        isMember,
+        setIsMember,
         user,
         setUser,
         selectedLevel,
@@ -51,4 +49,4 @@ export const WorkoutProvider = ({ children }) => {
   );
 };
 
-export default WorkoutProvider;
+export default WorkoutContext

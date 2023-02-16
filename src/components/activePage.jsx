@@ -1,23 +1,28 @@
-// import useState from 'react'
-// import { useContext } from 'react';
-// import { workerData } from 'worker_threads';
-// import { WorkoutContext } from '../context/workoutContext';
+import { useContext } from 'react';
+import WorkoutContext from '../context/workoutContext';
+import SignIn from './signIn';
+import Terms from './terms';
+import Level from './level';
+import Category from './category';
+import Exercises from './exercises';
+import Login from './login';
+import Register from './register';
 
-// import Category from './category';
-// import Exercises from './exercises';
-// import Level from './level';
-// import Login from './login';
-// import Register from './register';
-// import SignIn from './signIn';
-// import Terms from './terms';
+function ActivePage() {
+    const {activePage} = useContext(WorkoutContext)
 
-// function ActivePage() {
-//     const {renderActivePage, activePage} = useContext(WorkoutContext)
+    return (
+        <div>
+            {activePage === 'SignIn' && <SignIn />}
+            {activePage === 'Terms' && <Terms />}
+            {activePage === 'Level' && <Level />}
+            {activePage === 'Category' && <Category />}
+            {activePage === 'Exercises' && <Exercises />}
+            {activePage === 'Login' && <Login />}
+            {activePage === 'Register' && <Register />}
+        </div>
+    )
 
-//     return (
-//         <div>
-//             {activePage.component === 'signin' && <SignIn}
-//         </div>
-//     )
+}
 
-// }
+export default ActivePage

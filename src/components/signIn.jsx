@@ -1,6 +1,6 @@
 import React from 'react';
 import { useContext } from 'react';
-import { WorkoutContext } from '../context/workoutContext';
+import WorkoutContext from '../context/workoutContext';
 import '../css/signIn.css';
 
 function SignIn()
@@ -20,8 +20,7 @@ function SignIn()
         <br></br>      
         <button type="button" id ="Register" className='Sign-in_Button'> Register</button>
         <br></br>
-        
-        <button onClick={() => setActivePage('/terms') } className='Sign-in_Button'>Use as guest</button>
+        <button onClick={() => setActivePage('Terms') } className='Sign-in_Button'>Use as guest</button>
       </div>   
   </div>
   )
