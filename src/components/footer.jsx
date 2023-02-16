@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
-import "../css/navigate.css"
+import "../css/footer.css"
 
 export default function Navigation() 
 {

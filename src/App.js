@@ -1,26 +1,28 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route, } from "react-router-dom";
+import React, { useContext } from "react";
+import { BrowserRouter as Router, Route, Routes, } from "react-router-dom";
+import Header from "./components/header";
+import Footer from "./components/footer";
 import SignIn from "./components/signIn";
-import Terms from "./components/terms";
-import Level from "./components/level";
-import Category from "./components/category";
-import Exercises from "./components/exercises";
-import Navigation from "./components/navigation";
-import Settings from "./components/settings";
+import WorkoutProvider from "./context/workoutContext";
 
 const App = () => {
+  const { activePage } = useContext(WorkoutProvider);
+
   return (
-    <Router>
-      <Settings />
-      <Routes>
-        <Route exact path="/" element={<SignIn />} />
-        <Route path="/terms" element={<Terms />} />
-        <Route path="/level" element={<Level />} />
-        <Route path="/category" element={<Category />} />
-        <Route path="/exercises" element={<Exercises />} />
-      </Routes>
-      <Navigation />
-    </Router>
+    <WorkoutProvider>
+      <Router>
+        <Header />
+        <Routes>
+          <Route exact path ="/" element={
+            <div>
+              {activePage === 'SignIn' && <SignIn />}
+            </div>
+          }>
+          </Route>
+        </Routes>
+        <Footer />
+      </Router>
+    </WorkoutProvider>
   );
 };
 

@@ -1,7 +1,7 @@
 import React from "react";
-import "../css/settings.css";
+import "../css/header.css";
 
-export default function Settings() { 
+export default function Header() { 
     return (
         <div className="Settings_Button">      
             <section>
