@@ -21,9 +21,7 @@ function SignIn()
         <button type="button" id ="Register" className='Sign-in_Button'> Register</button>
         <br></br>
         
-        <Link to="/terms">
         <button onClick={() => setActivePage('/terms') } className='Sign-in_Button'>Use as guest</button>
-        </Link>
       </div>   
   </div>
   )
