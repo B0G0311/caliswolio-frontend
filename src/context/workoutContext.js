@@ -81,8 +81,6 @@ export const WorkoutProvider = ({ children }) => {
   const checkIfUser = async() => {
     const data = await fetchUserData()
 
-    console.log(data)
-
     data.forEach((account) => {
       if (account.email === registrationForm.email) {
         return true;
