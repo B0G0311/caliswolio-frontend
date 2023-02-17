@@ -73,7 +73,7 @@ export default function Register(){
                 </label>
 
                 <label>Confirm Password:
-                    <input onChange={handleTextChange} type="text" className='Info' id='confirmpass'  required/>
+                    <input onChange={handleTextChange} type="text" className='Info' id='confirmpass' required/>
                     <br/><br/>
                 </label>
 
@@ -102,7 +102,7 @@ export default function Register(){
                 </label>
 
                 <div className='Registering'>
-                    <button type="submit" className='Info'>Register</button>
+                    <button type="submit" className='Submit_Button'>Register</button>
                 </div>
             </form>
         </div>
