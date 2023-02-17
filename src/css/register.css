@@ -1,5 +1,11 @@
 .Register{
     text-align: center;
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: block;
+    border: 5px solid black;
+    box-sizing: border-box;
 }
 
 .Submit_Button{

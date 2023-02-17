@@ -62,44 +62,48 @@ export default function Register(){
                     setActivePage('Terms')
                 }
             }}>
-                <label>Email:
-                    <input onChange={handleTextChange} type="text" className='Info' id='email' value={registrationForm.email || ''} required/>
-                    <br/> <br/>
-                </label>
+                <fieldset className='account'>
+                    <label>Email:
+                        <input onChange={handleTextChange} type="text" className='Info' id='email' value={registrationForm.email || ''} required/>
+                        <br/> <br/>
+                    </label>
 
-                <label> Password:
-                    <input onChange={handleTextChange} type="text" className='Info' id='pass' value={registrationForm.password || ''} required/>
-                    <br/> <br/>
-                </label>
+                    <label> Password:
+                        <input onChange={handleTextChange} type="text" className='Info' id='pass' value={registrationForm.password || ''} required/>
+                        <br/> <br/>
+                    </label>
 
-                <label>Confirm Password:
-                    <input onChange={handleTextChange} type="text" className='Info' id='confirmpass' required/>
-                    <br/><br/>
-                </label>
+                    <label>Confirm Password:
+                        <input onChange={handleTextChange} type="text" className='Info' id='confirmpass' required/>
+                        <br/><br/>
+                    </label>
+                </fieldset>
 
-                <label> Phone Number: 
-                    <input onChange={handleTextChange} type="number" pattern='[0-9]*' className='Info' id='phonenum' value={registrationForm.phone_number || ''} required/>
-                    <br/><br/>                     
-                </label>
+                <fieldset className='personalinfo'>
+                    <label> Phone Number: 
+                        <input onChange={handleTextChange} type="number" pattern='[0-9]*' className='Info' id='phonenum' value={registrationForm.phone_number || ''} required/>
+                        <br/><br/>                     
+                    </label>
 
-                <label>Birth Year:
-                    <input onChange={handleTextChange} type="number" pattern='[0-9]*' className='Info' max='9999' id='birthyear' value={registrationForm.birth_year || ''} required/>
-                    <br/><br/>
-                </label>
+                    <label>Birth Year:
+                        <input onChange={handleTextChange} type="number" pattern='[0-9]*' className='Info' max='9999' id='birthyear' value={registrationForm.birth_year || ''} required/>
+                        <br/><br/>
+                    </label>
 
-                <label htmlFor='Gender' >Gender: 
-                    <select onChange={handleTextChange} htmlFor='Gender' className='Info' id='Gender'>
-                        <option value='Male' id='Male'>Male</option>
-                        <option value='Female' id='Female'>Female</option>
-                        <option value='Other' id='Other'>Other</option>
-                    </select>
-                    <br/> <br/>
-                </label>
+                    <label htmlFor='Gender' >Gender: 
+                        <select onChange={handleTextChange} htmlFor='Gender' className='Info' id='Gender'>
+                            <option value='Male' id='Male'>Male</option>
+                            <option value='Female' id='Female'>Female</option>
+                            <option value='Other' id='Other'>Other</option>
+                        </select>
+                        <br/> <br/>
+                    </label>
 
-                <label > Zipcode:
-                    <input onChange={handleTextChange} type="number" pattern='[0-9]*' max='99999' className='Info' id='zipcode' value={registrationForm.zipcode || ''} required/>
-                    <br/> <br/>
-                </label>
+                    <label > Zipcode:
+                        <input onChange={handleTextChange} type="number" pattern='[0-9]*' max='99999' className='Info' id='zipcode' value={registrationForm.zipcode || ''} required/>
+                        <br/> <br/>
+                    </label>
+                </fieldset>
 
                 <div className='Registering'>
                     <button type="submit" className='Submit_Button'>Register</button>
