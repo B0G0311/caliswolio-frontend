@@ -9,6 +9,8 @@
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, 50%);
+    padding: 14px 40px;
+    font-size: 25px;
 }
 
 .GoBack{
@@ -40,4 +42,22 @@
 
 .Info:focus{
     box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(58 151 212 / 36%) 0px 0px 0px 4px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 16%) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px;
+}
+
+.account {
+    padding: 1em;
+    border: 1px solid black;
+    margin: 2em auto;
+    width: 50%;
+    text-align: center;
+    display: block;
+}
+
+.personalinfo {
+    padding: 1em;
+    border: 1px solid black;
+    margin: 2em auto;
+    width: 50%;
+    text-align: center;
+    display: block;
 }
