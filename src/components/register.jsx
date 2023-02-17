@@ -59,7 +59,7 @@ export default function Register(){
                 else {
                     await addNewUser()
                     alert("Thanks for Registering! You are now logged in!")
-                    setActivePage('Level')
+                    setActivePage('Terms')
                 }
             }}>
                 <label>Email:
