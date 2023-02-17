@@ -36,19 +36,19 @@ export default function Login()
               setActivePage('Level')
             }
         }>
-          <div className="info">
+          <div>
             <label> Email: 
-                <input onChange={handleTextChange} type="text" className="Member" id="Email" value={formData.email || ''} required/>
+                <input onChange={handleTextChange} type="text" className="Info" id="Email" value={formData.email || ''} required/>
                 <br/><br/>
             </label>
 
             <label> Password: 
-                <input onChange={handleTextChange} type="text" className="Member" id="Password" value={formData.password || ''} required/>
+                <input onChange={handleTextChange} type="text" className="Info" id="Password" value={formData.password || ''} required/>
                 <br/><br/>
             </label>
 
             <div className="Memberlogin">
-                <button type="submit" className="Member">Log in</button>
+                <button type="submit" className="Login_Button">Log in</button>
             </div>         
           </div>
         </form>
