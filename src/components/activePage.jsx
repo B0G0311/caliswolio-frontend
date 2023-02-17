@@ -7,12 +7,13 @@ import Category from './category';
 import ExerciseList from './exerciseList';
 import Login from './login';
 import Register from './register';
+import "../index.css";
 
 function ActivePage() {
     const {activePage} = useContext(WorkoutContext)
 
     return (
-        <div>
+        <div id='activePage'>
             {activePage === 'SignIn' && <SignIn />}
             {activePage === 'Terms' && <Terms />}
             {activePage === 'Level' && <Level />}
