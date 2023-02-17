@@ -2,7 +2,9 @@ import React from "react";
 import { useContext } from 'react';
 import WorkoutContext from '../context/workoutContext';
 function ExerciseItem(exercise) {
-    const {selectedExercises} = useContext(WorkoutContext)
+    const {selectedExercises, selectExercises} = useContext(WorkoutContext)
+
+        selectExercises()
 
     // async componentDidMount() {
     //     try {
@@ -18,12 +20,13 @@ function ExerciseItem(exercise) {
     return (
         <div>
         {selectedExercises.map((exercise) => {
+            return (
             <div className='exerciseItem'>
                 <div className="exerciseName">{exercise.name}</div>
                 <div className="exerciseSets">{exercise.sets}</div>
                 <div className="exerciseReps">{exercise.reps}</div>
             </div>
-        })}
+        )})}
         </div>
     )}
     

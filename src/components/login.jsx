@@ -1,27 +1,20 @@
-import React, {useContext, useState} from "react";
+import React, {useContext} from "react";
 import WorkoutContext from "../context/workoutContext";
 import"../css/login.css"
 
 export default function Login()
 {
-  const [formData, setFormData] = useState([
-    {
-      email: ' ',
-      password: ' '
-    }
-  ])
-
-  const { catchUser, setActivePage } = useContext(WorkoutContext)
+  const { catchUser, setActivePage, validateCredentials, signInData, setSignInData } = useContext(WorkoutContext)
 
   const handleTextChange = (e) => {
     if (e.target.id === 'Email') {
-      setFormData(prevState => ({
+      setSignInData(prevState => ({
         ...prevState,
         email: e.target.value,
       }))
     }
     else if (e.target.id === 'Password') {
-      setFormData(prevState => ({
+      setSignInData(prevState => ({
         ...prevState,
         password: e.target.value
       }))
@@ -30,20 +23,26 @@ export default function Login()
 
   return(
       <div className="Login">
-        <form onSubmit={(e) => {
+        <form onSubmit={async (e) => {
               e.preventDefault()
-              catchUser(formData.email, formData.password)
-              setActivePage('Level')
+              if (await validateCredentials()) {
+                await catchUser()
+                setActivePage('Level')
+              }
+              else {
+                alert("This email is not associated with an account. Please try again.")
+                setActivePage('Login')
+              }
             }
         }>
           <div>
             <label> Email: 
-                <input onChange={handleTextChange} type="text" className="Info" id="Email" value={formData.email || ''} required/>
+                <input onChange={handleTextChange} type="text" className="Info" id="Email" value={signInData.email || ''} required/>
                 <br/><br/>
             </label>
 
             <label> Password: 
-                <input onChange={handleTextChange} type="text" className="Info" id="Password" value={formData.password || ''} required/>
+                <input onChange={handleTextChange} type="text" className="Info" id="Password" value={signInData.password || ''} required/>
                 <br/><br/>
             </label>
 

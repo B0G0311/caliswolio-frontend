@@ -51,8 +51,7 @@ export default function Register(){
         <div className='Register'>
             <form onSubmit={async (e) => {
                 e.preventDefault()
-                const userExists = await checkIfUser();
-                if (userExists) {
+                if (checkIfUser()) {
                     alert("This email is already associated with an account. If this is you, go to the Login page and click on reset password")
                     setActivePage('Register')
                 } 
