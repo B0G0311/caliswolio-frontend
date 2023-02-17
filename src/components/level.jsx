@@ -5,26 +5,50 @@ import '../css/level.css';
 
 export default function Level()
 {
-    const { selectedLevel, setSelectedLevel } = useContext(WorkoutContext)
+    const { selectedLevel, setSelectedLevel, setUser, isMember, updateUser } = useContext(WorkoutContext)
     
-    const handleTextChange = (e) => {
+    const handleTextChange = async (e) => {
         if (e.target.id === 'Beginner') {
             setSelectedLevel(prevState => ({
                 level_id: 1,
                 name: 'beginner'
             }))
+
+            if(isMember) {
+                setUser(prevState => ({
+                    ...prevState,
+                    level_id: 1
+                }))
+                await updateUser()
+            }
         }
         else if (e.target.id === 'Intermediate') {
             setSelectedLevel(prevState => ({
                 level_id: 2,
                 name: 'intermediate'
             }))
+
+            if(isMember) {
+                setUser(prevState => ({
+                    ...prevState,
+                    level_id: 2
+                }))
+                await updateUser()
+            }
         }
         else if (e.target.id === 'Advanced') {
             setSelectedLevel(prevState => ({
                 level_id: 3,
                 name: 'advanced'
             }))
+
+            if(isMember) {
+                setUser(prevState => ({
+                    ...prevState,
+                    level_id: 3
+                }))
+                await updateUser()
+            }
         }
     }
     return(
@@ -39,15 +63,15 @@ export default function Level()
                      <h2>Choose One: </h2>
                      <br></br>       
                      <br></br>     
-                     <input type="radio" id="Beginner" name="Choose_Level" value="1" onChange={handleTextChange} checked={selectedLevel.level_id == 1} required/>
+                     <input type="radio" id="Beginner" name="Choose_Level" value="1" onChange={handleTextChange} checked={selectedLevel.level_id === 1} required/>
                      <label htmlFor="Beginner" title="Choose this if you are new and want to do Calisthenics">Beginner</label>
                      <br></br>           
                      <br></br> 
-                     <input type="radio" id="Intermediate" name="Choose_Level" value="2" onChange={handleTextChange} checked={selectedLevel.level_id == 2} required/>
+                     <input type="radio" id="Intermediate" name="Choose_Level" value="2" onChange={handleTextChange} checked={selectedLevel.level_id === 2} required/>
                      <label htmlFor="Intermediate" title="Choose this one if you know the basics but aren't ready for advanced things">Intermediate</label>
                      <br></br>           
                      <br></br> 
-                     <input type="radio" id="Advanced" name="Choose_Level" value="3" onChange={handleTextChange} checked={selectedLevel.level_id == 3} required/>
+                     <input type="radio" id="Advanced" name="Choose_Level" value="3" onChange={handleTextChange} checked={selectedLevel.level_id === 3} required/>
                      <label htmlFor="Advanced" title="Choose this if you know your stuff and want to do more advanced exercises">Advanced</label>
                   </section>
                 </div>

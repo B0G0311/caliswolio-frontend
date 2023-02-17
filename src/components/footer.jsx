@@ -1,14 +1,11 @@
 import React from "react";
 import { useContext } from "react";
 import WorkoutContext from "../context/workoutContext";
-import { useNavigate } from "react-router-dom";
 import "../css/footer.css"
 
 export default function Navigation() 
 {
     const { activePage, setActivePage } = useContext(WorkoutContext)
-
-    const navigate = useNavigate();
 
     function prevLocation(){
         if (activePage === 'Level') {
@@ -21,6 +18,12 @@ export default function Navigation()
             setActivePage('Category')
         }
         else if (activePage === 'Terms') {
+            setActivePage('SignIn')
+        }
+        else if (activePage === 'Login') {
+            setActivePage('SignIn')
+        }
+        else if (activePage === 'Register') {
             setActivePage('SignIn')
         }
     }
