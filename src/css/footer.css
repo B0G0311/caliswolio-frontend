@@ -3,6 +3,7 @@
     bottom: 5%;
     left: 20%;
     font-size: 18px;
+    font-family: Verdana, sans-serif
 }
 
 #GoForward{
@@ -10,6 +11,7 @@
     bottom: 5%;
     right: 20%;
     font-size: 18px;
+    font-family: Verdana, sans-serif
 }
 
 .btn-link {

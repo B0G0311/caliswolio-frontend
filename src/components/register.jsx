@@ -87,16 +87,17 @@ export default function Register(){
                     <br/><br/>
                 </label>
 
-                <label htmlFor='Gender' >Gender
-                    <select onChange={handleTextChange} htmlFor='Gender' id='Gender'>
+                <label htmlFor='Gender' >Gender: 
+                    <select onChange={handleTextChange} htmlFor='Gender' className='Info' id='Gender'>
                         <option value='Male' id='Male'>Male</option>
                         <option value='Female' id='Female'>Female</option>
                         <option value='Other' id='Other'>Other</option>
                     </select>
+                    <br/> <br/>
                 </label>
 
                 <label > Zipcode:
-                    <input onChange={handleTextChange} type="number" pattern='[0-9]*' max='99999' id='zipcode' value={registrationForm.zipcode || ''} required/>
+                    <input onChange={handleTextChange} type="number" pattern='[0-9]*' max='99999' className='Info' id='zipcode' value={registrationForm.zipcode || ''} required/>
                     <br/> <br/>
                 </label>
 
