@@ -124,6 +124,156 @@ export const WorkoutProvider = ({ children }) => {
       console.log(await data);
     }
   }
+
+  const filterExercises = (filtercategory) => {
+    const filterBy = { level_id: [selectedLevel], category: [filtercategory]}
+    const result = exercises.filter(o => Object.keys(filterBy).every(k => filterBy[k].some(f => o[k] === f)));
+
+    return result
+  }
+
+  const selectRandomExercise = (list, amount) => {
+    const templist = []
+    for (let i = 0; i < amount; i++) {
+      const randIndex = Math.floor(Math.random() * list.length())
+      const randObject = list[randIndex]
+      templist.push(randObject)
+    }
+    return templist
+  }
+
+  const selectPushup = () => {
+    const filteredList = filterExercises('Push-up')
+    if (selectedLevel.level_id === 1) {
+      const finalList = selectRandomExercise(filteredList, 1)
+      return finalList
+    }
+    else if (selectedLevel.level_id === 2) {
+      const finalList = selectRandomExercise(filteredList, 1)
+      return finalList
+    }
+    else if (selectedLevel.level_id === 3) {
+      const finalList = selectRandomExercise(filteredList, 2)
+      return finalList
+    }
+  }
+
+  const selectPullup = () => {
+    const filteredList = filterExercises('Pull-up')
+    if (selectedLevel.level_id === 1) {
+      const finalList = selectRandomExercise(filteredList, 1)
+    }
+    else if (selectedLevel.level_id === 2) {
+      const finalList = selectRandomExercise(filteredList, 1)
+    }
+    else if (selectedLevel.level_id === 3) {
+      const finalList = selectRandomExercise(filteredList, 2)
+    }
+  }
+
+  const selectDip = () => {
+    const filteredList = filterExercises('Dip')
+    if (selectedLevel.level_id === 1) {
+      const finalList = selectRandomExercise(filteredList, 1)
+    }
+    else if (selectedLevel.level_id === 2) {
+      const finalList = selectRandomExercise(filteredList, 1)
+    }
+    else if (selectedLevel.level_id === 3) {
+      const finalList = selectRandomExercise(filteredList, 1)
+    }
+  }
+
+  const selectRow = () => {
+    const filteredList = filterExercises('Row')
+    if (selectedLevel.level_id === 1) {
+      const finalList = selectRandomExercise(filteredList, 1)
+    }
+    else if (selectedLevel.level_id === 2) {
+      const finalList = selectRandomExercise(filteredList, 1)
+    }
+    else if (selectedLevel.level_id === 3) {
+      const finalList = selectRandomExercise(filteredList, 1)
+    }
+  }
+
+  const selectSquat = () => {
+    const filteredList = filterExercises('Squat')
+    if (selectedLevel.level_id === 1) {
+      const finalList = selectRandomExercise(filteredList, 1)
+    }
+    else if (selectedLevel.level_id === 2) {
+      const finalList = selectRandomExercise(filteredList, 1)
+    }
+    else if (selectedLevel.level_id === 3) {
+      const finalList = selectRandomExercise(filteredList, 2)
+    }
+  }
+
+  const selectHinge = () => {
+    if (selectedLevel.level_id === 1) {
+
+    }
+    else if (selectedLevel.level_id === 2) {
+
+    }
+    else if (selectedLevel.level_id === 3) {
+      
+    }
+  }
+
+  const selectCore = () => {
+    if (selectedLevel.level_id === 1) {
+
+    }
+    else if (selectedLevel.level_id === 2) {
+
+    }
+    else if (selectedLevel.level_id === 3) {
+      
+    }
+  }
+
+  const selectExercises = () => {
+    if (selectedLevel.level_id === 1) {
+      if (selectedCategory === 'Upper Body') {
+        selectPushup()
+        selectPullup()
+        selectDip()
+        selectList()
+
+      }
+      else if (selectedCategory === 'Lower Body') {
+
+      }
+      else if (selectedCategory === 'Full Body') {
+
+      }
+    }
+    else if (selectedLevel.level_id === 2) {
+      if (selectedCategory === 'Upper Body') {
+
+      }
+      else if (selectedCategory === 'Lower Body') {
+
+      }
+      else if (selectedCategory === 'Full Body') {
+        
+      }
+    }
+    else if (selectedLevel.level_id === 3) {
+      if (selectedCategory === 'Upper Body') {
+
+      }
+      else if (selectedCategory === 'Lower Body') {
+
+      }
+      else if (selectedCategory === 'Full Body') {
+        
+      }
+    }
+
+  }
   
   return (
     <WorkoutContext.Provider
@@ -136,11 +286,6 @@ export const WorkoutProvider = ({ children }) => {
         setIsMember,
         user,
         setUser,
-        catchUser,
-        checkIfUser,
-        addNewUser,
-        updateUser,
-        fetchUserData,
         selectedLevel,
         setSelectedLevel,
         selectedCategory,
@@ -152,7 +297,14 @@ export const WorkoutProvider = ({ children }) => {
         priorWorkoutExercises,
         setPriorWorkoutExercises,
         registrationForm,
-        setRegistrationForm
+        setRegistrationForm,
+        //Separate functions
+        catchUser,
+        checkIfUser,
+        addNewUser,
+        updateUser,
+        fetchUserData,
+        selectExercises,
       }}
     >
       {children}
