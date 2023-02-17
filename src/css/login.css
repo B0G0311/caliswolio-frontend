@@ -1,3 +1,11 @@
+.Login{
+    text-align: center;
+    width: 100%;
+    padding: 120px 20px;
+    margin: 8px 0;
+    display: block;
+}
+
 .Info{
     border: 0;
     outline: 0;

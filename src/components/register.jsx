@@ -48,66 +48,68 @@ export default function Register(){
     }
 
     return(
-        <div className='Register'>
-            <form onSubmit={async (e) => {
-                e.preventDefault()
-                if (checkIfUser()) {
-                    alert("This email is already associated with an account. If this is you, go to the Login page and click on reset password")
-                    setActivePage('Register')
-                } 
-                else {
-                    await addNewUser()
-                    alert("Thanks for Registering! You are now logged in!")
-                    setActivePage('Terms')
-                }
-            }}>
-                <fieldset className='account'>
-                    <label>Email:
-                        <input onChange={handleTextChange} type="text" className='Info' id='email' value={registrationForm.email || ''} required/>
-                        <br/> <br/>
-                    </label>
+        <div>
+            <div className='Register'>
+                <form onSubmit={async (e) => {
+                    e.preventDefault()
+                    if (checkIfUser()) {
+                        alert("This email is already associated with an account. If this is you, go to the Login page and click on reset password")
+                        setActivePage('Register')
+                    } 
+                    else {
+                        await addNewUser()
+                        alert("Thanks for Registering! You are now logged in!")
+                        setActivePage('Terms')
+                    }
+                }}>
+                    <fieldset className='account'>
+                        <label>Email:
+                            <input onChange={handleTextChange} type="text" className='Info' id='email' value={registrationForm.email || ''} required/>
+                            <br/> <br/>
+                        </label>
 
-                    <label> Password:
-                        <input onChange={handleTextChange} type="text" className='Info' id='pass' value={registrationForm.password || ''} required/>
-                        <br/> <br/>
-                    </label>
+                        <label> Password:
+                            <input onChange={handleTextChange} type="text" className='Info' id='pass' value={registrationForm.password || ''} required/>
+                            <br/> <br/>
+                        </label>
 
-                    <label>Confirm Password:
-                        <input onChange={handleTextChange} type="text" className='Info' id='confirmpass' required/>
-                        <br/><br/>
-                    </label>
-                </fieldset>
+                        <label>Confirm Password:
+                            <input onChange={handleTextChange} type="text" className='Info' id='confirmpass' required/>
+                            <br/><br/>
+                        </label>
+                    </fieldset>
 
-                <fieldset className='personalinfo'>
-                    <label> Phone Number: 
-                        <input onChange={handleTextChange} type="number" pattern='[0-9]*' className='Info' id='phonenum' value={registrationForm.phone_number || ''} required/>
-                        <br/><br/>                     
-                    </label>
+                    <fieldset className='personalinfo'>
+                        <label> Phone Number: 
+                            <input onChange={handleTextChange} type="number" pattern='[0-9]*' className='Info' id='phonenum' value={registrationForm.phone_number || ''} required/>
+                            <br/><br/>                     
+                        </label>
 
-                    <label>Birth Year:
-                        <input onChange={handleTextChange} type="number" pattern='[0-9]*' className='Info' max='9999' id='birthyear' value={registrationForm.birth_year || ''} required/>
-                        <br/><br/>
-                    </label>
+                        <label>Birth Year:
+                            <input onChange={handleTextChange} type="number" pattern='[0-9]*' className='Info' max='9999' id='birthyear' value={registrationForm.birth_year || ''} required/>
+                            <br/><br/>
+                        </label>
 
-                    <label htmlFor='Gender' >Gender: 
-                        <select onChange={handleTextChange} htmlFor='Gender' className='Info' id='Gender'>
-                            <option value='Male' id='Male'>Male</option>
-                            <option value='Female' id='Female'>Female</option>
-                            <option value='Other' id='Other'>Other</option>
-                        </select>
-                        <br/> <br/>
-                    </label>
+                        <label htmlFor='Gender' >Gender: 
+                            <select onChange={handleTextChange} htmlFor='Gender' className='Info' id='Gender'>
+                                <option value='Male' id='Male'>Male</option>
+                                <option value='Female' id='Female'>Female</option>
+                                <option value='Other' id='Other'>Other</option>
+                            </select>
+                            <br/> <br/>
+                        </label>
 
-                    <label > Zipcode:
-                        <input onChange={handleTextChange} type="number" pattern='[0-9]*' max='99999' className='Info' id='zipcode' value={registrationForm.zipcode || ''} required/>
-                        <br/> <br/>
-                    </label>
-                </fieldset>
+                        <label > Zipcode:
+                            <input onChange={handleTextChange} type="number" pattern='[0-9]*' max='99999' className='Info' id='zipcode' value={registrationForm.zipcode || ''} required/>
+                            <br/> <br/>
+                        </label>
+                    </fieldset>
+                </form>
+            </div>
 
-                <div className='Registering'>
+            <div className='Submit_Button'>
                     <button type="submit" className='Submit_Button'>Register</button>
-                </div>
-            </form>
+            </div>
         </div>
     )
 }

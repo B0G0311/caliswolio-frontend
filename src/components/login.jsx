@@ -44,13 +44,12 @@ export default function Login()
             <label> Password: 
                 <input onChange={handleTextChange} type="text" className="Info" id="Password" value={signInData.password || ''} required/>
                 <br/><br/>
-            </label>
-
-            <div className="Memberlogin">
-                <button type="submit" className="Login_Button">Log in</button>
-            </div>         
+            </label>       
           </div>
         </form>
+        <div className="Memberlogin">
+                <button type="submit" className="Login_Button">Log in</button>
+        </div>  
       </div>
     )
 }
