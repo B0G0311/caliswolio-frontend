@@ -46,10 +46,10 @@ export default function Login()
                 <br/><br/>
             </label>       
           </div>
+          <div className="Memberlogin">
+                  <button type="submit" className="Login_Button">Log in</button>
+          </div>  
         </form>
-        <div className="Memberlogin">
-                <button type="submit" className="Login_Button">Log in</button>
-        </div>  
       </div>
     )
 }

@@ -9,7 +9,7 @@ export default function Navigation()
 
     function prevLocation(){
         if (activePage === 'Level') {
-            setActivePage('SignIn')
+            setActivePage('Terms')
         }
         else if (activePage === 'Category') {
             setActivePage('Level')
@@ -44,10 +44,13 @@ export default function Navigation()
         <div>
             <nav>
             <ul>
-                {activePage !== "SignIn" && (
+                {(activePage !== "SignIn" && activePage !== 'ExerciseList' ) && (
                     <button onClick={() => prevLocation()} value="Back" className="btn-link" id="GoBack">Previous</button>
                 )}
-                {activePage !== "SignIn" && (
+                {(activePage !== "SignIn" && 
+                activePage !== 'Register' && 
+                activePage !== 'Login' &&
+                activePage !== 'ExerciseList') && (
                     <button onClick={() => nextLocation()} value="Forward" className="btn-link" id="GoForward">Next</button>
                 )}
             </ul>
