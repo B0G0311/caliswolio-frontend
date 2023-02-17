@@ -5,7 +5,7 @@ import '../css/level.css';
 
 export default function Level()
 {
-    const { selectedLevel, setSelectedLevel, setUser, isMember, updateUser } = useContext(WorkoutContext)
+    const { selectedLevel, setSelectedLevel, setUser, isMember } = useContext(WorkoutContext)
     
     const handleTextChange = async (e) => {
         if (e.target.id === 'Beginner') {
@@ -19,7 +19,6 @@ export default function Level()
                     ...prevState,
                     level_id: 1
                 }))
-                await updateUser()
             }
         }
         else if (e.target.id === 'Intermediate') {
@@ -33,7 +32,6 @@ export default function Level()
                     ...prevState,
                     level_id: 2
                 }))
-                await updateUser()
             }
         }
         else if (e.target.id === 'Advanced') {
@@ -47,7 +45,6 @@ export default function Level()
                     ...prevState,
                     level_id: 3
                 }))
-                await updateUser()
             }
         }
     }
