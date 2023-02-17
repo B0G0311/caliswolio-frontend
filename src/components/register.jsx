@@ -50,7 +50,7 @@ export default function Register(){
     return(
         <div>
             <div className='Register'>
-                <form onSubmit={async (e) => {
+                <form id='registration_form' onSubmit={async (e) => {
                     e.preventDefault()
                     if (await checkIfUser()) {
                         alert("This email is already associated with an account. If this is you, go to the Login page and click on reset password")
@@ -108,7 +108,7 @@ export default function Register(){
             </div>
 
             <div className='Submit_Button'>
-                    <button type="submit" className='Submit_Button'>Register</button>
+                    <button type="submit" form='registration_form' className='Submit_Button'>Register</button>
             </div>
         </div>
     )

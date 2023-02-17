@@ -23,7 +23,7 @@ export default function Login()
 
   return(
       <div className="Login">
-        <form onSubmit={async (e) => {
+        <form id="login_form" onSubmit={async (e) => {
               e.preventDefault()
               if (await validateCredentials()) {
                 await catchUser()
@@ -46,10 +46,10 @@ export default function Login()
                 <br/><br/>
             </label>       
           </div>
-          <div className="Memberlogin">
-                  <button type="submit" className="Login_Button">Log in</button>
-          </div>  
         </form>
+        <div className="Memberlogin">
+                <button type="submit" form="login_form" className="Login_Button">Log in</button>
+        </div>  
       </div>
     )
 }
