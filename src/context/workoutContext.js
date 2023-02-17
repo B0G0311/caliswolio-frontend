@@ -27,6 +27,7 @@ export const WorkoutProvider = ({ children }) => {
       }
     }
   );
+  const [exerciseListIsLoaded, setExerciseListIsLoaded] = useState(false);
   const [priorWorkout, setPriorWorkout] = useState({});
   const [priorWorkoutExercises, setPriorWorkoutExercises] = useState([]);
   const [registrationForm, setRegistrationForm] = useState({
@@ -92,7 +93,10 @@ export const WorkoutProvider = ({ children }) => {
 
     await data.forEach((account) => {
       if (account.email === registrationForm.email) {
-        isUser = true;
+        isUser = true
+        console.log('Account Email: ' + account.email)
+        console.log('Registration Email: ' + registrationForm.email)
+        console.log('CompareCheck: ' + isUser)
       }
     })
 
@@ -164,6 +168,7 @@ export const WorkoutProvider = ({ children }) => {
           {category: 'Dip',amount: 1},
           {category: 'Row',amount: 1})
           filterExercises(exerciseCategories)
+          setExerciseListIsLoaded(true)
       }
       else if (selectedCategory === 'Lower Body') {
         exerciseCategories.push(
@@ -171,6 +176,7 @@ export const WorkoutProvider = ({ children }) => {
           {category: 'Hinge',amount: 1},
           {category: 'Core',amount: 1})
           filterExercises(exerciseCategories)
+          setExerciseListIsLoaded(true)
       }
       else if (selectedCategory === 'Full Body') {
         exerciseCategories.push(
@@ -180,6 +186,7 @@ export const WorkoutProvider = ({ children }) => {
           {category: 'Hinge', amount: 1},
           {category: 'Core', amount: 1})
           filterExercises(exerciseCategories)
+          setExerciseListIsLoaded(true)
       }
     }
     else if (selectedLevel.level_id === 2) {
@@ -190,6 +197,7 @@ export const WorkoutProvider = ({ children }) => {
           {category: 'Dip',amount: 1},
           {category: 'Row',amount: 1})
           filterExercises(exerciseCategories)
+          setExerciseListIsLoaded(true)
       }
       else if (selectedCategory === 'Lower Body') {
         exerciseCategories.push(
@@ -197,6 +205,7 @@ export const WorkoutProvider = ({ children }) => {
           {category: 'Hinge',amount: 1},
           {category: 'Core',amount: 1})
           filterExercises(exerciseCategories)
+          setExerciseListIsLoaded(true)
       }
       else if (selectedCategory === 'Full Body') {
         exerciseCategories.push(
@@ -208,6 +217,7 @@ export const WorkoutProvider = ({ children }) => {
           {category: 'Hinge', amount: 1},
           {category: 'Core', amount: 1})
           filterExercises(exerciseCategories)
+          setExerciseListIsLoaded(true)
       }
     }
     else if (selectedLevel.level_id === 3) {
@@ -218,6 +228,7 @@ export const WorkoutProvider = ({ children }) => {
           { category: 'Dip', amount: 1},
           { category: 'Row', amount: 1})
           filterExercises(exerciseCategories)
+          setExerciseListIsLoaded(true)
       }
       else if (selectedCategory === 'Lower Body') {
         exerciseCategories.push(
@@ -225,6 +236,7 @@ export const WorkoutProvider = ({ children }) => {
           {category: 'Hinge',amount: 1},
           {category: 'Core',amount: 2})
           filterExercises(exerciseCategories)
+          setExerciseListIsLoaded(true)
       }
       else if (selectedCategory === 'Full Body') {
         exerciseCategories.push(
@@ -236,6 +248,7 @@ export const WorkoutProvider = ({ children }) => {
           {category: 'Hinge', amount: 1},
           {category: 'Core', amount: 1})
           filterExercises(exerciseCategories)
+          setExerciseListIsLoaded(true)
       }
     }
 
@@ -260,6 +273,8 @@ export const WorkoutProvider = ({ children }) => {
         setSelectedCategory,
         selectedExercises,
         setSelectedExercises,
+        exerciseListIsLoaded,
+        setExerciseListIsLoaded,
         priorWorkout,
         setPriorWorkout,
         priorWorkoutExercises,
