@@ -1,18 +1,28 @@
 import React from "react";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import WorkoutContext from "../context/workoutContext";
 import '../css/category.css';
 
 function Category()
 {
-    const { setSelectedCategory } = useContext(WorkoutContext)
+    const { setSelectedCategory, selectExercises, setActivePage, exerciseListIsLoaded } = useContext(WorkoutContext)
+    
+    useEffect(() => {
+        if(exerciseListIsLoaded) {
+            setActivePage('ExerciseList')
+        }
+    }, [exerciseListIsLoaded, setActivePage])
+    
     return(
         <div className="Category"> 
             <div className="Workout_Header">
                 <h1>Workout Category</h1>
             </div>
 
-            <form>
+            <form id="submit_category" onSubmit={(e) => {
+                e.preventDefault()
+                selectExercises()
+            }}>
                 <div className ="Choose_Text">
                     <h2>Choose One: </h2>
                     <br></br>
@@ -29,6 +39,10 @@ function Category()
                     <label htmlFor="Full" title="The full body means the full body my g">Full Body</label>
                 </div>
             </form>
+
+            <div className="Submit_Button">
+                <button type="submit" form="submit_category" className="Category_Submit">Confirm Category</button>
+            </div> 
         </div>
     )
 }

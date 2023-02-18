@@ -36,7 +36,7 @@ export default function Navigation()
             setActivePage('Category')
         }
         else if (activePage === 'Category') {
-            setActivePage('ExerciseList')
+            setActivePage('Category')
         }
     }
 
@@ -47,12 +47,12 @@ export default function Navigation()
                 {(activePage !== "SignIn" && activePage !== 'ExerciseList' ) && (
                     <button onClick={() => prevLocation()} value="Back" className="btn-link" id="GoBack">Previous</button>
                 )}
-                {(activePage !== "SignIn" && 
+                {/* {(activePage !== "SignIn" && 
                 activePage !== 'Register' && 
                 activePage !== 'Login' &&
                 activePage !== 'ExerciseList') && (
                     <button onClick={() => nextLocation()} value="Forward" className="btn-link" id="GoForward">Next</button>
-                )}
+                )} */}
             </ul>
             </nav>
         </div>

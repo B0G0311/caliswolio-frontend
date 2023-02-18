@@ -5,7 +5,7 @@ import '../css/level.css';
 
 export default function Level()
 {
-    const { selectedLevel, setSelectedLevel, setUser, isMember } = useContext(WorkoutContext)
+    const { selectedLevel, setSelectedLevel, setUser, isMember, setActivePage } = useContext(WorkoutContext)
     
     const handleTextChange = async (e) => {
         if (e.target.id === 'Beginner') {
@@ -54,7 +54,10 @@ export default function Level()
                 <h1>Workout Level</h1>
             </div>
         
-            <form>
+            <form id="level_form" onSubmit={(e) => {
+                e.preventDefault()
+                setActivePage('Category')
+            }}>
                 <div className="Choose_Text">
                   <section>
                      <h2>Choose One: </h2>
@@ -73,6 +76,9 @@ export default function Level()
                   </section>
                 </div>
             </form>
+            <div className="Submit_Button">
+          <button type="submit" form="level_form" className="Level_Submit">Log in</button>
+            </div>
         </div>
     )
 }

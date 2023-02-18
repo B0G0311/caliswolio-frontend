@@ -58,8 +58,8 @@ export default function Register(){
                     } 
                     else {
                         await addNewUser()
-                        alert("Thanks for Registering! You are now logged in!")
-                        setActivePage('Terms')
+                        alert("Thanks for Registering! Please enter your email and password to log in!")
+                        setActivePage('Login')
                     }
                 }}>
                     <fieldset className='account'>

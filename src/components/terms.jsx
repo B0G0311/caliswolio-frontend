@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import WorkoutContext from '../context/workoutContext';
 import '../css/terms.css';
 
 export default function Terms(){
+  const { setActivePage } = useContext(WorkoutContext)
+
   return(
     <div className="Terms">
-    <form action="CaliSwolio_WorkoutLevels.html" method="post">
+    <form id="terms_form" action="CaliSwolio_WorkoutLevels.html" method="post" onSubmit={(e) => {
+      e.preventDefault()
+      setActivePage('Level')
+    }}>
           <div className = "Safety_Terms">
             <section>
               <p>Wow! these are some great terms and conditions!</p>
@@ -40,7 +46,10 @@ export default function Terms(){
               <label htmlFor="Agree_Liability"> Accept Liability Terms</label>
             </section>
           </div>
-      </form>    
+      </form>
+      <div className="Submit_Button">
+          <button type="submit" form="terms_form" className="Terms_Submit">Log in</button>
+      </div>          
 </div>
   )
 }

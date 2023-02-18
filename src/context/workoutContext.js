@@ -20,16 +20,12 @@ export const WorkoutProvider = ({ children }) => {
     }
   );
   const [selectedCategory, setSelectedCategory] = useState('');
-  const [selectedExercises, setSelectedExercises] = useState(
-    {
-      exercises: {
-
-      }
-    }
-  );
+  const [selectedExercises, setSelectedExercises] = useState({
+    'exercises': [],
+  });
   const [exerciseListIsLoaded, setExerciseListIsLoaded] = useState(false);
-  const [priorWorkout, setPriorWorkout] = useState({});
-  const [priorWorkoutExercises, setPriorWorkoutExercises] = useState([]);
+  const [priorWorkout, setPriorWorkout] = useState();
+  const [priorWorkoutExercises, setPriorWorkoutExercises] = useState();
   const [registrationForm, setRegistrationForm] = useState({
       email: '',
       password: '',
@@ -137,7 +133,7 @@ export const WorkoutProvider = ({ children }) => {
 
   const filterExercises = (filtercategories) => {
     filtercategories.forEach((filtercategory) => {
-      const filterBy = { level_id: [selectedLevel], category: [filtercategory.category]}
+      const filterBy = { level_id: [selectedLevel.level_id], category: [filtercategory.category]}
       const result = exercises.filter(o => Object.keys(filterBy).every(k => filterBy[k].some(f => o[k] === f)));
       selectRandomExercise(result, filtercategory.amount)
     })
@@ -151,9 +147,9 @@ export const WorkoutProvider = ({ children }) => {
       templist.push(randObject)
     }
     templist.forEach((exerciseObject) => {
+      exerciseObject = {...exerciseObject, 'reps': 10, 'sets': 3}
       setSelectedExercises(prevState => ({
-        ...prevState,
-        exerciseObject
+        'exercises': [...prevState.exercises, exerciseObject]
       }))
     })
   }

@@ -30,9 +30,9 @@ function ExerciseList() {
     <div>
     <form>
       <div className='Preference'>
-        <h1>{selectedLevel.name}</h1>
+        <h1>{selectedLevel.name.toUpperCase()}</h1>
         
-        <h2>{selectedCategory}</h2>
+        <h2>{selectedCategory.toUpperCase()}</h2>
         <br/><br/>
       </div>
 

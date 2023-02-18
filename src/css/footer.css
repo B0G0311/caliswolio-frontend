@@ -15,13 +15,13 @@
 }
 
 .btn-link {
-    border: none;
-    outline: none;
-    background: none;
-    cursor: pointer;
-    color: #0000EE;
-    padding: 0;
-    text-decoration: underline;
-    font-family: inherit;
-    font-size: inherit;
+    margin: 0;
+    position: relative;
+    top:90%;
+    left: 90%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, 50%);
+    padding: 14px 40px;
+    font-size: 25px;
   }
+  

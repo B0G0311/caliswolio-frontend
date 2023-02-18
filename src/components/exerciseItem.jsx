@@ -1,23 +1,20 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useContext } from 'react';
 import WorkoutContext from '../context/workoutContext';
 function ExerciseItem() {
 
-    const {selectedExercises, selectExercises, exerciseListIsLoaded} = useContext(WorkoutContext)
-
-    useEffect(() => {
-        selectExercises()
-     });
+    const {selectedExercises, exerciseListIsLoaded} = useContext(WorkoutContext)
 
     if (exerciseListIsLoaded) {
         return (
             <div>
-            {selectedExercises.map((exercise) => {
+            {selectedExercises.exercises.map((exercise) => {
                 return (
-                <div className='exerciseItem'>
-                    <div className="exerciseName">{exercise.name}</div>
-                    <div className="exerciseSets">{exercise.sets}</div>
-                    <div className="exerciseReps">{exercise.reps}</div>
+                <div key={exercise.exercise_id} className='exerciseItem'>
+                    <div className="exerciseDescription">{exercise.description}</div>
+                    <div className="exerciseName">Exercise: {exercise.name}</div>
+                    <div className="exerciseSets">Sets: {exercise.sets}</div>
+                    <div className="exerciseReps">Reps: {exercise.reps}</div>
                 </div>
             )})}
             </div>
