@@ -32,9 +32,9 @@ function ExerciseList() {
     <div className='exerciseList'>
       <form className='exerciseListForm' id='exerciseForm'>
         <div className='Preference'>
-          <h1>{selectedLevel.name.toUpperCase()}</h1>
+          <h1 className='header'>{selectedLevel.name.toUpperCase()}</h1>
           
-          <h2>{selectedCategory.toUpperCase()}</h2>
+          <h2 className='header'>{selectedCategory.toUpperCase()}</h2>
           <br/><br/>
         </div>
 
