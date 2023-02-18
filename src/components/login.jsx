@@ -23,6 +23,10 @@ export default function Login()
 
   return(
       <div className="Login">
+        <div className="Login_Title">
+          <h1>Welcome Back!</h1>
+          </div>
+        <h2>Please Enter:</h2>
         <form id="login_form" onSubmit={async (e) => {
               e.preventDefault()
               if (await validateCredentials()) {
@@ -36,6 +40,7 @@ export default function Login()
             }
         }>
           <div>
+          
             <label> Email: 
                 <input onChange={handleTextChange} type="text" className="Info" id="Email" value={signInData.email || ''} required/>
                 <br/><br/>

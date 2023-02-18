@@ -1,8 +1,9 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import WorkoutContext from '../context/workoutContext';
 import '../css/register.css';
 
 export default function Register(){
+    const [confPass, setConfPass] = useState('')
 
     const { addNewUser, checkIfUser, setActivePage, registrationForm, setRegistrationForm  } = useContext(WorkoutContext)
 
@@ -44,6 +45,9 @@ export default function Register(){
             zipcode: e.target.value
             }))
         }
+        else if (e.target.id === 'confirmpass') {
+            setConfPass(e.target.value)
+        }
         
     }
 
@@ -52,14 +56,26 @@ export default function Register(){
             <div className='Register'>
                 <form id='registration_form' onSubmit={async (e) => {
                     e.preventDefault()
-                    if (await checkIfUser()) {
-                        alert("This email is already associated with an account. If this is you, go to the Login page and click on reset password")
+                    console.log('confPass: ' + confPass)
+                    console.log('confPass type: ' + typeof confPass)
+                    console.log('confPass length' + confPass.length)
+                    console.log('registrationPass: ' + registrationForm.password)
+                    console.log('registrationPass type: ' + typeof registrationForm.password)
+                    console.log('registrationPass length' + registrationForm.password.length)
+                    if(confPass !== registrationForm.password)
+                    {
+                        alert("Passwords do not match. Please try again!")
                         setActivePage('Register')
-                    } 
-                    else {
-                        await addNewUser()
-                        alert("Thanks for Registering! Please enter your email and password to log in!")
-                        setActivePage('Login')
+                    } else {
+                        if (await checkIfUser()) {
+                            alert("This email is already associated with an account. If this is you, go to the Login page and click on reset password")
+                            setActivePage('Register')
+                        } 
+                        else {
+                            await addNewUser()
+                            alert("Thanks for Registering! Please enter your email and password to log in!")
+                            setActivePage('Login')
+                        }
                     }
                 }}>
                     <fieldset className='account'>
@@ -77,9 +93,7 @@ export default function Register(){
                             <input onChange={handleTextChange} type="text" className='Info' id='confirmpass' required/>
                             <br/><br/>
                         </label>
-                    </fieldset>
 
-                    <fieldset className='personalinfo'>
                         <label> Phone Number: 
                             <input onChange={handleTextChange} type="number" pattern='[0-9]*' className='Info' id='phonenum' value={registrationForm.phone_number || ''} required/>
                             <br/><br/>                     
