@@ -28,17 +28,17 @@ export default function Navigation()
         }
     }
 
-    function nextLocation() {
-        if (activePage === 'Terms') {
-            setActivePage('Level');
-        } 
-        else if (activePage === 'Level') {
-            setActivePage('Category')
-        }
-        else if (activePage === 'Category') {
-            setActivePage('Category')
-        }
-    }
+    // function nextLocation() {
+    //     if (activePage === 'Terms') {
+    //         setActivePage('Level');
+    //     } 
+    //     else if (activePage === 'Level') {
+    //         setActivePage('Category')
+    //     }
+    //     else if (activePage === 'Category') {
+    //         setActivePage('Category')
+    //     }
+    // }
 
     return (
         <div>
