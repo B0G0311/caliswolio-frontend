@@ -31,10 +31,6 @@
     touch-action: manipulation;
 }
 
-.Sign-in_Button:hover:after {
-    transform: translate(0, 0);
-}
-
 .Sign-in_Button:active {
     background-color: #ffdeda;
     outline: 0;

@@ -1,0 +1,22 @@
+.exerciseItem {
+    max-width: 100%;
+    align-items: center;
+    align-content: center;
+}
+
+.dropdown_content {
+    text-align: center;
+    align-items: center;
+    padding: 14px 40px;
+}
+
+.exerciseName {
+    margin: 0;
+    position: relative;
+    top:50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, 50%);
+    padding: 14px 40px;
+    font-size: 25px;
+}

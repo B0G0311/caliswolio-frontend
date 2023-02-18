@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import WorkoutContext from '../context/workoutContext';
+import '../css/exerciseItem.css';
 
 function ExerciseItem() {
   const { selectedExercises, exerciseListIsLoaded, setActivePage } = useContext(WorkoutContext);
@@ -15,7 +16,7 @@ function ExerciseItem() {
 
   if (exerciseListIsLoaded) {
     return (
-      <div>
+      <div className='exerciseListItems'>
         {selectedExercises.exercises.map((exercise) => {
           const isOpen = openDropdown === exercise.exercise_id;
 
@@ -30,9 +31,9 @@ function ExerciseItem() {
               </button>
               {isOpen && (
                 <div id={`dropdown_content_${exercise.exercise_id}`} className='dropdown_content'>
-                  <a className='exerciseSets'>Sets: {exercise.sets}</a>
-                  <a className='exerciseReps'>Reps: {exercise.reps}</a>
-                  <a className='exerciseDescription'>{exercise.description}</a>
+                  <p className='exerciseSets'>Sets: {exercise.sets}</p>
+                  <p className='exerciseReps'>Reps: {exercise.reps}</p>
+                  <p className='exerciseDescription'>{exercise.description}</p>
                 </div>
               )}
             </div>
