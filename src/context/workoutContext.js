@@ -140,10 +140,16 @@ export const WorkoutProvider = ({ children }) => {
   }
 
   const selectRandomExercise = (list, amount) => {
+    const tempIndex = []
     const templist = []
+    let randIndex
     for (let i = 0; i < amount; i++) {
-      const randIndex = Math.floor(Math.random() * list.length)
+      randIndex = Math.floor(Math.random() * list.length)
+      while (tempIndex.includes(randIndex)) {
+        randIndex = Math.floor(Math.random() * list.length)
+      }
       const randObject = list[randIndex]
+      tempIndex.push(randIndex)
       templist.push(randObject)
     }
     templist.forEach((exerciseObject) => {
