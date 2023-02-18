@@ -15,7 +15,7 @@ export default function Terms(){
             <section>
               <p>Wow! these are some great terms and conditions!</p>
               <br></br>
-              <p><a href="Safety_TermsLink">Safety Terms</a></p>
+              <p><a href={"/"}>Safety Terms</a></p>
               <br></br>
               <div className="checkbox-wrapper">
                 <input type="checkbox" id="Agree_Safety" name="Terms&Cond" value="AcceptSaftey" required/>
@@ -33,7 +33,7 @@ export default function Terms(){
             <section>
               <p> Liability terms, uh. Pretend there's stuff talking about liability here.</p>
               <br></br>
-              <p><a href="Liability_TermsLink">Liability Terms</a></p>
+              <p><a href="/">Liability Terms</a></p>
               <br></br>
               <div className="checkbox-wrapper">
                 <input type="checkbox" id="Agree_Liability" name="Terms&Cond" value="AcceptSaftey" required/>
