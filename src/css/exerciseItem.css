@@ -1,16 +1,21 @@
-.exerciseItem {
+.exerciseListItems{
+
     max-width: 100%;
     align-items: center;
     align-content: center;
+    align-self: center;
+    flex-wrap: wrap;
 }
 
-.dropdown_content {
-    text-align: center;
+.exerciseItem {
     align-items: center;
-    padding: 14px 40px;
+    align-content: center;
+    flex: 1;
 }
 
 .exerciseName {
+    display: block;
+    width: 60%;
     margin: 0;
     position: relative;
     top:50%;
@@ -19,4 +24,20 @@
     transform: translate(-50%, 50%);
     padding: 14px 40px;
     font-size: 25px;
+    z-index: 2;
+}
+
+.dropdown_content {
+    width: 59.8%;
+    align-self: center;
+    display: block;
+    position: relative;
+    text-align: center;
+    align-items: center;
+    padding: 14px 0px;
+    border: 1px solid black;
+    z-index: 1;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
 }
