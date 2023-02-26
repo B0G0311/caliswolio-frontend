@@ -7,6 +7,7 @@ import Category from './category';
 import ExerciseList from './exerciseList';
 import Login from './login';
 import Register from './register';
+import MemberAccount from './memberAccount';
 import "../index.css";
 
 function ActivePage() {
@@ -21,6 +22,7 @@ function ActivePage() {
             {activePage === 'ExerciseList' && <ExerciseList />}
             {activePage === 'Login' && <Login />}
             {activePage === 'Register' && <Register />}
+            {activePage === 'MemberAccount' && <MemberAccount />}
         </div>
     )
 
