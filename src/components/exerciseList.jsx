@@ -41,6 +41,8 @@ function ExerciseList() {
         
       </form>
 
+      <div classname='Pauls Mic'></div>
+
       <div className='rerollExercise'>
         <button type='button' id='rerollAll' className='rerollEveryExercise'>Reroll All Exercises</button>
       </div>
@@ -49,8 +51,8 @@ function ExerciseList() {
         <button type='button' id='complete' className='completeWorkoutButton'>Complete Workout</button>
       </div>
 
-      <div className='saveWrapper'>
-        <button type="submit" id="save" className='saveWorkoutButton' form='exerciseForm'>Save workout</button>
+      <div className='lowerButtonWrapper'>
+        <button type='submit' id="save" className='saveWorkoutButton' form='exerciseForm'>Save workout</button>
       </div>
     </div>
   );
