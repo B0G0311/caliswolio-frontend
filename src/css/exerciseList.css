@@ -1,12 +1,12 @@
 .header {
-    font-family: Inter,sans-serif;
+    font-family: Inter, sans-serif;
     align-items: center;
     align-content: center;
     text-align: center;
 }
 
 .Preference {
-    font-family: Inter,sans-serif;
+    font-family: Inter, sans-serif;
     align-items: center;
     align-content: center;
 }
@@ -16,10 +16,10 @@
     padding: 14px 40px;
 }
 
-.saveWorkoutButton, .completeWorkoutButton, .rerollEveryExercise {
-    margin-top: 14px;
+.saveWorkoutButton, .completeWorkoutButton {
+    margin-top: 1%;
     position: relative;
-    top:50%;
+    top: 50%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, 50%);
@@ -30,7 +30,7 @@
     box-sizing: border-box;
     color: #000000;
     cursor: pointer;
-    font-family: Inter,sans-serif;
+    font-family: Inter, sans-serif;
     font-size: 16px;
     height: 48px;
     justify-content: center;
@@ -39,7 +39,28 @@
     text-align: center;
 }
 
-
+.rerollEveryExercise {
+    margin-top: 4%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, 50%);
+    padding: 14px 40px;
+    background-color: #fee6e3;
+    border: 2px transparent #000000;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #000000;
+    cursor: pointer;
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    height: 48px;
+    justify-content: center;
+    line-height: 24px;
+    max-width: 100%;
+    text-align: center;
+}
 
 .saveWorkoutButton:active {
     background-color: #ffdeda;
@@ -51,7 +72,7 @@
 }
 
 @media (min-width: 768px) {
-    .saveWorkoutButton {
+    .saveWorkoutButton, .completeWorkoutButton, .rerollEveryExercise {
     padding: 0 40px;
     }
 }
