@@ -37,9 +37,18 @@ function ExerciseList() {
           <h2 className='header'>{selectedCategory.toUpperCase()}</h2>
           <br/><br/>
         </div>
-
         <ExerciseItem />
+        
       </form>
+
+      <div className='rerollExercise'>
+        <button type='button' id='rerollAll' className='rerollEveryExercise'>Reroll All Exercises</button>
+      </div>
+
+      <div className='completeWorkout'>
+        <button type='button' id='complete' className='completeWorkoutButton'>Complete Workout</button>
+      </div>
+
       <div className='saveWrapper'>
         <button type="submit" id="save" className='saveWorkoutButton' form='exerciseForm'>Save workout</button>
       </div>
