@@ -17,15 +17,16 @@
     width: 60%;
     margin: 0;
     position: relative;
-    top:50%;
+    top: 50%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, 50%);
+    transform: translate(-50%);
     border-radius: 2px;
     padding: 14px 40px;
     font-size: 25px;
     z-index: 2;
     background-color: #ebebeb;
+    height: auto;
 }
 
 .dropdown_content {
@@ -43,4 +44,11 @@
     top: calc(100% + 10px);
     left: 50%;
     transform: translateX(-50%);
+}
+
+.increaseSets, .increaseReps, .decreaseSets, .decreaseReps {
+    position: relative;
+    align-items: center;
+    width: 25px;
+    height: 25px;
 }
