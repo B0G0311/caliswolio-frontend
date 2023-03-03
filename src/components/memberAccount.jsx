@@ -20,7 +20,7 @@ import WorkoutContext from '../context/workoutContext';
             <button onClick={() => setActivePage('')} className='workoutTemplate' id='checkWW'>Workout Templates</button>
             <br/><br/>
 
-            <button onClick={() => setActivePage('')} className='Future Workout Queue' id='checkFWQ'>Future Workout Queue</button>
+            <button onClick={() => setActivePage('')} className='Future_Workout_Queue' id='checkFWQ'>Future Workout Queue</button>
         </div>
     )
 }
