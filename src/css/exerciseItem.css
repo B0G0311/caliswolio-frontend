@@ -44,11 +44,40 @@
     top: calc(100% + 10px);
     left: 50%;
     transform: translateX(-50%);
-}
+  }
 
 .increaseSets, .increaseReps, .decreaseSets, .decreaseReps {
     position: relative;
-    align-items: center;
+    text-align: center;
     width: 25px;
     height: 25px;
+    background-color: azure;
+    border-radius: 15%;
+    line-height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: small;
+}
+
+.rerollExercise {
+    padding: 8px 25px;
+    border: 10% transparent #000000;
+    position: relative;
+    align-items: center;
+    background-color: azure;
+    border-radius: 7%;
+    font-size: 16px;
+    font-family: Inter, sans-serif;
+}
+
+.increaseSets:active, .increaseReps:active, .decreaseSets:active, .decreaseReps:active, .rerollExercise:active {
+    background-color: rgb(152, 156, 156);
+    outline: 0;
+}
+
+.exerciseEdit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

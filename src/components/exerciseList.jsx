@@ -43,7 +43,7 @@ function ExerciseList() {
 
       <div classname='Pauls Mic'></div>
 
-      <div className='rerollExercise'>
+      <div className='bottomButtonWrapper'>
         <button type='button' id='rerollAll' className='rerollEveryExercise'>Reroll All Exercises</button>
       </div>
 

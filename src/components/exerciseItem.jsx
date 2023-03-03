@@ -31,15 +31,17 @@ function ExerciseItem() {
               </button>
               {isOpen && (
                 <div id={`dropdown_content_${exercise.exercise_id}`} className='dropdown_content'>
-                  <p className='exerciseSets'>Sets: {exercise.sets}
+                  <div className='exerciseEdit'>
+                    <p className='exerciseSets'>Sets: {exercise.sets}</p>
                     <button type='button' className='increaseSets' id='moreSets'>+</button>
                     <button type='button' className='decreaseSets' id='lessSets'>-</button>
-                  </p>
-
-                  <p className='exerciseReps'>Reps: {exercise.reps}
-                    <button type='button' className='increaseReps' id='moreReps'>+</button>
-                    <button type='button' className='decreaseReps' id='lessReps'>-</button>
-                  </p>
+                  </div>
+                  
+                  <div className='exerciseEdit'>
+                    <p className='exerciseReps'>Reps: {exercise.reps}</p>
+                      <button type='button' className='increaseReps' id='moreReps'>+</button>
+                      <button type='button' className='decreaseReps' id='lessReps'>-</button>
+                  </div>
                   
                   <p className='exerciseDescription'>{exercise.description}</p>
                   <p><button type='button' id='reroll' className='rerollExercise'>Reroll Exercise</button></p>
