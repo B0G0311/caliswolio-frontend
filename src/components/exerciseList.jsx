@@ -5,10 +5,11 @@ import ExerciseItem from './exerciseItem';
 import '../css/exerciseList.css'
 
 function ExerciseList() {
-  const { selectedLevel, selectedCategory, selectedExercises, setCompletedWorkout, user, isMember, setActivePage } = useContext(WorkoutContext)
+  const { selectedLevel, selectedCategory, selectedExercises, setCompletedWorkout, user, isMember, setActivePage, postWorkout, setSelectedExercises } = useContext(WorkoutContext)
 
-  function buildWorkout() {
+  async function buildWorkout() {
     const date = new Date()
+    
     let [month, day, year] = [
       date.getMonth(),
       date.getDate(),
@@ -19,15 +20,19 @@ function ExerciseList() {
     
     if (day < 10) day = '0' + day
 
-    let currentDate = `${day}/${month}/${year}`
-
-    console.log(currentDate)
+    let currentDate = `${year}-${month}-${day}`
 
     setCompletedWorkout({
-      'member_id': user.member_id,
-      'level_id': selectedLevel,
+      'member_id': user.member_id.toString(),
+      'level_id': selectedLevel.level_id,
       'category_id': selectedCategory,
       'when_completed': currentDate
+    })
+
+    await postWorkout()
+
+    setSelectedExercises({
+      exercises: []
     })
   }
 
@@ -65,7 +70,7 @@ function ExerciseList() {
         
       </form>
 
-      <div classname='Pauls Mic'></div>
+      <div className='Pauls Mic'></div>
 
       <div className='bottomButtonWrapper'>
         <button type='button' id='rerollAll' className='rerollEveryExercise'>Reroll All Exercises</button>
@@ -76,7 +81,7 @@ function ExerciseList() {
           e.preventDefault()
           buildWorkout()
           if (isMember) {
-            setActivePage('memberAccount')
+            setActivePage('MemberAccount')
           }
           else {
             setActivePage('SignIn')

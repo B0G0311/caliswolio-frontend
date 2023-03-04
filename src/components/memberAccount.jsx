@@ -12,7 +12,7 @@ import '../css/memberAccount.css';
             <h1>Member Account</h1>
             <br/><br/>
 
-            <button onClick={() => setActivePage('')} className='startNew' id='newWorkout'>Start New Workout</button>
+            <button onClick={() => setActivePage('Level')} className='startNew' id='newWorkout'>Start New Workout</button>
             <br/><br/>
 
             <button onClick={() => setActivePage('')} className='workoutLog' id='checkWL'>Workout Log</button>

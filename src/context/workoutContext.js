@@ -134,15 +134,17 @@ export const WorkoutProvider = ({ children }) => {
 
   const postWorkout = async() => {
     if (isMember) {
-      const res = await fetch(`http://localhost:8000/api/pwl/`, {
-        method: 'GET',
+      const res = await fetch(`http://localhost:8000/api/pwl/${user.member_id}/`, {
+        method: 'POST',
         headers: {
-          'Content-Type': 'applicatoin/json'
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify(completedWorkout)
       })
 
-      console.log(res)
+      const data = await res.json()
+      
+      console.log(await data)
     }
   }
 
