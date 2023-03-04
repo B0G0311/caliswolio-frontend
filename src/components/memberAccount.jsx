@@ -1,6 +1,7 @@
 import React from 'react';
 import { useContext } from 'react';
 import WorkoutContext from '../context/workoutContext';
+import '../css/memberAccount.css';
 
  function MemberAccount()
 {
