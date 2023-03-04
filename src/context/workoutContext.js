@@ -250,7 +250,7 @@ export const WorkoutProvider = ({ children }) => {
         'member_id': user.member_id.toString(),
         'level_id': selectedLevel.level_id.toString(),
         'category': selectedCategory,
-        'name': '',
+        'name': 'test',
       }
 
       const res = await fetch(`http://localhost:8000/api/twl/${user.member_id}/`, {
