@@ -24,7 +24,6 @@ export const WorkoutProvider = ({ children }) => {
     'exercises': [],
   });
   const [exerciseListIsLoaded, setExerciseListIsLoaded] = useState(false);
-  const [completedWorkout, setCompletedWorkout] = useState()
   const [priorWorkout, setPriorWorkout] = useState();
   const [priorWorkoutExercises, setPriorWorkoutExercises] = useState();
   const [registrationForm, setRegistrationForm] = useState({
@@ -132,20 +131,80 @@ export const WorkoutProvider = ({ children }) => {
     }
   }
 
-  const postWorkout = async() => {
+  const postPriorWorkout = async() => {
     if (isMember) {
+
+      const date = new Date()
+    
+      let [month, day, year] = [
+        date.getMonth(),
+        date.getDate(),
+        date.getFullYear(),
+      ];
+
+      if (month < 10) month = '0' + month
+      
+      if (day < 10) day = '0' + day
+
+      let currentDate = `${year}-${month}-${day}`
+
+      const workout = {
+        'member_id': user.member_id.toString(),
+        'level_id': selectedLevel.level_id.toString(),
+        'category': selectedCategory,
+        'when_completed': currentDate
+      }
+
       const res = await fetch(`http://localhost:8000/api/pwl/${user.member_id}/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(completedWorkout)
+        body: JSON.stringify(workout)
       })
 
       const data = await res.json()
+
+      console.log(data)
       
-      console.log(await data)
+      let priorWorkoutID = data.prior_workout_id
+
+      postPriorWorkoutExercises(priorWorkoutID)
     }
+  }
+
+  const postPriorWorkoutExercises = async (priorWorkoutID) => {
+    selectedExercises.exercises.forEach(async (exercise, index) => {
+      let priorexercise = {
+        "exercise_id": exercise.exercise_id,
+        "prior_workout_id": priorWorkoutID,
+        "target_sets": exercise.sets,
+        "target_reps": exercise.reps,
+        "position_in_list": index
+      }
+      const res = await fetch(`http://localhost:8000/api/pwel/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(priorexercise)
+      })
+
+      const data = await res.json()
+      console.log(data)
+
+      setSelectedLevel(
+        {
+          level_id: 0,
+          name: ''
+        }
+      )
+      setSelectedCategory('')
+      setSelectedExercises({
+        exercises: []
+      })
+      setExerciseListIsLoaded(false)
+    })
   }
 
   const filterExercises = (filtercategories) => {
@@ -294,8 +353,6 @@ export const WorkoutProvider = ({ children }) => {
         setSelectedExercises,
         exerciseListIsLoaded,
         setExerciseListIsLoaded,
-        completedWorkout,
-        setCompletedWorkout,
         priorWorkout,
         setPriorWorkout,
         priorWorkoutExercises,
@@ -310,7 +367,8 @@ export const WorkoutProvider = ({ children }) => {
         updateUser,
         fetchUserData,
         selectExercises,
-        postWorkout,
+        postPriorWorkout,
+        postPriorWorkoutExercises,
       }}
     >
       {children}

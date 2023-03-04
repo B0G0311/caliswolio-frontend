@@ -42,7 +42,7 @@ export default function Login()
           <div>
           
             <label> Email: 
-                <input onChange={handleTextChange} type="text" className="Info" id="Email" value={signInData.email || ''} required/>
+                <input onChange={handleTextChange} type="text" className="Info" id="Email" value={signInData.email.trim() || ''} required/>
                 <br/><br/>
             </label>
 

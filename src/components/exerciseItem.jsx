@@ -40,6 +40,15 @@ function ExerciseItem() {
     })
   }
 
+  function rerollExercise(exerciseID) {
+    let newObject = selectedExercises.exercises
+    newObject.forEach(exercise => {
+      if (exercise.exercise_id === exerciseID) {
+        
+      }
+    })
+  }
+
   if (exerciseListIsLoaded) {
     return (
       <div className='exerciseListItems'>

@@ -5,36 +5,8 @@ import ExerciseItem from './exerciseItem';
 import '../css/exerciseList.css'
 
 function ExerciseList() {
-  const { selectedLevel, selectedCategory, selectedExercises, setCompletedWorkout, user, isMember, setActivePage, postWorkout, setSelectedExercises } = useContext(WorkoutContext)
+  const { selectedLevel, selectedCategory, selectedExercises, setSelectedExercises, setSelectedCategory, setSelectedLevel, setExerciseListIsLoaded, isMember, setActivePage, postPriorWorkout} = useContext(WorkoutContext)
 
-  async function buildWorkout() {
-    const date = new Date()
-    
-    let [month, day, year] = [
-      date.getMonth(),
-      date.getDate(),
-      date.getFullYear(),
-    ];
-
-    if (month < 10) month = '0' + month
-    
-    if (day < 10) day = '0' + day
-
-    let currentDate = `${year}-${month}-${day}`
-
-    setCompletedWorkout({
-      'member_id': user.member_id.toString(),
-      'level_id': selectedLevel.level_id,
-      'category_id': selectedCategory,
-      'when_completed': currentDate
-    })
-
-    await postWorkout()
-
-    setSelectedExercises({
-      exercises: []
-    })
-  }
 
   if (Object.keys(selectedExercises).length === 0) {
     return (
@@ -79,18 +51,29 @@ function ExerciseList() {
       <div className='completeWorkout'>
         <button type='button' id='complete' className='completeWorkoutButton' onClick={(e) => {
           e.preventDefault()
-          buildWorkout()
           if (isMember) {
+            postPriorWorkout()
             setActivePage('MemberAccount')
           }
           else {
             setActivePage('SignIn')
+            setSelectedLevel(
+              {
+                level_id: 0,
+                name: ''
+              }
+            )
+            setSelectedCategory('')
+            setSelectedExercises({
+              exercises: []
+            })
+            setExerciseListIsLoaded(false)
           }
         }}>Complete Workout</button>
       </div>
 
       <div className='lowerButtonWrapper'>
-        <button type='submit' id="save" className='saveWorkoutButton' form='exerciseForm'>Save workout</button>
+        <button type='submit' id="save" className='saveWorkoutButton' form='exerciseForm'>Save As Template</button>
       </div>
     </div>
   );

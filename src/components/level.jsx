@@ -77,7 +77,7 @@ export default function Level()
                 </div>
             </form>
             <div className="Submit_Button">
-          <button type="submit" form="level_form" className="Level_Submit">Log in</button>
+          <button type="submit" form="level_form" className="Level_Submit">Confirm Level</button>
             </div>
         </div>
     )
