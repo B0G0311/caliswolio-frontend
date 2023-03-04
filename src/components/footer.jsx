@@ -44,7 +44,7 @@ export default function Navigation()
         <div>
             <nav>
             <ul>
-                {(activePage !== "SignIn" && activePage !== 'ExerciseList' ) && (
+                {(activePage !== "SignIn" && activePage !== 'ExerciseList' && activePage !== 'MemberAccount') && (
                     <button onClick={() => prevLocation()} value="Back" className="btn-link" id="GoBack">Previous</button>
                 )}
                 {/* {(activePage !== "SignIn" && 
