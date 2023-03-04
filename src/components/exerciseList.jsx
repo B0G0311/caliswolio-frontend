@@ -5,7 +5,31 @@ import ExerciseItem from './exerciseItem';
 import '../css/exerciseList.css'
 
 function ExerciseList() {
-  const { selectedLevel, selectedCategory, selectedExercises } = useContext(WorkoutContext)
+  const { selectedLevel, selectedCategory, selectedExercises, setCompletedWorkout, user, isMember, setActivePage } = useContext(WorkoutContext)
+
+  function buildWorkout() {
+    const date = new Date()
+    let [month, day, year] = [
+      date.getMonth(),
+      date.getDate(),
+      date.getFullYear(),
+    ];
+
+    if (month < 10) month = '0' + month
+    
+    if (day < 10) day = '0' + day
+
+    let currentDate = `${day}/${month}/${year}`
+
+    console.log(currentDate)
+
+    setCompletedWorkout({
+      'member_id': user.member_id,
+      'level_id': selectedLevel,
+      'category_id': selectedCategory,
+      'when_completed': currentDate
+    })
+  }
 
   if (Object.keys(selectedExercises).length === 0) {
     return (
@@ -48,7 +72,16 @@ function ExerciseList() {
       </div>
 
       <div className='completeWorkout'>
-        <button type='button' id='complete' className='completeWorkoutButton'>Complete Workout</button>
+        <button type='button' id='complete' className='completeWorkoutButton' onClick={(e) => {
+          e.preventDefault()
+          buildWorkout()
+          if (isMember) {
+            setActivePage('memberAccount')
+          }
+          else {
+            setActivePage('SignIn')
+          }
+        }}>Complete Workout</button>
       </div>
 
       <div className='lowerButtonWrapper'>

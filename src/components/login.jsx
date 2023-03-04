@@ -31,7 +31,7 @@ export default function Login()
               e.preventDefault()
               if (await validateCredentials()) {
                 await catchUser()
-                setActivePage('Level')
+                setActivePage('MemberAccount')
               }
               else {
                 alert("This email is not associated with an account. Please try again.")

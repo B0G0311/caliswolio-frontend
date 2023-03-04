@@ -24,6 +24,7 @@ export const WorkoutProvider = ({ children }) => {
     'exercises': [],
   });
   const [exerciseListIsLoaded, setExerciseListIsLoaded] = useState(false);
+  const [completedWorkout, setCompletedWorkout] = useState()
   const [priorWorkout, setPriorWorkout] = useState();
   const [priorWorkoutExercises, setPriorWorkoutExercises] = useState();
   const [registrationForm, setRegistrationForm] = useState({
@@ -128,6 +129,20 @@ export const WorkoutProvider = ({ children }) => {
       const data = await res.json()
 
       console.log(await data);
+    }
+  }
+
+  const postWorkout = async() => {
+    if (isMember) {
+      const res = await fetch(`http://localhost:8000/api/pwl/`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'applicatoin/json'
+        },
+        body: JSON.stringify(completedWorkout)
+      })
+
+      console.log(res)
     }
   }
 
@@ -277,6 +292,8 @@ export const WorkoutProvider = ({ children }) => {
         setSelectedExercises,
         exerciseListIsLoaded,
         setExerciseListIsLoaded,
+        completedWorkout,
+        setCompletedWorkout,
         priorWorkout,
         setPriorWorkout,
         priorWorkoutExercises,
@@ -291,6 +308,7 @@ export const WorkoutProvider = ({ children }) => {
         updateUser,
         fetchUserData,
         selectExercises,
+        postWorkout,
       }}
     >
       {children}
