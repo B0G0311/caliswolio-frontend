@@ -24,8 +24,18 @@ export const WorkoutProvider = ({ children }) => {
     'exercises': [],
   });
   const [exerciseListIsLoaded, setExerciseListIsLoaded] = useState(false);
-  const [priorWorkout, setPriorWorkout] = useState();
-  const [priorWorkoutExercises, setPriorWorkoutExercises] = useState();
+  const [priorWorkout, setPriorWorkout] = useState({
+    'workouts': []
+  });
+  const [priorWorkoutExercises, setPriorWorkoutExercises] = useState({
+    'exercises': []
+  });
+  const [templateWorkout, setTemplateWorkout] = useState({
+    'workouts': []
+  })
+  const [templateWorkoutExercises, setTemplateWorkoutExercises] = useState({
+    'exercises': []
+  })
   const [registrationForm, setRegistrationForm] = useState({
       email: '',
       password: '',
@@ -55,6 +65,20 @@ export const WorkoutProvider = ({ children }) => {
 
     return data
 
+  }
+
+  const fetchPriorWorkouts = async() => {
+    const res = await fetch(`http://localhost:8000/api/pwl/${user.member_id}/`)
+    const data = await res.json()
+    
+    setPriorWorkout(data)
+  }
+
+  const fetchPriorWorkoutExercises = async() => {
+    const res = await fetch(`http://localhost:8000/api/pwel/`)
+    const data = await res.json()
+
+    setPriorWorkoutExercises(data)
   }
 
   // select the user based on email and password and set the user state with the corresponding data
@@ -205,6 +229,92 @@ export const WorkoutProvider = ({ children }) => {
       })
       setExerciseListIsLoaded(false)
     })
+
+    setSelectedLevel(
+      {
+        level_id: 0,
+        name: ''
+      }
+    )
+    setSelectedCategory('')
+    setSelectedExercises({
+      exercises: []
+    })
+    setExerciseListIsLoaded(false)
+  }
+
+  const postTemplateWorkout = async () => {
+    if (isMember) {
+
+      const workout = {
+        'member_id': user.member_id.toString(),
+        'level_id': selectedLevel.level_id.toString(),
+        'category': selectedCategory,
+        'name': '',
+      }
+
+      const res = await fetch(`http://localhost:8000/api/twl/${user.member_id}/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(workout)
+      })
+
+      const data = await res.json()
+
+      console.log(data)
+      
+      let templateWorkoutID = data.template_id
+
+      postTemplateWorkoutExercises(templateWorkoutID)
+    }
+  }
+
+  const postTemplateWorkoutExercises = async (templateWorkoutID) => {
+    selectedExercises.exercises.forEach(async (exercise, index) => {
+      let templateExercise = {
+        "exercise_id": exercise.exercise_id,
+        "template_id": templateWorkoutID,
+        "target_sets": exercise.sets,
+        "target_reps": exercise.reps,
+        "position_in_list": index
+      }
+      const res = await fetch(`http://localhost:8000/api/tel/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(templateExercise)
+      })
+
+      const data = await res.json()
+      console.log(data)
+    })
+
+    setSelectedLevel(
+      {
+        level_id: 0,
+        name: ''
+      }
+    )
+    setSelectedCategory('')
+    setSelectedExercises({
+      exercises: []
+    })
+    setExerciseListIsLoaded(false)
+  }
+
+  const rerollExercise = (filtercategory, usedIDs) => {
+    const filterBy = { level_id: [selectedLevel.level_id], category: [filtercategory.category]}
+    const result = exercises.filter(o => Object.keys(filterBy).every(k => filterBy[k].some(f => o[k] === f)))
+    let randIndex
+    randIndex = Math.floor(Math.random() * result.length)
+    while (usedIDs.includes(result[randIndex].exercise_id)) {
+      randIndex = Math.floor(Math.random() * result.length)
+    }
+    const randObject = result[randIndex]
+    return randObject
   }
 
   const filterExercises = (filtercategories) => {
@@ -357,6 +467,10 @@ export const WorkoutProvider = ({ children }) => {
         setPriorWorkout,
         priorWorkoutExercises,
         setPriorWorkoutExercises,
+        templateWorkout,
+        setTemplateWorkout,
+        templateWorkoutExercises,
+        setTemplateWorkoutExercises,
         registrationForm,
         setRegistrationForm,
         //Separate functions
@@ -369,6 +483,11 @@ export const WorkoutProvider = ({ children }) => {
         selectExercises,
         postPriorWorkout,
         postPriorWorkoutExercises,
+        rerollExercise,
+        fetchPriorWorkoutExercises,
+        fetchPriorWorkouts,
+        postTemplateWorkout,
+        postTemplateWorkoutExercises,
       }}
     >
       {children}

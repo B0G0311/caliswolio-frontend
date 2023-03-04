@@ -4,7 +4,7 @@ import"../css/login.css"
 
 export default function Login()
 {
-  const { catchUser, setActivePage, validateCredentials, signInData, setSignInData } = useContext(WorkoutContext)
+  const { catchUser, setActivePage, validateCredentials, signInData, setSignInData} = useContext(WorkoutContext)
 
   const handleTextChange = (e) => {
     if (e.target.id === 'Email') {

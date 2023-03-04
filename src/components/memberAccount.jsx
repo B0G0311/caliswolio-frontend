@@ -5,7 +5,7 @@ import '../css/memberAccount.css';
 
  function MemberAccount()
 {
-    const { setActivePage } = useContext(WorkoutContext)
+    const { setActivePage, fetchPriorWorkouts, fetchPriorWorkoutExercises } = useContext(WorkoutContext)
 
     return(        
         <div className='btn-group'>
@@ -15,13 +15,18 @@ import '../css/memberAccount.css';
             <button onClick={() => setActivePage('Level')} className='startNew' id='newWorkout'>Start New Workout</button>
             <br/><br/>
 
-            <button onClick={() => setActivePage('')} className='workoutLog' id='checkWL'>Workout Log</button>
+            <button onClick={async (e) => {
+                e.preventDefault()
+                await fetchPriorWorkouts()
+                await fetchPriorWorkoutExercises()
+                setActivePage('MemberAccount')
+            }} className='workoutLog' id='checkWL'>Workout Log</button>
             <br/><br/> 
 
-            <button onClick={() => setActivePage('')} className='workoutTemplate' id='checkWW'>Workout Templates</button>
+            <button onClick={() => setActivePage('MemberAccount')} className='workoutTemplate' id='checkWW'>Workout Templates</button>
             <br/><br/>
 
-            <button onClick={() => setActivePage('')} className='Future_Workout_Queue' id='checkFWQ'>Future Workout Queue</button>
+            <button onClick={() => setActivePage('MemberAccount')} className='Future_Workout_Queue' id='checkFWQ'>Future Workout Queue</button>
         </div>
     )
 }

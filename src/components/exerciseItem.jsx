@@ -3,7 +3,7 @@ import WorkoutContext from '../context/workoutContext';
 import '../css/exerciseItem.css';
 
 function ExerciseItem() {
-  const { selectedExercises, setSelectedExercises, exerciseListIsLoaded, setActivePage } = useContext(WorkoutContext);
+  const { selectedExercises, setSelectedExercises, exerciseListIsLoaded, setActivePage, rerollExercise } = useContext(WorkoutContext);
   const [openDropdown, setOpenDropdown] = useState(null);
 
   function toggleDropdown(exerciseId) {
@@ -40,13 +40,31 @@ function ExerciseItem() {
     })
   }
 
-  function rerollExercise(exerciseID) {
+  function reroll(exerciseID) {
+    let newIDs = []
+    selectedExercises.exercises.forEach((exercise) => {
+      newIDs.push(exercise.exercise_id)
+    })
     let newObject = selectedExercises.exercises
     newObject.forEach(exercise => {
       if (exercise.exercise_id === exerciseID) {
-        
+        let newExercise = rerollExercise(exercise, newIDs)
+
+        exercise.exercise_id = newExercise.exercise_id
+        exercise.name = newExercise.name
+        exercise.category = newExercise.category
+        exercise.level_id = newExercise.level_id
+        exercise.description = newExercise.description
+        exercise.sets = 3
+        exercise.reps = 10
       }
     })
+
+    setSelectedExercises({
+      'exercises': newObject
+    })
+
+
   }
 
   if (exerciseListIsLoaded) {
@@ -95,7 +113,11 @@ function ExerciseItem() {
                   </div>
                   
                   <p className='exerciseDescription'>{exercise.description}</p>
-                  <p><button type='button' id='reroll' className='rerollExercise'>Reroll Exercise</button></p>
+                  <p><button type='button' id='reroll' className='rerollExercise' onClick={(e) => {
+                      e.preventDefault()
+                      reroll(exercise.exercise_id)
+                      setActivePage('ExerciseList')
+                    }}>Reroll Exercise</button></p>
                 </div>
               )}
             </div>

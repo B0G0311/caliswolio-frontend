@@ -5,8 +5,15 @@ import ExerciseItem from './exerciseItem';
 import '../css/exerciseList.css'
 
 function ExerciseList() {
-  const { selectedLevel, selectedCategory, selectedExercises, setSelectedExercises, setSelectedCategory, setSelectedLevel, setExerciseListIsLoaded, isMember, setActivePage, postPriorWorkout} = useContext(WorkoutContext)
+  const { selectedLevel, selectedCategory, selectedExercises, setSelectedExercises, setSelectedCategory, setSelectedLevel, setExerciseListIsLoaded, isMember, setActivePage, postPriorWorkout, selectExercises, postTemplateWorkout} = useContext(WorkoutContext)
 
+  function rerollExercises() {
+    setSelectedExercises({
+      'exercises': []
+    })
+
+    selectExercises()
+  }
 
   if (Object.keys(selectedExercises).length === 0) {
     return (
@@ -45,7 +52,11 @@ function ExerciseList() {
       <div className='Pauls Mic'></div>
 
       <div className='bottomButtonWrapper'>
-        <button type='button' id='rerollAll' className='rerollEveryExercise'>Reroll All Exercises</button>
+        <button type='button' id='rerollAll' className='rerollEveryExercise' onClick={(e) => {
+          e.preventDefault()
+          rerollExercises()
+          setActivePage('ExerciseList')
+        }}>Reroll All Exercises</button>
       </div>
 
       <div className='completeWorkout'>
@@ -73,7 +84,27 @@ function ExerciseList() {
       </div>
 
       <div className='lowerButtonWrapper'>
-        <button type='submit' id="save" className='saveWorkoutButton' form='exerciseForm'>Save As Template</button>
+        <button type='submit' id="save" className='saveWorkoutButton' form='exerciseForm' onClick={(e) => {
+          e.preventDefault()
+          if (isMember) {
+            postTemplateWorkout()
+            setActivePage('MemberAccount')
+          }
+          else {
+            setActivePage('SignIn')
+            setSelectedLevel(
+              {
+                level_id: 0,
+                name: ''
+              }
+            )
+            setSelectedCategory('')
+            setSelectedExercises({
+              exercises: []
+            })
+            setExerciseListIsLoaded(false)
+          }
+        }}>Save As Template</button>
       </div>
     </div>
   );
