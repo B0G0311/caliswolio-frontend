@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 
-const WorkoutContext = createContext();
+const WorkoutContext = createContext()
 
 export const WorkoutProvider = ({ children }) => {
   const [activePage, setActivePage] = useState('SignIn')
@@ -12,24 +12,28 @@ export const WorkoutProvider = ({ children }) => {
       password: ''
     }
   )
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({})
   const [selectedLevel, setSelectedLevel] = useState(
     {
       level_id: 0,
       name: ''
     }
-  );
-  const [selectedCategory, setSelectedCategory] = useState('');
+  )
+  const [selectedCategory, setSelectedCategory] = useState('')
   const [selectedExercises, setSelectedExercises] = useState({
     'exercises': [],
-  });
-  const [exerciseListIsLoaded, setExerciseListIsLoaded] = useState(false);
-  const [priorWorkout, setPriorWorkout] = useState({
+  })
+  const [exerciseListIsLoaded, setExerciseListIsLoaded] = useState(false)
+  // const [priorWorkout, setPriorWorkout] = useState({
+  //   'workouts': []
+  // })
+  // const [priorWorkoutExercises, setPriorWorkoutExercises] = useState({
+  //   'exercises': []
+  // })
+  const [priorWorkoutItems, setPriorWorkoutItems] = useState({
     'workouts': []
-  });
-  const [priorWorkoutExercises, setPriorWorkoutExercises] = useState({
-    'exercises': []
-  });
+  })
+  const [priorWorkoutListIsLoaded, setPriorWorkoutListIsLoaded] = useState(false)
   const [templateWorkout, setTemplateWorkout] = useState({
     'workouts': []
   })
@@ -68,18 +72,47 @@ export const WorkoutProvider = ({ children }) => {
   }
 
   const fetchPriorWorkouts = async() => {
-    const res = await fetch(`http://localhost:8000/api/pwl/${user.member_id}/`)
-    const data = await res.json()
+    const workoutRes = await fetch(`http://localhost:8000/api/pwl/${user.member_id}/`)
+    const workoutData = await workoutRes.json()
+    const exerciseRes = await fetch(`http://localhost:8000/api/pwel/`)
+    const exerciseData = await exerciseRes.json()
+
+    let tempWorkoutList = []    
+    let tempExerciseList = []
+    workoutData.forEach((workout) => {
+      exerciseData.forEach((exercise) => {
+        exercises.forEach((ex) => {
+        if (workout.prior_workout_id === exercise.prior_workout_id) {
+          if (exercise.exercise_id === ex.exercise_id) {
+            let tempExercise = {
+              'exercise_id': ex.exercise_id,
+              'name': ex.name,
+              'category': ex.category,
+              'level_id': ex.level_id,
+              'description': ex.description,
+              'reps': exercise.target_reps,
+              'sets': exercise.target_sets,
+              'position_in_list': exercise.position_in_list
+            }
+            tempExerciseList.push(tempExercise)
+          }
+        }
+      })
+    })
+    let sortedExerciseList = tempExerciseList.sort(
+      (p1, p2) => (p1.position_in_list > p2.position_in_list) ? 1 : (p1.position_in_list < p2.position_in_list) ? -1 : 0)
     
-    setPriorWorkout(data)
-  }
 
-  const fetchPriorWorkoutExercises = async() => {
-    const res = await fetch(`http://localhost:8000/api/pwel/`)
-    const data = await res.json()
+    let tempWorkout = {
+      'workout': workout,
+      'exercises': sortedExerciseList
+    }
+    tempWorkoutList.push(tempWorkout)
+  })
 
-    setPriorWorkoutExercises(data)
-  }
+  setPriorWorkoutItems(tempWorkoutList)
+  setPriorWorkoutListIsLoaded(true)
+}
 
   // select the user based on email and password and set the user state with the corresponding data
   const catchUser = async() => {
@@ -90,7 +123,7 @@ export const WorkoutProvider = ({ children }) => {
         setUser(account)
         setIsMember(true)
       }
-    });
+    })
   }
 
   const validateCredentials = async() => {
@@ -463,10 +496,14 @@ export const WorkoutProvider = ({ children }) => {
         setSelectedExercises,
         exerciseListIsLoaded,
         setExerciseListIsLoaded,
-        priorWorkout,
-        setPriorWorkout,
-        priorWorkoutExercises,
-        setPriorWorkoutExercises,
+        // priorWorkout,
+        // setPriorWorkout,
+        // priorWorkoutExercises,
+        // setPriorWorkoutExercises,
+        priorWorkoutItems,
+        setPriorWorkoutItems,
+        priorWorkoutListIsLoaded,
+        setPriorWorkoutListIsLoaded,
         templateWorkout,
         setTemplateWorkout,
         templateWorkoutExercises,
@@ -484,7 +521,6 @@ export const WorkoutProvider = ({ children }) => {
         postPriorWorkout,
         postPriorWorkoutExercises,
         rerollExercise,
-        fetchPriorWorkoutExercises,
         fetchPriorWorkouts,
         postTemplateWorkout,
         postTemplateWorkoutExercises,

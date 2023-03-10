@@ -1,11 +1,19 @@
-import React from 'react';
-import { useContext } from 'react';
+import React, { useEffect } from 'react';
+import { useContext} from 'react';
 import WorkoutContext from '../context/workoutContext';
 import '../css/memberAccount.css';
 
+
+
  function MemberAccount()
 {
-    const { setActivePage, fetchPriorWorkouts, fetchPriorWorkoutExercises } = useContext(WorkoutContext)
+    const { setActivePage, fetchPriorWorkouts, priorWorkoutListIsLoaded } = useContext(WorkoutContext)
+
+    useEffect((e) => {
+        if(priorWorkoutListIsLoaded){
+            setActivePage('PriorWorkoutList')
+        }
+    }, [priorWorkoutListIsLoaded, setActivePage])
 
     return(        
         <div className='btn-group'>
@@ -18,8 +26,6 @@ import '../css/memberAccount.css';
             <button onClick={async (e) => {
                 e.preventDefault()
                 await fetchPriorWorkouts()
-                await fetchPriorWorkoutExercises()
-                setActivePage('MemberAccount')
             }} className='workoutLog' id='checkWL'>Workout Log</button>
             <br/><br/> 
 

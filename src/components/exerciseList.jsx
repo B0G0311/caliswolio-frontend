@@ -15,7 +15,7 @@ function ExerciseList() {
     selectExercises()
   }
 
-  if (Object.keys(selectedExercises).length === 0) {
+  if (Object.keys(selectedExercises.exercises).length === 0) {
     return (
       <div className='exerciseList'>
         <form className='exerciseListForm' id='exerciseForm'>
