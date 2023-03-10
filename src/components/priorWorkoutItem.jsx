@@ -26,7 +26,7 @@ function PriorWorkoutItem() {
                     toggleDropdown(workout.workout.prior_workout_id)
                     setActivePage('PriorWorkoutList')
                     }}>
-                    Workout: {workout.workout.when_completed}
+                    {workout.workout.category} Workout: {workout.workout.when_completed}
                 </button>
                 {isOpen && (
                     <div id={`dropdown_content_${workout.workout.prior_workout_id}`} className='dropdown_content'>
