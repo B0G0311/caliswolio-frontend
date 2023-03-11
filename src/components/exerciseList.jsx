@@ -49,7 +49,7 @@ function ExerciseList() {
         
       </form>
 
-      <div className='Pauls Mic'></div>
+      <div className='Pauls_Mic'></div>
 
       <div className='bottomButtonWrapper'>
         <button type='button' id='rerollAll' className='rerollEveryExercise' onClick={(e) => {

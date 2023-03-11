@@ -2,6 +2,7 @@ import React from 'react';
 import { useContext } from 'react';
 import PriorWorkoutItem from './priorWorkoutItem';
 import WorkoutContext from '../context/workoutContext';
+import '../css/priorWorkoutList.css';
 
 function PriorWorkoutList(){
     const { priorWorkoutItems } = useContext(WorkoutContext)

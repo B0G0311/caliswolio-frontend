@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import WorkoutContext from '../context/workoutContext';
+import '../css/priorWorkoutItem.css';
 
 function PriorWorkoutItem() {
     const { setActivePage, priorWorkoutListIsLoaded, priorWorkoutItems } = useContext(WorkoutContext);
