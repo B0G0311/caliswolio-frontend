@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import WorkoutContext from '../context/workoutContext';
+import '../css/exerciseItem.css';
 
 function TemplateWorkoutItem() {
     const { setActivePage, templateWorkoutListIsLoaded, templateWorkoutItems } = useContext(WorkoutContext);

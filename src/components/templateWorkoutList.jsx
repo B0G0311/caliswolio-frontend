@@ -2,6 +2,7 @@ import React from 'react';
 import { useContext } from 'react';
 import TemplateWorkoutItem from './templateWorkoutItem';
 import WorkoutContext from '../context/workoutContext';
+import '../css/exerciseItem.css';
 
 function TemplateWorkoutList(){
     const { templateWorkoutItems } = useContext(WorkoutContext)
