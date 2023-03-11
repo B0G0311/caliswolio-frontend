@@ -7,13 +7,16 @@ import '../css/memberAccount.css';
 
  function MemberAccount()
 {
-    const { setActivePage, fetchPriorWorkouts, priorWorkoutListIsLoaded } = useContext(WorkoutContext)
+    const { setActivePage, fetchPriorWorkouts, priorWorkoutListIsLoaded, templateWorkoutListIsLoaded, fetchTemplateWorkouts } = useContext(WorkoutContext)
 
     useEffect((e) => {
         if(priorWorkoutListIsLoaded){
             setActivePage('PriorWorkoutList')
+        } 
+        if(templateWorkoutListIsLoaded){
+            setActivePage('TemplateWorkoutList')
         }
-    }, [priorWorkoutListIsLoaded, setActivePage])
+    }, [priorWorkoutListIsLoaded, templateWorkoutListIsLoaded, setActivePage])
 
     return(        
         <div className='btn-group'>
@@ -29,7 +32,10 @@ import '../css/memberAccount.css';
             }} className='workoutLog' id='checkWL'>Workout Log</button>
             <br/><br/> 
 
-            <button onClick={() => setActivePage('MemberAccount')} className='workoutTemplate' id='checkWW'>Workout Templates</button>
+            <button onClick={async (e) => {
+                e.preventDefault()
+                await fetchTemplateWorkouts()
+                }} className='workoutTemplate' id='checkWW'>Workout Templates</button>
             <br/><br/>
 
             <button onClick={() => setActivePage('MemberAccount')} className='Future_Workout_Queue' id='checkFWQ'>Future Workout Queue</button>

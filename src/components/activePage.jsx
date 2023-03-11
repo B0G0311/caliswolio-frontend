@@ -9,6 +9,7 @@ import Login from './login';
 import Register from './register';
 import MemberAccount from './memberAccount';
 import PriorWorkoutList from './priorWorkoutList';
+import TemplateWorkoutList from './templateWorkoutList';
 import "../index.css";
 
 function ActivePage() {
@@ -25,6 +26,7 @@ function ActivePage() {
             {activePage === 'Register' && <Register />}
             {activePage === 'MemberAccount' && <MemberAccount />}
             {activePage === 'PriorWorkoutList' && <PriorWorkoutList />}
+            {activePage === 'TemplateWorkoutList' && <TemplateWorkoutList />}
         </div>
     )
 

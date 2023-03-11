@@ -24,22 +24,14 @@ export const WorkoutProvider = ({ children }) => {
     'exercises': [],
   })
   const [exerciseListIsLoaded, setExerciseListIsLoaded] = useState(false)
-  // const [priorWorkout, setPriorWorkout] = useState({
-  //   'workouts': []
-  // })
-  // const [priorWorkoutExercises, setPriorWorkoutExercises] = useState({
-  //   'exercises': []
-  // })
   const [priorWorkoutItems, setPriorWorkoutItems] = useState({
     'workouts': []
   })
   const [priorWorkoutListIsLoaded, setPriorWorkoutListIsLoaded] = useState(false)
-  const [templateWorkout, setTemplateWorkout] = useState({
+  const [templateWorkoutItems, setTemplateWorkoutItems] = useState({
     'workouts': []
   })
-  const [templateWorkoutExercises, setTemplateWorkoutExercises] = useState({
-    'exercises': []
-  })
+  const [templateWorkoutListIsLoaded, setTemplateWorkoutListIsLoaded] = useState(false)
   const [registrationForm, setRegistrationForm] = useState({
       email: '',
       password: '',
@@ -108,10 +100,57 @@ export const WorkoutProvider = ({ children }) => {
       'exercises': sortedExerciseList
     }
     tempWorkoutList.push(tempWorkout)
+    tempExerciseList = []
   })
 
   setPriorWorkoutItems(tempWorkoutList)
   setPriorWorkoutListIsLoaded(true)
+}
+
+const fetchTemplateWorkouts = async() => {
+  const workoutRes = await fetch(`http://localhost:8000/api/twl/${user.member_id}/`)
+  const workoutData = await workoutRes.json()
+  const exerciseRes = await fetch(`http://localhost:8000/api/tel/`)
+  const exerciseData = await exerciseRes.json()
+
+  let tempWorkoutList = []    
+  let tempExerciseList = []
+  workoutData.forEach((workout) => {
+    exerciseData.forEach((exercise) => {
+      exercises.forEach((ex) => {
+          if (workout.template_id === exercise.template_id) {
+            if (exercise.exercise_id === ex.exercise_id) {
+              let tempExercise = {
+                'workout template_id': workout.template_id,
+                'template_id': exercise.template_id,
+                'exercise_id': ex.exercise_id,
+                'name': ex.name,
+                'category': ex.category,
+                'level_id': ex.level_id,
+                'description': ex.description,
+                'reps': exercise.target_reps,
+                'sets': exercise.target_sets,
+                'position_in_list': exercise.position_in_list
+              }
+            tempExerciseList.push(tempExercise)
+          }
+        }
+      })
+    })
+    let sortedExerciseList = tempExerciseList.sort(
+    (p1, p2) => (p1.position_in_list > p2.position_in_list) ? 1 : (p1.position_in_list < p2.position_in_list) ? -1 : 0)
+  
+
+    let tempWorkout = {
+      'workout': workout,
+      'exercises': sortedExerciseList
+    }
+    tempWorkoutList.push(tempWorkout)
+    tempExerciseList = []
+  })
+
+  setTemplateWorkoutItems(tempWorkoutList)
+  setTemplateWorkoutListIsLoaded(true)
 }
 
   // select the user based on email and password and set the user state with the corresponding data
@@ -496,18 +535,14 @@ export const WorkoutProvider = ({ children }) => {
         setSelectedExercises,
         exerciseListIsLoaded,
         setExerciseListIsLoaded,
-        // priorWorkout,
-        // setPriorWorkout,
-        // priorWorkoutExercises,
-        // setPriorWorkoutExercises,
         priorWorkoutItems,
         setPriorWorkoutItems,
         priorWorkoutListIsLoaded,
         setPriorWorkoutListIsLoaded,
-        templateWorkout,
-        setTemplateWorkout,
-        templateWorkoutExercises,
-        setTemplateWorkoutExercises,
+        templateWorkoutItems,
+        setTemplateWorkoutItems,
+        templateWorkoutListIsLoaded,
+        setTemplateWorkoutListIsLoaded,
         registrationForm,
         setRegistrationForm,
         //Separate functions
@@ -524,6 +559,7 @@ export const WorkoutProvider = ({ children }) => {
         fetchPriorWorkouts,
         postTemplateWorkout,
         postTemplateWorkoutExercises,
+        fetchTemplateWorkouts,
       }}
     >
       {children}
