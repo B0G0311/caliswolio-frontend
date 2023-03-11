@@ -5,7 +5,7 @@ import "../css/footer.css"
 
 export default function Navigation() 
 {
-    const { activePage, setActivePage } = useContext(WorkoutContext)
+    const { activePage, setActivePage, setPriorWorkoutListIsLoaded, setTemplateWorkoutListIsLoaded } = useContext(WorkoutContext)
 
     function prevLocation(){
         if (activePage === 'Level') {
@@ -25,6 +25,14 @@ export default function Navigation()
         }
         else if (activePage === 'Register') {
             setActivePage('SignIn')
+        }
+        else if (activePage === 'PriorWorkoutList') {
+            setPriorWorkoutListIsLoaded(false)
+            setActivePage('MemberAccount')
+        }
+        else if (activePage === 'TemplateWorkoutList') {
+            setTemplateWorkoutListIsLoaded(false)
+            setActivePage('MemberAccount')
         }
     }
 
