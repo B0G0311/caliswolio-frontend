@@ -9,7 +9,7 @@ function TemplateWorkoutList(){
     if (Object.keys(templateWorkoutItems).length === 0) {
         return (
             <div className="templateWorkoutList">
-                <p>You have no prior workouts to display</p>
+                <p>You have no templates to display</p>
             </div>
         )}
 
@@ -17,7 +17,7 @@ function TemplateWorkoutList(){
         <div className="workoutList">
             <form className='templateWorkoutListForm' id='templateWorkoutForm'>
                 <div className="header">
-                    <h1 className='form-title'>Workout Log</h1>
+                    <h1 className='form-title'>Workout Templates</h1>
                     <br/><br/>
                 </div>
                 <TemplateWorkoutItem />
