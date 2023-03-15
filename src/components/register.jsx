@@ -7,6 +7,34 @@ export default function Register(){
 
     const { addNewUser, checkIfUser, setActivePage, registrationForm, setRegistrationForm  } = useContext(WorkoutContext)
 
+    function validateEmail() {
+    var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+    if (registrationForm.email.match(mailformat))
+        {
+            return (true)
+        }
+            alert("You have entered an invalid email address!")
+            return (false)
+    }
+
+    function validatePhoneNumber() {
+        if (registrationForm.phone_number.length === 10) {
+             return true;
+        } 
+        alert("You have entered an invalid phone number! Please enter a 10 digit phone number!");
+        return false;
+    }
+
+    function validateBirthdate() {
+        var thisYear = new Date()
+        var age = thisYear.getFullYear() - registrationForm.birth_year
+        if (age > 18 && age < 100) {
+            return true
+        }
+        alert("You have not entered a valid birth year!")
+        return false
+    }
 
     const handleTextChange = (e) => {
         if (e.target.id === 'email') {
@@ -22,9 +50,11 @@ export default function Register(){
             }))
         }
         else if (e.target.id === 'phonenum') {
+            var phone = e.target.value.replace(/[^0-9]/g, '')
+
             setRegistrationForm(prevState => ({
             ...prevState,
-            phone_number: e.target.value
+            phone_number: phone
             }))
         }
         else if (e.target.id === 'birthyear') {
@@ -56,25 +86,21 @@ export default function Register(){
             <div className='Register'>
                 <form id='registration_form' onSubmit={async (e) => {
                     e.preventDefault()
-                    console.log('confPass: ' + confPass)
-                    console.log('confPass type: ' + typeof confPass)
-                    console.log('confPass length' + confPass.length)
-                    console.log('registrationPass: ' + registrationForm.password)
-                    console.log('registrationPass type: ' + typeof registrationForm.password)
-                    console.log('registrationPass length' + registrationForm.password.length)
-                    if(confPass !== registrationForm.password)
-                    {
-                        alert("Passwords do not match. Please try again!")
-                        setActivePage('Register')
-                    } else {
-                        if (await checkIfUser()) {
-                            alert("This email is already associated with an account. If this is you, go to the Login page and click on reset password")
+                    if (validateEmail() && validatePhoneNumber() && validateBirthdate()) {
+                        if(confPass !== registrationForm.password)
+                        {
+                            alert("Passwords do not match. Please try again!")
                             setActivePage('Register')
-                        } 
-                        else {
-                            await addNewUser()
-                            alert("Thanks for Registering! Please enter your email and password to log in!")
-                            setActivePage('Login')
+                        } else {
+                            if (await checkIfUser()) {
+                                alert("This email is already associated with an account. If this is you, go to the Login page and click on reset password")
+                                setActivePage('Register')
+                            } 
+                            else {
+                                await addNewUser()
+                                alert("Thanks for Registering! Please enter your email and password to log in!")
+                                setActivePage('Login')
+                            }
                         }
                     }
                 }}>
