@@ -1,56 +1,97 @@
-#Swole{
-    margin: 0;
-    position: absolute;            
-    left:50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, 50%);
+.sign_in {
+    width: 90%;
+    margin: auto;
+    min-width: 500px;
+    display: flexbox;
+    flex-direction: column;
+    -ms-flex-align: start;
+}
 
+.Swole_photo {
+    -ms-flex-order: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12%;
+}
+
+.button-group {
+    display: flex;
+    visibility: visible;
+    -ms-flex-order: 2;
+    width: 100%;
+    height: 48px;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
 .Sign-in_Button {
-    align-items: center;
     background-color: #fee6e3;
     border: 2px transparent #000000;
     border-radius: 8px;
-    box-sizing: border-box;
     color: #000000;
     cursor: pointer;
-    display: flex;
     font-family: Inter,sans-serif;
-    font-size: 16px;
-    height: 48px;
-    justify-content: center;
+    font-weight: bold;
+    font-size: 22px;
     line-height: 24px;
-    max-width: 100%;
-    padding: 0 25px;
-    position: relative;
+    padding: 10px 25px;
     text-align: center;
-    text-decoration: none;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-}
-
-.Sign-in_Button:active {
-    background-color: #ffdeda;
-    outline: 0;
+    width: 215px;
 }
 
 .Sign-in_Button:hover {
     outline: 0;
+    background-color: #fba499;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 750px) {
+
     .Sign-in_Button {
-    padding: 0 40px;
+        width: 500px;
     }
-}
+    
+    .Swole_photo {
+        -ms-flex-order: 1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20%;
+    }
 
-.button-group{
-    margin: 0;
-    position: absolute;
-    top:50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, 50%);
+    .login_button {
+        display: flex;
+        visibility: visible;
+        -ms-flex-order: 2;
+        width: 90%;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .register_button {
+        display: flex;
+        visibility: visible;
+        -ms-flex-order: 3;
+        width: 90%;
+        flex-wrap: wrap;
+        gap: 5px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .guest_button {
+        display: flex;
+        visibility: visible;
+        -ms-flex-order: 4;
+        width: 90%;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
 }
