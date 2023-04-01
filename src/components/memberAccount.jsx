@@ -38,7 +38,7 @@ import '../css/memberAccount.css';
                 }} className='workoutTemplate' id='checkWW'>Workout Templates</button>
             <br/><br/>
 
-            <button onClick={() => setActivePage('MemberAccount')} className='Future_Workout_Queue' id='checkFWQ'>Future Workout Queue</button>
+            <button onClick={() => setActivePage('WorkoutQueueCalendar')} className='Future_Workout_Queue' id='checkFWQ'>Future Workout Queue</button>
         </div>
     )
 }

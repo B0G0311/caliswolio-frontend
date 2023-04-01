@@ -10,6 +10,7 @@ import Register from './register';
 import MemberAccount from './memberAccount';
 import PriorWorkoutList from './priorWorkoutList';
 import TemplateWorkoutList from './templateWorkoutList';
+import WorkoutQueueCalendar from './workoutQueueCalendar';
 import "../index.css";
 
 function ActivePage() {
@@ -27,6 +28,7 @@ function ActivePage() {
             {activePage === 'MemberAccount' && <MemberAccount />}
             {activePage === 'PriorWorkoutList' && <PriorWorkoutList />}
             {activePage === 'TemplateWorkoutList' && <TemplateWorkoutList />}
+            {activePage === 'WorkoutQueueCalendar' && <WorkoutQueueCalendar />}
         </div>
     )
 

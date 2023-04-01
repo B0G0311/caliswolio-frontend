@@ -28,6 +28,10 @@ export const WorkoutProvider = ({ children }) => {
     'workouts': []
   })
   const [priorWorkoutListIsLoaded, setPriorWorkoutListIsLoaded] = useState(false)
+  const [workoutQueueItems, setWorkoutQueueItems] = useState({
+    'workouts': []
+  })
+  const [workoutQueueListIsLoaded, setWorkoutQueueListIsLoaded] = useState(false)
   const [templateWorkoutItems, setTemplateWorkoutItems] = useState({
     'workouts': []
   })
@@ -543,6 +547,10 @@ const fetchTemplateWorkouts = async() => {
         setTemplateWorkoutItems,
         templateWorkoutListIsLoaded,
         setTemplateWorkoutListIsLoaded,
+        workoutQueueItems,
+        setWorkoutQueueItems,
+        workoutQueueListIsLoaded,
+        setWorkoutQueueListIsLoaded,
         registrationForm,
         setRegistrationForm,
         //Separate functions
