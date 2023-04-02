@@ -1,18 +1,32 @@
 import React from 'react';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import WorkoutContext from '../context/workoutContext';
 import ExerciseItem from './exerciseItem';
+import PickDate from './datePicker';
 import '../css/exerciseList.css'
 
 function ExerciseList() {
-  const { selectedLevel, selectedCategory, selectedExercises, setSelectedExercises, setSelectedCategory, setSelectedLevel, setExerciseListIsLoaded, isMember, setActivePage, postPriorWorkout, selectExercises, postTemplateWorkout} = useContext(WorkoutContext)
+  const { selectedLevel, selectedCategory, selectedExercises, setSelectedExercises, setSelectedCategory, setSelectedLevel, setExerciseListIsLoaded, isMember, setActivePage, postPriorWorkout, selectExercises, postTemplateWorkout, postFutureWorkout, saveData, setSaveData} = useContext(WorkoutContext)
+  const [openDropdown, setOpenDropdown] = useState(null);
 
-  function rerollExercises() {
+  const handleTextChange = (e) => {
+      setSaveData(e.target.value)
+  }
+
+    function rerollExercises() {
     setSelectedExercises({
       'exercises': []
     })
 
     selectExercises()
+  }
+
+  function toggleDropdown(exerciseId) {
+    if (openDropdown === exerciseId) {
+      setOpenDropdown(null);
+    } else {
+      setOpenDropdown(exerciseId);
+    }
   }
 
   if (Object.keys(selectedExercises.exercises).length === 0) {
@@ -84,11 +98,11 @@ function ExerciseList() {
       </div>
 
       <div className='lowerButtonWrapper'>
+        <div>
         <button type='submit' id="save" className='saveWorkoutButton' form='exerciseForm' onClick={(e) => {
           e.preventDefault()
           if (isMember) {
-            postTemplateWorkout()
-            setActivePage('MemberAccount')
+            toggleDropdown("save")
           }
           else {
             alert('You must be a member to save the workout as a template. You can register to be a member using the "Register" button on the home page.')
@@ -106,6 +120,84 @@ function ExerciseList() {
             setExerciseListIsLoaded(false)
           }
         }}>Save As Template</button>
+        </div>
+        <div>
+        <button type='submit' id="saveforlater" className='saveWorkoutButton' form='exerciseForm' onClick={(e) => {
+          e.preventDefault()
+          if (isMember) {   
+            toggleDropdown("saveforlater")
+          }
+          else {
+            alert('You must be a member to save this workout for later.')
+            setActivePage('ExerciseList')
+          }
+        }}>Save For Future Workout</button>
+        </div>
+        {/* Return a div if the button with the id of "saveforlater" is clicked */}
+        <div>
+          {openDropdown === "save" ? (
+            <div className="infoPicker">
+              <h3>Choose a name for your workout</h3>
+              <input onChange={handleTextChange} type="text" id="workoutName" name="workoutName" placeholder="Workout Name" required></input>
+              <button type='submit' id='save' className='saveWorkoutButton' form='exerciseForm' onClick={(e) => {
+                e.preventDefault()
+                if (isMember) {
+                  postTemplateWorkout()
+                  setActivePage('MemberAccount')
+                }
+                else {
+                  alert('You must be a member to save the workout as a template. You can register to be a member using the "Register" button on the home page.')
+                  setActivePage('SignIn')
+                  setSelectedLevel(
+                    {
+                      level_id: 0,
+                      name: ''
+                    }
+                  )
+                  setSelectedCategory('')
+                  setSelectedExercises({
+                    exercises: []
+                  })
+                  setExerciseListIsLoaded(false)
+                }
+              }}>Save</button>
+            </div>
+          ) : null}
+        </div>
+        <div>
+          {openDropdown === "saveforlater" ? (
+            <div className="infoPicker">
+              <h3>Choose a name for your workout</h3>
+              <input onChange={handleTextChange} type="text" id="workoutName" name="workoutName" placeholder="Workout Name" required></input>
+              <h3>Choose a date for your workout</h3>
+              <PickDate />
+
+              <button type='submit' id="saveforlater" className='saveWorkoutButton' form='exerciseForm' onClick={(e) => {
+                e.preventDefault()
+                if (isMember) {
+                  postFutureWorkout()
+                  setActivePage('MemberAccount')
+                }
+                else {
+                  alert('You must be a member to save the workout for later. You can register to be a member using the "Register" button on the home page.')
+                  setActivePage('SignIn')
+                  setSelectedLevel(
+                    {
+                      level_id: 0,
+                      name: ''
+                    }
+                  )
+                  setSelectedCategory('')
+                  setSelectedExercises({
+                    exercises: []
+                  })
+                  setExerciseListIsLoaded(false)
+                }
+              }}>Save For Future Workout</button>
+
+            </div>
+          ) : null}
+          </div>
       </div>
     </div>
   );

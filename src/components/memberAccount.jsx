@@ -7,7 +7,7 @@ import '../css/memberAccount.css';
 
  function MemberAccount()
 {
-    const { setActivePage, fetchPriorWorkouts, priorWorkoutListIsLoaded, templateWorkoutListIsLoaded, fetchTemplateWorkouts } = useContext(WorkoutContext)
+    const { setActivePage, fetchPriorWorkouts, priorWorkoutListIsLoaded, templateWorkoutListIsLoaded, fetchTemplateWorkouts, workoutQueueListIsLoaded, fetchQueueWorkouts } = useContext(WorkoutContext)
 
     useEffect((e) => {
         if(priorWorkoutListIsLoaded){
@@ -16,7 +16,10 @@ import '../css/memberAccount.css';
         if(templateWorkoutListIsLoaded){
             setActivePage('TemplateWorkoutList')
         }
-    }, [priorWorkoutListIsLoaded, templateWorkoutListIsLoaded, setActivePage])
+        if (workoutQueueListIsLoaded){
+            setActivePage('WorkoutQueueCalendar')
+        }
+    }, [priorWorkoutListIsLoaded, templateWorkoutListIsLoaded, workoutQueueListIsLoaded, setActivePage])
 
     return(        
         <div className='btn-group'>
@@ -38,7 +41,10 @@ import '../css/memberAccount.css';
                 }} className='workoutTemplate' id='checkWW'>Workout Templates</button>
             <br/><br/>
 
-            <button onClick={() => setActivePage('WorkoutQueueCalendar')} className='Future_Workout_Queue' id='checkFWQ'>Future Workout Queue</button>
+            <button onClick={async (e) => {
+                e.preventDefault()
+                await fetchQueueWorkouts()
+                }} className='Future_Workout_Queue' id='checkFWQ'>Future Workout Queue</button>
         </div>
     )
 }

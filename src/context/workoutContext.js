@@ -44,6 +44,8 @@ export const WorkoutProvider = ({ children }) => {
       gender: 'Male',
       zipcode: 0,
   })
+  const [date, setDate] = useState(new Date());
+  const [saveData, setSaveData] = useState('')
 
 
   useEffect(() => {
@@ -155,6 +157,52 @@ const fetchTemplateWorkouts = async() => {
 
   setTemplateWorkoutItems(tempWorkoutList)
   setTemplateWorkoutListIsLoaded(true)
+}
+
+const fetchQueueWorkouts = async() => {
+  const workoutRes = await fetch(`http://localhost:8000/api/fwl/${user.member_id}/`)
+  const workoutData = await workoutRes.json()
+  const exerciseRes = await fetch(`http://localhost:8000/api/fwel/`)
+  const exerciseData = await exerciseRes.json()
+
+  let tempWorkoutQueueList = []    
+  let tempExerciseList = []
+  workoutData.forEach((workout) => {
+    exerciseData.forEach((exercise) => {
+      exercises.forEach((ex) => {
+          if (workout.future_workout_id === exercise.future_workout_id) {
+            if (exercise.exercise_id === ex.exercise_id) {
+              let tempExercise = {
+                'future_workout_ex_id': workout.future_workout_ex_id,
+                'future_workout_id': exercise.future_workout_id,
+                'exercise_id': ex.exercise_id,
+                'name': ex.name,
+                'category': ex.category,
+                'level_id': ex.level_id,
+                'description': ex.description,
+                'reps': exercise.target_reps,
+                'sets': exercise.target_sets,
+                'position_in_list': exercise.position_in_list
+              }
+            tempExerciseList.push(tempExercise)
+          }
+        }
+      })
+    })
+    let sortedExerciseList = tempExerciseList.sort(
+    (p1, p2) => (p1.position_in_list > p2.position_in_list) ? 1 : (p1.position_in_list < p2.position_in_list) ? -1 : 0)
+  
+
+    let tempWorkout = {
+      'workout': workout,
+      'exercises': sortedExerciseList
+    }
+    tempWorkoutQueueList.push(tempWorkout)
+    tempExerciseList = []
+  })
+
+  setWorkoutQueueItems(tempWorkoutQueueList) 
+  setWorkoutQueueListIsLoaded(true)
 }
 
   // select the user based on email and password and set the user state with the corresponding data
@@ -326,7 +374,7 @@ const fetchTemplateWorkouts = async() => {
         'member_id': user.member_id.toString(),
         'level_id': selectedLevel.level_id.toString(),
         'category': selectedCategory,
-        'name': 'test',
+        'name': saveData,
       }
 
       const res = await fetch(`http://localhost:8000/api/twl/${user.member_id}/`, {
@@ -379,6 +427,70 @@ const fetchTemplateWorkouts = async() => {
       exercises: []
     })
     setExerciseListIsLoaded(false)
+  }
+
+  const postFutureWorkout = async() => {
+    if (isMember) {
+
+      const workout = {
+        'member_id': user.member_id.toString(),
+        'level_id': selectedLevel.level_id.toString(),
+        'category': selectedCategory,
+        'name': saveData,
+        'perform_on': `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`,
+      }
+
+      const res = await fetch(`http://localhost:8000/api/fwl/${user.member_id}/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(workout)
+      })
+
+      const data = await res.json()
+
+      console.log(data)
+      
+      let futureWorkoutID = data.future_workout_id
+
+      postFutureWorkoutExercises(futureWorkoutID)
+    }
+  }
+
+  const postFutureWorkoutExercises = async(futureWorkoutID) => {
+    selectedExercises.exercises.forEach(async (exercise, index) => {
+      let templateExercise = {
+        "exercise_id": exercise.exercise_id,
+        "future_workout_id": futureWorkoutID,
+        "target_sets": exercise.sets,
+        "target_reps": exercise.reps,
+        "position_in_list": index
+      }
+      const res = await fetch(`http://localhost:8000/api/fwel/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(templateExercise)
+      })
+
+      const data = await res.json()
+      console.log(data)
+    })
+
+    setSelectedLevel(
+      {
+        level_id: 0,
+        name: ''
+      }
+    )
+    setSelectedCategory('')
+    setSelectedExercises({
+      exercises: []
+    })
+    setExerciseListIsLoaded(false)
+    setDate(new Date())
   }
 
   const rerollExercise = (filtercategory, usedIDs) => {
@@ -553,6 +665,10 @@ const fetchTemplateWorkouts = async() => {
         setWorkoutQueueListIsLoaded,
         registrationForm,
         setRegistrationForm,
+        date,
+        setDate,
+        saveData,
+        setSaveData,
         //Separate functions
         catchUser,
         validateCredentials,
@@ -568,6 +684,9 @@ const fetchTemplateWorkouts = async() => {
         postTemplateWorkout,
         postTemplateWorkoutExercises,
         fetchTemplateWorkouts,
+        fetchQueueWorkouts,
+        postFutureWorkout,
+        postFutureWorkoutExercises,
       }}
     >
       {children}
