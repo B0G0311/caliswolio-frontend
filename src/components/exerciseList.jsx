@@ -106,7 +106,7 @@ function ExerciseList() {
           }
           else {
             alert('You must be a member to save the workout as a template. You can register to be a member using the "Register" button on the home page.')
-            setActivePage('SignIn')
+            setActivePage('ExerciseList')
             setSelectedLevel(
               {
                 level_id: 0,
@@ -147,7 +147,7 @@ function ExerciseList() {
                 }
                 else {
                   alert('You must be a member to save the workout as a template. You can register to be a member using the "Register" button on the home page.')
-                  setActivePage('SignIn')
+                  setActivePage('ExerciseList')
                   setSelectedLevel(
                     {
                       level_id: 0,
@@ -180,7 +180,7 @@ function ExerciseList() {
                 }
                 else {
                   alert('You must be a member to save the workout for later. You can register to be a member using the "Register" button on the home page.')
-                  setActivePage('SignIn')
+                  setActivePage('ExerciseList')
                   setSelectedLevel(
                     {
                       level_id: 0,
