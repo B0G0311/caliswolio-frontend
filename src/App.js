@@ -6,7 +6,6 @@ import ActivePage from "./components/activePage";
 const App = () => {
   return (
       <Router>
-        <Header />
         <Routes>
           <Route exact path ="/" element={
             <ActivePage />
