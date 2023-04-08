@@ -1,13 +1,16 @@
 .Workout_Title{
- text-align: center;
-    
+    text-align: center;
+    color: #dc404d;
 }
  
 .Choose_Text{
     text-align: center;
+    color: #dc404d;
 }
 
 .Level_Submit{
+    background-color: #2c2e3d;
+    color: #dc404d;
     margin: 0;
     position: relative;
     top:50%;

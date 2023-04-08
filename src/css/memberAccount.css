@@ -11,11 +11,11 @@
 
 .startNew {
     align-items: center;
-    background-color: #fee6e3;
+    background-color: #2c2e3d;
+    color: #dc404d;
     border: 2px transparent #000000;
     border-radius: 8px;
     box-sizing: border-box;
-    color: #000000;
     cursor: pointer;
     display: flex;
     font-family: Inter,sans-serif;
@@ -35,11 +35,11 @@
 
 .workoutLog {
     align-items: center;
-    background-color: #fee6e3;
+    background-color: #2c2e3d;
+    color: #dc404d;
     border: 2px transparent #000000;
     border-radius: 8px;
     box-sizing: border-box;
-    color: #000000;
     cursor: pointer;
     display: flex;
     font-family: Inter,sans-serif;
@@ -59,11 +59,11 @@
 
 .workoutTemplate {
     align-items: center;
-    background-color: #fee6e3;
+    background-color: #2c2e3d;
+    color: #dc404d;
     border: 2px transparent #000000;
     border-radius: 8px;
     box-sizing: border-box;
-    color: #000000;
     cursor: pointer;
     display: flex;
     font-family: Inter,sans-serif;
@@ -83,11 +83,11 @@
 
 .Future_Workout_Queue {
     align-items: center;
-    background-color: #fee6e3;
+    background-color: #2c2e3d;
+    color: #dc404d;
     border: 2px transparent #000000;
     border-radius: 8px;
     box-sizing: border-box;
-    color: #000000;
     cursor: pointer;
     display: flex;
     font-family: Inter,sans-serif;

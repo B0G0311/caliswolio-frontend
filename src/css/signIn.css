@@ -30,10 +30,10 @@
 }
 
 .Sign-in_Button {
-    background-color: #fee6e3;
+    background-color: #2c2e3d;
     border: 2px transparent #000000;
     border-radius: 8px;
-    color: #000000;
+    color: #dc404d;
     cursor: pointer;
     font-family: Inter,sans-serif;
     font-weight: bold;

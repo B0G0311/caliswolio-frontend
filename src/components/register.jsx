@@ -147,7 +147,7 @@ export default function Register(){
                 </form>
             </div>
 
-            <div className='Submit_Button'>
+            <div className='SubmitButton'>
                     <button type="submit" form='registration_form' className='Submit_Button'>Register</button>
             </div>
         </div>

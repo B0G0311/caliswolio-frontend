@@ -1,12 +1,16 @@
 .Choose_Text{
     text-align: center;
+    color: #dc404d;
 }
 
 .Workout_Header{
     text-align:center;
+    color: #dc404d;
 }
 
 .Category_Submit{
+    color: #dc404d;
+    background-color: #2c2e3d;
     margin: 0;
     position: relative;
     top:50%;

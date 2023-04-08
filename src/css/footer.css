@@ -1,4 +1,6 @@
 #GoBack{
+    color: #dc404d;
+    background-color: #2c2e3d;
     position: absolute;
     bottom: 5%;
     left: 20%;
@@ -7,6 +9,8 @@
 }
 
 #GoForward{
+    color: #dc404d;
+    background-color: #2c2e3d;
     position: absolute;
     bottom: 5%;
     right: 20%;
@@ -15,6 +19,8 @@
 }
 
 .btn-link {
+    color: #dc404d;
+    background-color: #2c2e3d;
     margin: 0;
     position: relative;
     top:90%;
