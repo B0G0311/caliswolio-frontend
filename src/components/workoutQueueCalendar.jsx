@@ -32,7 +32,7 @@ const WorkoutQueueCalendar = () => {
                 events={events}
                 startAccessor="start"
                 endAccessor="end"
-                views={["month"]}
+                views={["month", "agenda"]}
                 style={{ height: 500, backgroundColor: "#2c2e3d", color: "#dc404d"}}
             />
         </div>

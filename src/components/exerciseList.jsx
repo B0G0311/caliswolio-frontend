@@ -6,7 +6,7 @@ import PickDate from './datePicker';
 import '../css/exerciseList.css'
 
 function ExerciseList() {
-  const { selectedLevel, selectedCategory, selectedExercises, setSelectedExercises, setSelectedCategory, setSelectedLevel, setExerciseListIsLoaded, isMember, setActivePage, postPriorWorkout, selectExercises, postTemplateWorkout, postFutureWorkout, saveData, setSaveData} = useContext(WorkoutContext)
+  const { selectedLevel, selectedCategory, selectedExercises, setSelectedExercises, setSelectedCategory, setSelectedLevel, setExerciseListIsLoaded, isMember, setActivePage, postPriorWorkout, selectExercises, postTemplateWorkout, postFutureWorkout, setSaveData} = useContext(WorkoutContext)
   const [openDropdown, setOpenDropdown] = useState(null);
 
   const handleTextChange = (e) => {
@@ -149,7 +149,7 @@ function ExerciseList() {
                   })
                   setExerciseListIsLoaded(false)
                 }
-              }}>Save</button>
+              }}>Save As Template</button>
             </div>
           ) : null}
         </div>
