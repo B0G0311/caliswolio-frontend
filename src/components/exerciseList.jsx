@@ -127,7 +127,7 @@ function ExerciseList() {
           {openDropdown === "save" ? (
             <div className="infoPicker">
               <h3>Choose a name for your workout</h3>
-              <input onChange={handleTextChange} type="text" id="workoutName" name="workoutName" placeholder="Workout Name" required></input>
+              <input onChange={handleTextChange} type="text" id="workoutName" name="workoutName" className='workoutSave' placeholder="Workout Name" required></input>
               <button type='submit' id='save' className='saveWorkoutButton' form='exerciseForm' onClick={(e) => {
                 e.preventDefault()
                 if (isMember) {
@@ -157,11 +157,11 @@ function ExerciseList() {
           {openDropdown === "saveforlater" ? (
             <div className="infoPicker">
               <h3>Choose a name for your workout</h3>
-              <input onChange={handleTextChange} type="text" id="workoutName" name="workoutName" placeholder="Workout Name" required></input>
+              <input onChange={handleTextChange} type="text" id="workoutName" name="workoutName" className='workoutSave' placeholder="Workout Name" required></input>
               <h3>Choose a date for your workout</h3>
               <PickDate />
 
-              <button type='submit' id="saveforlater" className='saveWorkoutButton' form='exerciseForm' onClick={(e) => {
+              <button type='submit' id="saveforlater" className='saveWorkoutButton2' form='exerciseForm' onClick={(e) => {
                 e.preventDefault()
                 if (isMember) {
                   postFutureWorkout()
