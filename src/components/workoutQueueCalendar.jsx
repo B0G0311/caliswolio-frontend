@@ -3,6 +3,7 @@ import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import WorkoutContext from "../context/workoutContext";
+import '../css/workoutQueueCalendar.css'
 
 const localizer = momentLocalizer(moment);
 
@@ -26,12 +27,13 @@ const WorkoutQueueCalendar = () => {
     return (
         <div>   
             <Calendar
+                className="workoutCalendar"
                 localizer={localizer}
                 events={events}
                 startAccessor="start"
                 endAccessor="end"
                 views={["month"]}
-                style={{ height: 500 }}
+                style={{ height: 500, backgroundColor: "#2c2e3d", color: "#dc404d"}}
             />
         </div>
     );  

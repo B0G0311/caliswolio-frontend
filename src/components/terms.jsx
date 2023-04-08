@@ -47,7 +47,7 @@ export default function Terms(){
             </section>
           </div>
       </form>
-      <div className="Submit_Button">
+      <div className="SubmitButton">
           <button type="submit" form="terms_form" className="Terms_Submit">Log in</button>
       </div>          
 </div>

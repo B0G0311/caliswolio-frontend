@@ -76,7 +76,7 @@ export default function Level()
                   </section>
                 </div>
             </form>
-            <div className="Submit_Button">
+            <div className="SubmitButton">
           <button type="submit" form="level_form" className="Level_Submit">Confirm Level</button>
             </div>
         </div>

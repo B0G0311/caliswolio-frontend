@@ -40,7 +40,7 @@ function Category()
                 </div>
             </form>
 
-            <div className="Submit_Button">
+            <div className="SubmitButton">
                 <button type="submit" form="submit_category" className="Category_Submit">Confirm Category</button>
             </div> 
         </div>
