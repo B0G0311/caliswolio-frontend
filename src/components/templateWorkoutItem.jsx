@@ -39,7 +39,7 @@ function TemplateWorkoutItem() {
                     toggleDropdown(workout.workout.template_id)
                     setActivePage('TemplateWorkoutList')
                     }}>
-                    {getLevelID(workout.workout.level_id)} {workout.workout.category} Workout
+                    {workout.workout.name}
                 </button>
                 {isOpen && (
                     <div id={`dropdown_content_${workout.workout.template_id}`} className='dropdown_content'>
