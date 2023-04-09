@@ -128,7 +128,8 @@ function ExerciseList() {
             <div className="infoPicker">
               <h3>Choose a name for your workout</h3>
               <input onChange={handleTextChange} type="text" id="workoutName" name="workoutName" className='workoutSave' placeholder="Workout Name" required></input>
-              <button type='submit' id='save' className='saveWorkoutButton' form='exerciseForm' onClick={(e) => {
+              <div className='pauls_new_microphone'></div>
+              <button type='submit' id='save' className='saveWorkoutButton2' form='exerciseForm' onClick={(e) => {
                 e.preventDefault()
                 if (isMember) {
                   postTemplateWorkout()
