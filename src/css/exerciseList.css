@@ -63,7 +63,7 @@
     text-align: center;
 }
 
-.workoutSave, .saveWorkoutButton2, .react-datepicker-ignore-onclickoutside {
+.workoutSave, .saveWorkoutButton2, .datePickerColor {
     margin-top: 1%;
     position: relative;
     top: 50%;
