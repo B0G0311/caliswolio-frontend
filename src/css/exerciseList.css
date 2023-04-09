@@ -83,6 +83,11 @@
     text-align: center;
 }
 
+.datePickerColor {
+    background-color: #2c2e3d;
+    color: #dc404d;
+}
+
 .saveWorkoutButton, .completeWorkoutButton {
     margin-top: 1%;
     position: relative;

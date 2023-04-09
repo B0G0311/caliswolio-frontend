@@ -18,7 +18,7 @@ function PickDate() {
         <div>
         {(
             <div>
-            <DatePicker
+            <DatePicker className = "datePickerColor"
                 selected={date}
                 onChange={onChange}
                 dateFormat="MM-dd-yyyy"
