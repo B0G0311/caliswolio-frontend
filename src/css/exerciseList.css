@@ -7,10 +7,11 @@
     border-radius: 0.3rem;
     display: inline-block;
     position: relative;
+    left: 290%;
 }
 
 .react-datepicker__month-container {
-position: relative; 
+position: relative;
 }
 
 .react-datepicker__current-month, .react-datepicker-time__header, .react-datepicker-year-header {
