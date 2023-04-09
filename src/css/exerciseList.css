@@ -1,3 +1,39 @@
+.react-datepicker {
+    font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+    font-size: 0.8rem;
+    background-color: #2c2e3d;
+    color: #dc404d;
+    border: 1px solid #aeaeae;
+    border-radius: 0.3rem;
+    display: inline-block;
+    position: relative;
+}
+
+.react-datepicker__current-month, .react-datepicker-time__header, .react-datepicker-year-header {
+    margin-top: 0;
+    color: #dc404d;
+    font-weight: bold;
+    font-size: 0.944rem;
+}
+
+.react-datepicker__day-name, .react-datepicker__day, .react-datepicker__time-name {
+    color: #dc404d;
+    display: inline-block;
+    width: 1.7rem;
+    line-height: 1.7rem;
+    text-align: center;
+    margin: 0.166rem;
+}
+
+.react-datepicker__header {
+    text-align: center;
+    background-color: #393c50;
+    border-bottom: 1px solid #aeaeae;
+    border-top-left-radius: 0.3rem;
+    padding: 8px 0;
+    position: relative;
+}
+
 .header {
     font-family: Inter, sans-serif;
     align-items: center;
@@ -27,7 +63,7 @@
     text-align: center;
 }
 
-.workoutSave, .saveWorkoutButton2 {
+.workoutSave, .saveWorkoutButton2, .react-datepicker-ignore-onclickoutside {
     margin-top: 1%;
     position: relative;
     top: 50%;
