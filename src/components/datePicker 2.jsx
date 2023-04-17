@@ -9,15 +9,15 @@ import "react-datepicker/dist/react-datepicker.css";
 
 function PickDate() {
     const { date, setDate } = useContext(WorkoutContext);
-
+    
     const onChange = (date) => {
         setDate(date);
     };
-
+    
     return (
         <div className="row justify-content-md-center">
         {(
-
+            
             <div class="col-lg-6 d-flex justify-content-md-center input-group ">
                 <div class="input-group datepicker-sizing">
                     <div class="input-group-prepend">
@@ -29,11 +29,11 @@ function PickDate() {
                 dateFormat="MM-dd-yyyy"
                 aria-label="Default" aria-describedby="inputGroup-sizing-default"
             />
-
+            
             </div>
             </div>
         )}
-
+        
         </div>
     );
 }

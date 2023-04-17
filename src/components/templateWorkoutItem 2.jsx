@@ -34,7 +34,7 @@ function TemplateWorkoutItem() {
 
             return (
 
-
+                
                 <div>
             <div class="row justify-content-md-center  edits-row-main-button-workout-completed">
                 <div key={workout.workout.template_id} className='col-lg-12 d-flex justify-content-center edits-row-main-button-workout-completed '>
@@ -43,7 +43,7 @@ function TemplateWorkoutItem() {
                     toggleDropdown(workout.workout.template_id)
                     setActivePage('TemplateWorkoutList')
                     }}>
-                        Workout Name: &nbsp;
+                        Workout Name: &nbsp; 
                     {workout.workout.name}
                 </button>
                 </div>
@@ -56,8 +56,8 @@ function TemplateWorkoutItem() {
                             return(
 
                                 <div class='edit-items-prior-workout w-100'>
-
-                                        <li class="list-group-item bg-transparent border-0 mt-3  pt-0 pb-1">
+                                             
+                                        <li class="list-group-item bg-transparent border-0 mt-3  pt-0 pb-1">                                   
                                             <div class="input-group ">
                                             <div class="input-group-prepend">Exercise:</div>
                                             </div>
@@ -69,11 +69,11 @@ function TemplateWorkoutItem() {
 
 
                             )
-
+                           
                         })}
                          </ul>
-
-
+                          
+                    
                     </div>
                 )}
                 </div>

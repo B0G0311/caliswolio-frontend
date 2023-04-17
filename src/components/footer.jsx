@@ -1,9 +1,9 @@
 import React from "react";
 import { useContext } from "react";
 import WorkoutContext from "../context/workoutContext";
-import "../css/footer.css"
 
-export default function Navigation() 
+
+export default function Navigation()
 {
     const { activePage, setActivePage, setPriorWorkoutListIsLoaded, setTemplateWorkoutListIsLoaded, setWorkoutQueueListIsLoaded, isMember } = useContext(WorkoutContext)
 
@@ -42,12 +42,16 @@ export default function Navigation()
             setWorkoutQueueListIsLoaded(false)
             setActivePage('MemberAccount')
         }
+        else if (activePage === 'ContactUs') {
+           setWorkoutQueueListIsLoaded(false)
+           setActivePage('SignIn')
+         }
     }
 
     // function nextLocation() {
     //     if (activePage === 'Terms') {
     //         setActivePage('Level');
-    //     } 
+    //     }
     //     else if (activePage === 'Level') {
     //         setActivePage('Category')
     //     }
@@ -57,20 +61,11 @@ export default function Navigation()
     // }
 
     return (
-        <div>
-            <nav>
-            <ul>
-                {(activePage !== "SignIn" && activePage !== 'ExerciseList' && activePage !== 'MemberAccount') && (
-                    <button onClick={() => prevLocation()} value="Back" className="btn-link" id="GoBack">Previous</button>
-                )}
-                {/* {(activePage !== "SignIn" && 
-                activePage !== 'Register' && 
-                activePage !== 'Login' &&
-                activePage !== 'ExerciseList') && (
-                    <button onClick={() => nextLocation()} value="Forward" className="btn-link" id="GoForward">Next</button>
-                )} */}
-            </ul>
-            </nav>
-        </div>
+        <nav class ='footer-edits'>
+           
+        {(activePage !== "SignIn" && activePage !== 'ExerciseList' && activePage !== 'MemberAccount') && (
+            <button type="button" onClick={() => prevLocation()} value="Back" className="btn btn-link btn-lg footer-button-edit-color" id="GoBack">Previous</button>
+        )}
+        </nav>
     );
 };

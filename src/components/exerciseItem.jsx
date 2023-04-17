@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import WorkoutContext from '../context/workoutContext';
-import '../css/exerciseItem.css';
+
 
 function ExerciseItem() {
   const { selectedExercises, setSelectedExercises, exerciseListIsLoaded, setActivePage, rerollExercise } = useContext(WorkoutContext);
@@ -69,58 +69,87 @@ function ExerciseItem() {
 
   if (exerciseListIsLoaded) {
     return (
-      <div className='exerciseListItems'>
+            <div className='container-fluid exercise-items-page-workouts'>
         {selectedExercises.exercises.map((exercise) => {
           const isOpen = openDropdown === exercise.exercise_id;
 
           return (
-            <div key={exercise.exercise_id} className='exerciseItem'>
-              <button className='exerciseName' onClick={(e) => {
+            <div >
+              <div class="row justify-content-md-center">
+            <div key={exercise.exercise_id} className='col-lg-8 d-flex justify-content-center '>
+              <button className=' btn btn-lg btn-block btn-outline-primary btn-edit-workout-color pt-4 pb-4' onClick={(e) => {
                 e.preventDefault()
                 toggleDropdown(exercise.exercise_id)
                 setActivePage('ExerciseList')
                 }}>
                 Exercise: {exercise.name}
               </button>
+              </div>
+              </div>
+
               {isOpen && (
-                <div id={`dropdown_content_${exercise.exercise_id}`} className='dropdown_content'>
-                  <div className='exerciseEdit'>
-                    <p className='exerciseSets'>Sets: {exercise.sets}</p>
-                    <button type='button' className='increaseSets' id='moreSets'  onClick={(e) => {
+                <div id={`dropdown_content_${exercise.exercise_id}`} class="row justify-content-md-center ">
+                  <div class="col-lg-8 d-flex justify-content-center ">
+                    <div class='exercise-items-edits-cols'>
+                    <div class='exercise-items-edits-cols-test'>
+                    <p className='exercise-items-edits-cols-top'>Sets: &nbsp; &nbsp;
+
+                    {exercise.sets}  &nbsp; &nbsp;
+
+
+                    <button type='button' className='' id='moreSets'  onClick={(e) => {
                       e.preventDefault()
                       changeSets(exercise.exercise_id, 1)
                       setActivePage('ExerciseList')
                     }}>+</button>
-                    <button type='button' className='decreaseSets' id='lessSets'  onClick={(e) => {
+                    <button type='button' className='' id='lessSets'  onClick={(e) => {
                       e.preventDefault()
                       changeSets(exercise.exercise_id, -1)
                       setActivePage('ExerciseList')
-                    }}>-</button>
+                    }}>-</button> </p>
+                 </div>
+                 </div>
                   </div>
-                  
-                  <div className='exerciseEdit'>
-                    <p className='exerciseReps'>Reps: {exercise.reps}</p>
-                      <button type='button' className='increaseReps' id='moreReps'  onClick={(e) => {
+
+
+                  <div class="col-lg-8 d-flex justify-content-center">
+                  <div class='exercise-items-edits-cols'>
+                  <div class='exercise-items-edits-cols-test'>
+                    <p className='exercise-items-edits-cols-middle'>Reps: &nbsp; {exercise.reps} &nbsp;
+                      <button type='button' className='' id='moreReps'  onClick={(e) => {
                       e.preventDefault()
                       changeReps(exercise.exercise_id, 1)
                       setActivePage('ExerciseList')
                     }}>+</button>
-                      <button type='button' className='decreaseReps' id='lessReps'   onClick={(e) => {
+                      <button type='button' className='' id='lessReps'   onClick={(e) => {
                       e.preventDefault()
                       changeReps(exercise.exercise_id, -1)
                       setActivePage('ExerciseList')
-                    }}>-</button>
+                    }}>-</button> </p>
                   </div>
-                  
-                  <p className='exerciseDescription'>{exercise.description}</p>
-                  <p><button type='button' id='reroll' className='rerollExercise' onClick={(e) => {
+                  </div>
+                  </div>
+
+
+                  <div class="col-lg-8 d-flex justify-content-center">
+                  <div class='exercise-items-edits-cols-bottom-button'>
+                  <p className=''>{exercise.description}</p>
+                  <div class='exercise-items-edits-cols-test-button'>
+                    <button type='button' id='reroll' className='btn btn-light ' onClick={(e) => {
                       e.preventDefault()
                       reroll(exercise.exercise_id)
                       setActivePage('ExerciseList')
-                    }}>Reroll Exercise</button></p>
+                    }}>Reroll Exercise</button></div>
                 </div>
+                </div>
+                </div>
+
+
+
               )}
             </div>
+
+
           );
         })}
       </div>

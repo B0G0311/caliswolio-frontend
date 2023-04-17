@@ -9,16 +9,8 @@ function PriorWorkoutList(){
 
     if (Object.keys(priorWorkoutItems).length === 0) {
         return (
-            <div class="container-fluid page-container-configuration-workoutlist ">
-            <div class="row justify-content-md-center">
-                <div class="col-lg-8 d-flex justify-content-center">
-                <h3 class="configured-page-heading">Workout Log</h3>
-                </div>
-                </div>
-                <div class="row justify-content-md-center"></div>
-            <div class="col-lg-12 d-flex justify-content-center workout-log-div-size-edit"><h4>You have no workouts to display</h4></div>
-            <div class="w-100"><br></br><br></br></div>
-                
+            <div className="priorWorkoutList">
+                <p>You have no prior workouts to display</p>
             </div>
         )}
 
@@ -32,20 +24,20 @@ function PriorWorkoutList(){
                 <div class="row justify-content-md-center"></div>
                 <div class="col-lg-12 d-flex justify-content-center workout-log-div-size-edit">
                     <form class="workout-log-div-size-edit" id='priorWorkoutForm'>
-
-
-
-
-
-
-
+                
+                        
+                    
+                
+                
+            
+                
                 <PriorWorkoutItem />
             </form>
             </div>
             </div>
-
+        
     )
-}
+}  
 
 
 export default PriorWorkoutList;

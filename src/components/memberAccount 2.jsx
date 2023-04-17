@@ -12,7 +12,7 @@ import WorkoutContext from '../context/workoutContext';
     useEffect((e) => {
         if(priorWorkoutListIsLoaded){
             setActivePage('PriorWorkoutList')
-        }
+        } 
         if(templateWorkoutListIsLoaded){
             setActivePage('TemplateWorkoutList')
         }
@@ -21,7 +21,7 @@ import WorkoutContext from '../context/workoutContext';
         }
     }, [priorWorkoutListIsLoaded, templateWorkoutListIsLoaded, workoutQueueListIsLoaded, setActivePage])
 
-    return(
+    return(      
 
         <div class="container-fluid page-container-configuration ">
             <div class="row justify-content-md-center">
@@ -38,7 +38,7 @@ import WorkoutContext from '../context/workoutContext';
                 e.preventDefault()
                 await fetchPriorWorkouts()
             }} className='btn btn-outline-light btn-lg btn-block' id='checkWL'>Workout Log</button>
-            <br/><br/>
+            <br/><br/> 
 
             <button onClick={async (e) => {
                 e.preventDefault()

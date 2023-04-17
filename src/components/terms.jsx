@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import WorkoutContext from '../context/workoutContext';
-import '../css/terms.css';
+// import '../css/terms.css';
 
 export default function Terms(){
   const { setActivePage } = useContext(WorkoutContext)
@@ -11,45 +11,49 @@ export default function Terms(){
       e.preventDefault()
       setActivePage('Level')
     }}>
-          <div className = "Safety_Terms">
-            <section>
-              <p>Wow! these are some great terms and conditions!</p>
-              <br></br>
-              <p><a href={"/"}>Safety Terms</a></p>
-              <br></br>
-              <div className="checkbox-wrapper">
-                <input type="checkbox" id="Agree_Safety" name="Terms&Cond" value="AcceptSaftey" required/>
-                <svg viewBox="0 0 35.6 35.6">
-                  <circle className="background" cx="17.8" cy="17.8" r="17.8"></circle>
-                  <circle className="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
-                  <polyline className="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
-                </svg>
-              </div>
-              <label htmlFor="Agree_Safety"> Accept Safety Terms</label>
-            </section>
-        </div>
+          <div class="container-fluid page-container-configuration">
 
-          <div className = "Liability_Terms">
-            <section>
-              <p> Liability terms, uh. Pretend there's stuff talking about liability here.</p>
-              <br></br>
-              <p><a href="/">Liability Terms</a></p>
-              <br></br>
-              <div className="checkbox-wrapper">
-                <input type="checkbox" id="Agree_Liability" name="Terms&Cond" value="AcceptSaftey" required/>
-                <svg viewBox="0 0 35.6 35.6">
-                  <circle className="background" cx="17.8" cy="17.8" r="17.8"></circle>
-                  <circle className="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
-                  <polyline className="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
-                </svg>
+          <div class="row justify-content-md-center">
+              <div class="col-lg-6">
+                <h3 class="terms-conditions">Terms and Conditions</h3>
               </div>
-              <label htmlFor="Agree_Liability"> Accept Liability Terms</label>
-            </section>
+            </div>
+
+            <div class="row justify-content-md-center">
+              <div class="col-lg-5">
+                <h4>By using this application, I understand that there are risks involved with exercising and I should use caution while exercising.</h4>
+              </div>
+            </div>
+
+            <div class="row justify-content-md-center">
+              <div class="col-lg-5 safety-checkbox">
+                <input type="checkbox" id="Agree_Safety" name="Terms&Cond" value="AcceptSaftey" required/>
+                <label htmlFor="Agree_Safety">&nbsp;&nbsp;&nbsp;I agree</label>
+              </div>
+            </div>
+            
+            <div class="row justify-content-md-center">
+              <div class="col-lg-5">
+                <h4>By using this application, I accept full liability of the risks involved with exercising and release CaliSwolio of liability.</h4>
+              </div>
+            </div>
+
+            <div class="row justify-content-md-center">
+              <div class="col-lg-5 safety-checkbox">
+                <input type="checkbox" id="Agree_Liability" name="Terms&Cond" value="AcceptSaftey" required/>
+                <label htmlFor="Agree_Liability">&nbsp;&nbsp;&nbsp;I agree</label>
+              </div>
+            </div>
+            
+            <div class="row justify-content-md-center">
+              <div class="col-lg-5 d-flex justify-content-center terms-button-div">
+                <button type="submit" form="terms_form" className="btn btn-outline-light btn-lg btn-block terms-button">Continue</button>
+              </div>
+            </div>
+
+            </div>
+            </form>
           </div>
-      </form>
-      <div className="SubmitButton">
-          <button type="submit" form="terms_form" className="Terms_Submit">Log in</button>
-      </div>          
-</div>
-  )
-}
+          
+          )
+  }

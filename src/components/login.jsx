@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 import WorkoutContext from "../context/workoutContext";
-import"../css/login.css"
+
 
 export default function Login()
 {
@@ -22,39 +22,51 @@ export default function Login()
   }
 
   return(
-      <div className="Login">
-        <div className="Login_Title">
-          <h1>Welcome Back!</h1>
-          </div>
-        <h2>Please Enter:</h2>
-        <form id="login_form" onSubmit={async (e) => {
-              e.preventDefault()
-              if (await validateCredentials()) {
-                await catchUser()
-                setActivePage('MemberAccount')
-              }
-              else {
-                alert("This email is not associated with an account. Please try again.")
-                setActivePage('Login')
-              }
-            }
-        }>
-          <div>
-          
-            <label> Email: 
-                <input onChange={handleTextChange} type="text" className="Info" id="Email" value={signInData.email.trim() || ''} required/>
-                <br/><br/>
-            </label>
 
-            <label> Password: 
-                <input onChange={handleTextChange} type="text" className="Info" id="Password" value={signInData.password || ''} required/>
-                <br/><br/>
-            </label>       
+      <div className="container-fluid page-container-configuration justify-content-md-center">
+        <div class="row justify-content-md-center">
+          <div class="col-lg-6">
+                <h3 class="configured-page-heading">Welcome Back!</h3>
+          </div>
+        </div>
+
+            <form id="login_form" onSubmit={async (e) => {
+                  e.preventDefault()
+                  if (await validateCredentials()) {
+                    await catchUser()
+                    setActivePage('MemberAccount')
+                  }
+                  else {
+                    alert("This email is not associated with an account. Please try again.")
+                    setActivePage('Login')
+                  }
+                }
+        }>
+          <div class="configured-form-div justify-content-md-center">
+            <div class="form-group row">  
+
+                <label class=" col-sm-4 col-form-label"><h4>Email:</h4></label>
+                <div class="form-group col-sm-12">
+                  <input onChange={handleTextChange} type="text" className="Info form-control" id="Email" value={signInData.email.trim() || ''} required/>
+
+                </div>
+            </div>
+
+            <div class="form-group row last-line-form">
+
+                  <label class="col-sm-4 col-form-label"><h4>Password:</h4></label>
+                  <div class="form-group col-sm-12">
+                  <input onChange={handleTextChange} type="text" className="Info form-control" id="Password" value={signInData.password || ''} required/>
+                </div>
+
+            </div>
+            <div class="last-line-form-button">
+              <button type="submit" form="login_form" className="btn btn-outline-light btn-lg btn-block">Log in</button>
+              </div>
           </div>
         </form>
-        <div className="Memberlogin">
-                <button type="submit" form="login_form" className="Login_Button">Log in</button>
-        </div>  
+
+
       </div>
     )
 }

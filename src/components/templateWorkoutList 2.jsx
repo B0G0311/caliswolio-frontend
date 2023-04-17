@@ -15,10 +15,7 @@ function TemplateWorkoutList(){
                 <h3 class="configured-page-heading">Workout Templates</h3>
                 </div>
                 </div>
-                <div class="row justify-content-md-center"></div>
-            <div class="col-lg-12 d-flex justify-content-center workout-log-div-size-edit"><h4>You have no templates to display</h4></div>
-            <div class="w-100"><br></br><br></br></div>
-                
+                <p>You have no templates to display</p>
             </div>
         )}
 

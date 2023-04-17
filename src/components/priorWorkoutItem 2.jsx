@@ -28,7 +28,7 @@ function PriorWorkoutItem() {
 
     if (priorWorkoutListIsLoaded) {
         return (
-
+            
         <div className='container-fluid page-ending-fluid-bottom-div-edits'>
             {priorWorkoutItems.map((workout) => {
             const isOpen = openDropdown === workout.workout.prior_workout_id;
@@ -45,20 +45,20 @@ function PriorWorkoutItem() {
                     {workout.workout.when_completed}: {getLevelID(workout.workout.level_id)} {workout.workout.category} Workout
                 </button>
                 </div>
-
-
-
+                
+                
+                
                 {isOpen && (
                     <div id={`dropdown_content_${workout.workout.prior_workout_id}`} className='row justify-content-md-center for-drop-down-prior-workout'>
                         <ul class="list-group for-drop-down-prior-workout">
                         {workout.exercises.map((exercise) => {
                             return(
-
-
-
+                                
+                                        
+                                        
                                         <div class='edit-items-prior-workout w-100'>
-
-                                        <li class="list-group-item bg-transparent border-0 mt-3  pt-0 pb-1">
+                                             
+                                        <li class="list-group-item bg-transparent border-0 mt-3  pt-0 pb-1">                                   
                                             <div class="input-group ">
                                             <div class="input-group-prepend">Exercise:</div>
                                             </div>
@@ -67,23 +67,23 @@ function PriorWorkoutItem() {
                                             </label>
                                         </li>
                                         </div>
-
-
-
-
+                                 
+                                
+                                
+                           
                             )
                         })}
                         </ul>
                     </div>
-
+                    
                 )}
                 </div>
                 </div>
-
+                
             );
             })}
         </div>
-
+        
         );
     } else {
         return null;

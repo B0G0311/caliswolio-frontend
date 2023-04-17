@@ -1,17 +1,902 @@
-body {
-  color: #dc404d;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #35384b;
-  font-family: Verdana, sans-serif
+
+.footer-edits {
+    width: 100%;
+}
+.btn.btn-link.btn-lg.footer-button-edit-color {
+    color: #9FA6B2;
+    background-color: #34374C;
+    text-align: left;
+    font-size: 1.5rem;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    margin-left: 0;
+    padding-left: 15px;
+
+
 }
 
-code {
-  color: #dc404d;
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container-fluid {
+    padding: 0;
+}
+
+.landing-page {
+    width: 75%;
+    margin-top: 3%;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+
+}
+
+.page-container-configuration {
+    width: 75%;
+    margin-top: 3%;
+    background-color: #34374C;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+}
+
+.container-fluid.page-container-configuration-workoutlist {
+    width: 75%;
+    margin-top: 3%;
+    margin-bottom: 5%;
+    background-color: #34374C;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+}
+.configured-page-heading {
+        text-align: center;
+        margin-top: 5%;
+        color: #F6F6F6;
+        font-weight: 900;
+        font-size: 3.5rem;
+        margin-bottom: 10%;
+}
+
+h1 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 3rem;
+    line-height: 1.5;
+    font-weight: 900;
+    color: #F6F6F6;
+}
+
+h2 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 2.5rem;
+    line-height: 1.5;
+    font-weight: 900;
+    color: #F6F6F6;
+}
+h4 {
+    font-family: "Montserrat", sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: #F6F6F6;
+}
+
+em {
+    color: #F6F6F6;
+}
+
+.configured-form-div {
+    margin: auto;
+    width: 75%;
+}
+
+.last-line-form {
+    padding-bottom: 3%;
+}
+
+.last-line-form-button {
+    padding-bottom: 6%;
+}
+.last-line-form-button-edit-login {
+    padding-bottom: 8%;
+}
+
+.configured-form-div.justify-content-md-center.adjust-login-width-size {
+    width: 50%;
+}
+
+
+/* Header Section */
+
+#navigation {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+.navigation-head {
+    background-color: #34374C;
+}
+
+.navbar.fixed-bottom {
+    background-color: #34374C;
+
+}
+
+
+.navbar-brand {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.container-fluid .title-brand {
+    color: #EA5455;
+}
+
+.container-fluid .title-brand:hover {
+    color: #E84D63
+}
+
+.nav-item {
+    padding: 0 18px;
+
+}
+
+.nav-link {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+/* Body */
+
+body {
+    background-color: #2C2E3E;
+}
+
+/* Landing Page */
+
+
+.container-fluid .landing-page {
+    width: 80%;
+    margin: auto;
+}
+
+.title-words {
+    padding: 5%;
+    margin-top: 4%;
+
+}
+
+.container .button-group {
+    justify-content: left;
+
+}
+
+.landing-button {
+    width: 170px;
+    margin-right: 10px;
+    margin-top: 50px;
+}
+
+
+.swolio-image {
+    margin-top: 3%;
+}
+
+.testimonials {
+    text-align: center;
+    background-color: #34374C;
+    margin-top: 5%;
+}
+
+.carousel-item {
+    padding: 5% 15%;
+}
+
+/* Safety Page */
+
+
+.container-fluid.safety-page h4 {
+    line-height: 1.5;
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+.terms-conditions {
+    text-align: center;
+    margin-top: 5%;
+    color: #F6F6F6;
+    font-weight: 900;
+    font-size: 3.5rem;
+    margin-bottom: 10%;
+    text-decoration: underline;
+}
+
+.col-lg-5.safety-checkbox {
+
+    margin: 2% 0;
+    font-size: 1.5rem;
+}
+
+.terms-button {
+    margin-top: 3%;
+    margin-bottom: 15%;
+    font-family: "Montserrat", sans-serif;
+
+
+}
+
+/* At 1400 px, make width bigger */
+
+/* Workout Level Selection */
+
+
+.card-deck.level-options {
+    margin: 0 ;
+    padding-bottom: 2%;
+}
+
+.card-design {
+    border-radius: 2%;
+    color: black;
+}
+
+.card-top {
+    width: 100%;
+
+}
+
+.dumbbell-icon {
+    text-align: center;
+    color: #EA5455;
+    padding: 10% 1% 8%;
+}
+
+/* Category Seletion */
+
+.custom-column-category {
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.card-font-on-white {
+    font-family: "Montserrat", sans-serif;
+    line-height: 1.5;
+    font-size: 1.7rem;
+    font:black;
+    text-align: left;
+    text-decoration: underline;
+}
+
+.card-font-on-white-list {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    font:black;
+    text-align: left;
+}
+
+.category-page-ul {
+    display: table;
+    margin-left: 1%;
+}
+
+.card-text-width {
+    width: 80%;
+    margin: auto;
+}
+
+.card-body.mt-3.card-bottom-category {
+    margin-top: -16px !important;
+}
+
+/* Register Page */
+
+
+/* Login page  */
+
+.form-group.row {
+    margin-bottom: -10px;
+}
+
+/* ExerciseList Page */
+h3.configured-page-heading-primary {
+    text-align: center;
+        margin-top: 5%;
+        color: #F6F6F6;
+        font-weight: 900;
+        font-size: 3.5rem!important;
+        width: 100%;
+        margin-bottom: 1%;
+}
+h3.configured-page-heading-secondary {
+    text-align: center;
+    margin-top: 0%;
+    color: #F6F6F6;
+    font-weight: 900;
+    font-size: 3.0rem !important;
+    margin-bottom: 10%;
+    width: 100%;
+    text-decoration: underline;
+}
+
+.name-workout-drop-down {
+    border-left: 1px solid #9FA6B2;
+    border-right: 1px solid #9FA6B2;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.name-workout-drop-down-bottom {
+    border-left: 1px solid #9FA6B2;
+    border-right: 1px solid #9FA6B2;
+    border-bottom: 1px solid #9FA6B2;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.bottom-menu-option {
+    padding-bottom: 6%;
+}
+
+.bottom-menu-option-future {
+    padding-top: 3%;
+    padding-bottom: 6%;
+}
+.save-as-template-div {
+    background-color: #2c2e3d;
+}
+
+.top-save-as-template-col {
+    padding-top: 3%;
+}
+
+.middle-save-date-col {
+    padding-top: 2%;
+}
+
+.middle-save-date-col h3{
+    font-size: 1.5rem;
+    text-decoration: underline;
+}
+
+.middle-save-as-template-col {
+    padding-top: 2%;
+}
+
+.top-save-as-template-col h3 {
+    font-size: 1.5rem;
+    text-decoration: underline;
+}
+
+.date-picker-changes {
+    text-align: center;
+}
+
+.input-group.datepicker-sizing {
+    width: 100%
+}
+
+.datePickerColor.form-control {
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: center;
+
+}
+
+.container-fluid.name-workout-drop-down-bottom {
+    background-color: #2c2e3d;
+}
+
+.exercise-items-edits-cols-top {
+    padding-top: 10%;
+    margin-bottom: 3%;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.5rem;
+}
+
+.exercise-items-edits-cols-top button {
+    font-size: 1.2rem;
+}
+
+.exercise-items-edits-cols-middle {
+    margin-bottom: 3%;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.5rem;
+}
+
+.exercise-items-edits-cols-middle button {
+
+    font-size: 1.2rem;
+}
+
+.exercise-items-edits-cols {
+    border-left: 1px solid #EA5455;
+    border-right: 1px solid #EA5455;
+    width: 100%;
+    margin-left: -15px;
+    margin-right: -15px;
+    background-color: #2c2e3d;
+
+}
+.exercise-items-edits-cols-bottom-button {
+        border-bottom: 1px solid #EA5455;
+        border-left: 1px solid #EA5455;
+        border-right: 1px solid #EA5455;
+        width: 100%;
+        margin-left: -15px;
+        margin-right: -15px;
+        background-color: #2c2e3d;
+
+}
+
+.exercise-items-edits-cols-test {
+    width: 20%;
+    margin: auto;
+    padding-left: 35px;
+}
+
+.exercise-items-edits-cols-test-button {
+    margin: auto;
+    text-align: center;
+   padding-bottom: 3%;
+}
+
+.exercise-items-edits-cols-test-button button {
+    width: 300px;
+
+}
+
+.exercise-items-page-workouts {
+    margin-bottom: 5%;
+}
+
+.btn-edit-workout-color {
+    color: white;
+    border-color: #EA5455 !important;
+}
+
+.button-color-change-bottom-list {
+    color: white;
+}
+
+.btn.btn-lg.btn-block.btn-outline-primary.btn-edit-workout-color.pt-4.pb-4:hover {
+    background-color: #E84D63;
+}
+
+.col-lg-8.d-flex.justify-content-center.workout-log-div-size-edit {
+    width: 100%;
+
+}
+
+#priorWorkoutForm.workout-log-div-size-edit {
+    width: 100%;
+    margin-bottom: 3%;
+}
+
+#templateWorkoutForm.workout-log-div-size-edit {
+    width: 100%;
+    margin-bottom: 3%;
+}
+
+.edit-items-prior-workout {
+    width: 100%;
+    margin: auto;
+    font-size: 1.2rem;
+    text-align: center;
+
+}
+.row.justify-content-md-center.edits-row-main-button-workout-completed {
+    width: 75%;
+    margin: auto;
+}
+.form-control.edits-for-form-control-prior-workout-dropdown {
+    text-align: left;
+    width: 350px;
+    align-items: center;
+}
+
+.list-group.for-drop-down-prior-workout {
+    padding-bottom: 4%;
+    border: 1px solid #EA5455;
+    width: 100%;
+
+}
+
+.row.justify-content-md-center.for-drop-down-prior-workout {
+    width: 100%;
+    margin-left: 15px;
+    margin-right: 15px;
+    background-color: #2C2E3E;
+}
+
+.list-group-item.bg-transparent.border-0.mt-3.pt-0.pb-1 {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.configured-form-div2.justify-content-md-center {
+    width: 90%;
+    margin: auto;
+}
+
+.container-fluid.page-ending-fluid-bottom-div-edits {
+    margin-bottom: 4%;
+
+}
+
+.form-group.col-lg-12.calender-sizing-after-tweaks {
+    width: 100%;
+}
+
+.page-container-configuration-calender-edits.rbc-calendar{
+    height: 700px;
+    background-color: #2c2e3d;
+
+    font-size: 1.5rem;
+}
+
+.form-row.calender-sizing-after-tweaks-row {
+    width: 100%;
+    padding-bottom: 6%;
+}
+
+.form-group.col-md-12.calender-sizing-after-tweaks {
+
+    margin-bottom: 6%;
+}
+
+.container-fluid.page-container-configuration.justify-content-md-center.calender-edit-page-full {
+    margin-bottom: 6%;
+}
+
+.rbc-btn-group {
+    background-color: #2c2e3d;
+
+}
+
+.rbc-btn-group button {
+    color: white !important;
+}
+
+.rbc-toolbar {
+    color: white !important;
+    font-size: 2.5rem;
+}
+
+.rbc-toolbar button {
+    font-size: 1.5rem;
+    background-color: #2c2e3d ;
+}
+
+
+.rbc-row {
+    font: white;
+}
+
+.rbc-day-bg.rbc-off-range-bg {
+    background-color:  #34374C;
+}
+
+.rbc-day-bg.rbc-today {
+    background-color: #E84D63;
+}
+
+.configured-page-heading-calender {
+    text-align: center;
+    margin-top: 5%;
+    color: #F6F6F6;
+    font-weight: 900;
+    font-size: 3.5rem;
+    margin-bottom: 3%;
+}
+
+h3.configured-page-heading {
+    width: 90%;
+}
+h3.configured-page-heading-primary {
+    font-size: 1.6rem;
+}
+h3.configured-page-heading-secondary {
+    font-size: 1.4rem;
+}
+
+.col-lg-6.d-flex.justify-content-center.input-group.mb-3.top-save-as-template-col {
+    width: 90%;
+    margin: auto;
+}
+
+.col-lg-6.d-flex.justify-content-center.input-group.mb-3.middle-save-as-template-col {
+    width: 90%;
+    margin: auto;
+}
+
+.col-lg-6.d-flex.justify-content-md-center.input-group {
+    width: 90%;
+    margin: auto;
+}
+
+#saveforlater.saveWorkoutButton2.btn.btn-light.btn-block {
+    width: 90%;
+    margin: auto;
+}
+
+#save.saveWorkoutButton2.btn.btn-light.btn-block {
+    width: 90%;
+}
+.rbc-active {
+    background-color: #E84D63 !important;
+}
+
+.rbc-toolbar-label {
+    font-size: 1.5rem;
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 767px) {
+    h1.title-phrase {
+        font-size: 1.5rem;
+
+    }
+
+    button#Login.btn.btn-light.btn-lg.landing-button {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    button#Register.btn.btn-outline-light.btn-lg.landing-button {
+        margin-top: 0;
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    button.btn.btn-outline-light.btn-lg.landing-button {
+        margin-top: 0;
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    img#Swole.title-image {
+        width: 250px;
+        height: 250px;
+    }
+
+   .testimonials {
+    display: none;
+   }
+
+    .container-fluid.landing-page {
+        margin-bottom: 6%;
+    }
+
+    a.navbar-brand.title-brand {
+        font-size: 1.7rem;
+    }
+
+    h3.configured-page-heading {
+        font-size: 1.5rem;
+    }
+
+    .configured-form-div.justify-content-md-center.adjust-login-width-size {
+        width: 90%;
+    }
+    .configured-form-div.justify-content-md-center.adjust-login-width-size h4{
+        font-size: 1.3rem;
+    }
+
+    button#GoBack.btn.btn-link.btn-lg.footer-button-edit-color {
+        font-size: 1.3rem;
+    }
+
+    button#newWorkout.btn.btn-outline-light.btn-lg.btn-block {
+        width: 90%;
+        margin: auto;
+        font-size: 1.1rem;
+    }
+
+    button#checkWL.btn.btn-outline-light.btn-lg.btn-block {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: -40px;
+        font-size: 1.1rem;
+    }
+
+    button#checkWW.btn.btn-outline-light.btn-lg.btn-block {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: -40px;
+        font-size: 1.1rem;
+    }
+    button#checkFWQ.btn.btn-outline-light.btn-lg.btn-block {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: -40px;
+        font-size: 1.1rem;
+    }
+
+    .card.bg-light.mb-4.card-design h3 {
+        font-size: 1.1rem;
+    }
+    #Beginner.btn.btn-outline-dark.btn-lg.btn-block {
+        font-size: 1.1rem;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    #Intermediate.btn.btn-outline-dark.btn-lg.btn-block {
+        font-size: 1.1rem;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    #Advanced.btn.btn-outline-dark.btn-lg.btn-block {
+        font-size: 1.1rem;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .container-fluid.page-container-configuration {
+        width: 100%;
+    }
+    .col-lg-10.last-line-form-button {
+        margin-bottom: 1%;
+    }
+    .row.custom-column-category.justify-content-md-center {
+        margin-bottom: 5%;
+    }
+    .card-top.mt-4 i {
+        display: none;
+        margin: 0;
+    }
+    .card-top.mt-4 {
+        margin-top: 0 !important;
+    }
+    .card-body.mt-3 {
+        margin-top: 0 !important;
+    }
+    .card.bg-light.mb-4.card-design {
+        margin-bottom: 10px !important;
+    }
+    .configured-page-heading-calender {
+        font-size: 1.5rem;
+        margin-bottom: 6%;
+    }
+
+    .form-group.col-lg-12.calender-sizing-after-tweaks {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+    .container-fluid.page-container-configuration.justify-content-md-center.calender-edit-page-full {
+        width: 100%;
+    }
+    .page-container-configuration-calender-edits.rbc-calendar {
+        height: 420px;
+
+    }
+    span.rbc-btn-group button {
+        font-size: 1rem!important;
+    }
+    span.rbc-toolbar-label {
+        font-size: 1rem!important;
+    }
+
+    span.rbc-btn-group button {
+        font-size: 1rem !important;
+    }
+
+    div.rbc-header {
+        font-size: small;
+    }
+    div.rbc-agenda-view {
+        font-size: 1rem;
+    }
+
+    .container-fluid.page-container-configuration-workoutlist {
+        width: 100%;
+    }
+
+    .col-lg-12.d-flex.justify-content-center.workout-log-div-size-edit {
+        width: 100%;
+    }
+    .row.justify-content-md-center.edits-row-main-button-workout-completed {
+        width: 100%;
+    }
+    .col-lg-12.d-flex.justify-content-center.edits-row-main-button-workout-completed {
+        width: 100%;
+        padding: 0;
+    }
+
+    button.btn.btn-lg.btn-block.btn-outline-primary.btn-edit-workout-color.pt-4.pb-4 {
+        font-size: 1.1rem;
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+    }
+
+    .row.justify-content-md-center.for-drop-down-prior-workout {
+        margin: 0;
+    }
+
+    .form-control.edits-for-form-control-prior-workout-dropdown {
+        width: 280px;
+    }
+
+    .footer-edits {
+        width: 100%;
+    }
+    .btn.btn-link.btn-lg.footer-button-edit-color {
+        color: #9FA6B2;
+        background-color: #34374C;
+        text-align: left;
+        font-size: 1.5rem;
+        position: sticky;
+
+        bottom: 0% !important;
+
+        margin-left: 0;
+        padding-left: 15px;
+
+
+    }
+    .row.card-text-width {
+        display: none;
+    }
+
+    .card-body.mt-3.card-bottom-category {
+        margin-bottom: 1px !important;
+        padding-bottom: 5px !important;
+    }
+
+    #Lower.btn.btn-outline-dark.btn-lg.btn-block {
+        font-size: 1.1rem;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    #Upper.btn.btn-outline-dark.btn-lg.btn-block {
+        font-size: 1.1rem;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    #Full.btn.btn-outline-dark.btn-lg.btn-block {
+        font-size: 1.1rem;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .card-header {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .btn.btn-outline-light.btn-lg.btn-block {
+        font-size: 1.1rem;
+    }
+
+    .card-deck.mb-3.text-center.level-options {
+        width: 80%;
+        margin: auto;
+    }
+
+    .exercise-items-edits-cols-test {
+        width: 100%;
+    }
+
+    .exercise-items-edits-cols-top {
+        width: 100%!important;
+    }
+
+    .configured-form-div.justify-content-md-center.adjust-login-width-size {
+        margin-bottom: 5%;
+    }
+
+    #registration_form h4 {
+        font-size: 1rem;
+    }
+
+    #contactusform h4 {
+        font-size: 1rem;
+
+    }
 }

@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react';
 import WorkoutContext from '../context/workoutContext';
-import '../css/register.css';
+
 
 export default function Register(){
     const [confPass, setConfPass] = useState('')
@@ -21,7 +21,7 @@ export default function Register(){
     function validatePhoneNumber() {
         if (registrationForm.phone_number.length === 10) {
              return true;
-        } 
+        }
         alert("You have entered an invalid phone number! Please enter a 10 digit phone number!");
         return false;
     }
@@ -40,7 +40,7 @@ export default function Register(){
         if (e.target.id === 'email') {
             setRegistrationForm(prevState => ({
                 ...prevState,
-                email: e.target.value 
+                email: e.target.value
             }))
         }
         else if (e.target.id === 'pass') {
@@ -78,12 +78,16 @@ export default function Register(){
         else if (e.target.id === 'confirmpass') {
             setConfPass(e.target.value)
         }
-        
+
     }
 
     return(
-        <div>
-            <div className='Register'>
+        <div class="container-fluid page-container-configuration justify-content-md-center">
+            <div class="row justify-content-md-center">
+                <div class="col-lg-6">
+                    <h3 class="configured-page-heading">Registration</h3>
+                </div>
+            </div>
                 <form id='registration_form' onSubmit={async (e) => {
                     e.preventDefault()
                     if (validateEmail() && validatePhoneNumber() && validateBirthdate()) {
@@ -95,7 +99,7 @@ export default function Register(){
                             if (await checkIfUser()) {
                                 alert("This email is already associated with an account. If this is you, go to the Login page and click on reset password")
                                 setActivePage('Register')
-                            } 
+                            }
                             else {
                                 await addNewUser()
                                 alert("Thanks for Registering! Please enter your email and password to log in!")
@@ -104,52 +108,55 @@ export default function Register(){
                         }
                     }
                 }}>
-                    <fieldset className='account'>
-                        <label>Email:
-                            <input onChange={handleTextChange} type="text" className='Info' id='email' value={registrationForm.email || ''} required/>
-                            <br/> <br/>
-                        </label>
+                    <div class="configured-form-div justify-content-md-center">
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                            <label><h4>Email:</h4></label>
+                                <input onChange={handleTextChange} type="text" className='Info form-control' id='email' value={registrationForm.email || ''} required/>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="inputPassword4"><h4>Password:</h4></label>
+                                <input onChange={handleTextChange} type="text" className='Info form-control' id='pass' value={registrationForm.password || ''} required/>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="inputPassword4"><h4>Confirm Password:</h4></label>
+                                <input onChange={handleTextChange} type="text" className='Info form-control' id='confirmpass' required/>
+                            </div>
+                        </div>
+                        <div class="form-row last-line-form">
+                            <div class="form-group col-md-4">
+                                <label ><h4>Phone Number:</h4></label>
+                                <input onChange={handleTextChange} type="number" pattern='[0-9]*' className='Info form-control' id='phonenum' value={registrationForm.phone_number || ''} required/>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label ><h4>Birth Year:</h4></label>
+                                <input onChange={handleTextChange} type="number" pattern='[0-9]*' className='Info form-control' max='9999' id='birthyear' value={registrationForm.birth_year || ''} required/>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label><h4>Gender:</h4></label>
+                                <select onChange={handleTextChange} htmlFor='Gender' className='Info form-control' id='Gender'>
+                                    <option value='Male' id='Male'>Male</option>
+                                    <option value='Female' id='Female'>Female</option>
+                                    <option value='Other' id='Other'>Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label><h4>Zip Code:</h4></label>
+                                <input onChange={handleTextChange} type="number" pattern='[0-9]*' max='99999' className='Info form-control' id='zipcode' value={registrationForm.zipcode || ''} required/>
 
-                        <label> Password:
-                            <input onChange={handleTextChange} type="text" className='Info' id='pass' value={registrationForm.password || ''} required/>
-                            <br/> <br/>
-                        </label>
+                            </div>
+                        </div>
+                        <div class="last-line-form-button">
+                            <button type="submit" form='registration_form' className='btn btn-outline-light btn-lg btn-block '>Register</button>
+                        </div>
+                        </div>
+                    </form>
+                </div>
 
-                        <label>Confirm Password:
-                            <input onChange={handleTextChange} type="text" className='Info' id='confirmpass' required/>
-                            <br/><br/>
-                        </label>
 
-                        <label> Phone Number: 
-                            <input onChange={handleTextChange} type="number" pattern='[0-9]*' className='Info' id='phonenum' value={registrationForm.phone_number || ''} required/>
-                            <br/><br/>                     
-                        </label>
 
-                        <label>Birth Year:
-                            <input onChange={handleTextChange} type="number" pattern='[0-9]*' className='Info' max='9999' id='birthyear' value={registrationForm.birth_year || ''} required/>
-                            <br/><br/>
-                        </label>
 
-                        <label htmlFor='Gender' >Gender: 
-                            <select onChange={handleTextChange} htmlFor='Gender' className='Info' id='Gender'>
-                                <option value='Male' id='Male'>Male</option>
-                                <option value='Female' id='Female'>Female</option>
-                                <option value='Other' id='Other'>Other</option>
-                            </select>
-                            <br/> <br/>
-                        </label>
-
-                        <label > Zipcode:
-                            <input onChange={handleTextChange} type="number" pattern='[0-9]*' max='99999' className='Info' id='zipcode' value={registrationForm.zipcode || ''} required/>
-                            <br/> <br/>
-                        </label>
-                    </fieldset>
-                </form>
-            </div>
-
-            <div className='SubmitButton'>
-                    <button type="submit" form='registration_form' className='Submit_Button'>Register</button>
-            </div>
-        </div>
     )
 }
