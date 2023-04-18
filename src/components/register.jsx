@@ -82,10 +82,10 @@ export default function Register(){
     }
 
     return(
-        <div class="container-fluid page-container-configuration justify-content-md-center">
-            <div class="row justify-content-md-center">
-                <div class="col-lg-6">
-                    <h3 class="configured-page-heading">Registration</h3>
+        <div className="container-fluid page-container-configuration justify-content-md-center">
+            <div className="row justify-content-md-center">
+                <div className="col-lg-6">
+                    <h3 className="configured-page-heading">Registration</h3>
                 </div>
             </div>
                 <form id='registration_form' onSubmit={async (e) => {
@@ -108,33 +108,33 @@ export default function Register(){
                         }
                     }
                 }}>
-                    <div class="configured-form-div justify-content-md-center">
-                        <div class="form-row">
-                            <div class="form-group col-md-12">
+                    <div className="configured-form-div justify-content-md-center">
+                        <div className="form-row">
+                            <div className="form-group col-md-12">
                             <label><h4>Email:</h4></label>
                                 <input onChange={handleTextChange} type="text" className='Info form-control' id='email' value={registrationForm.email || ''} required/>
                             </div>
                         </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
+                        <div className="form-row">
+                            <div className="form-group col-md-6">
                                 <label for="inputPassword4"><h4>Password:</h4></label>
                                 <input onChange={handleTextChange} type="text" className='Info form-control' id='pass' value={registrationForm.password || ''} required/>
                             </div>
-                            <div class="form-group col-md-6">
+                            <div className="form-group col-md-6">
                                 <label for="inputPassword4"><h4>Confirm Password:</h4></label>
                                 <input onChange={handleTextChange} type="text" className='Info form-control' id='confirmpass' required/>
                             </div>
                         </div>
-                        <div class="form-row last-line-form">
-                            <div class="form-group col-md-4">
+                        <div className="form-row last-line-form">
+                            <div className="form-group col-md-4">
                                 <label ><h4>Phone Number:</h4></label>
                                 <input onChange={handleTextChange} type="number" pattern='[0-9]*' className='Info form-control' id='phonenum' value={registrationForm.phone_number || ''} required/>
                             </div>
-                            <div class="form-group col-md-3">
+                            <div className="form-group col-md-3">
                                 <label ><h4>Birth Year:</h4></label>
                                 <input onChange={handleTextChange} type="number" pattern='[0-9]*' className='Info form-control' max='9999' id='birthyear' value={registrationForm.birth_year || ''} required/>
                             </div>
-                            <div class="form-group col-md-2">
+                            <div className="form-group col-md-2">
                                 <label><h4>Gender:</h4></label>
                                 <select onChange={handleTextChange} htmlFor='Gender' className='Info form-control' id='Gender'>
                                     <option value='Male' id='Male'>Male</option>
@@ -142,13 +142,13 @@ export default function Register(){
                                     <option value='Other' id='Other'>Other</option>
                                 </select>
                             </div>
-                            <div class="form-group col-md-3">
+                            <div className="form-group col-md-3">
                                 <label><h4>Zip Code:</h4></label>
                                 <input onChange={handleTextChange} type="number" pattern='[0-9]*' max='99999' className='Info form-control' id='zipcode' value={registrationForm.zipcode || ''} required/>
 
                             </div>
                         </div>
-                        <div class="last-line-form-button">
+                        <div className="last-line-form-button">
                             <button type="submit" form='registration_form' className='btn btn-outline-light btn-lg btn-block '>Register</button>
                         </div>
                         </div>

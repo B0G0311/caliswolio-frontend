@@ -61,7 +61,7 @@ export default function Navigation()
     // }
 
     return (
-        <nav class ='footer-edits'>
+        <nav className ='footer-edits'>
            
         {(activePage !== "SignIn" && activePage !== 'ExerciseList' && activePage !== 'MemberAccount') && (
             <button type="button" onClick={() => prevLocation()} value="Back" className="btn btn-link btn-lg footer-button-edit-color" id="GoBack">Previous</button>

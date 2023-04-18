@@ -18,9 +18,9 @@ function PickDate() {
         <div className="row justify-content-md-center">
         {(
 
-            <div class="col-lg-6 d-flex justify-content-md-center input-group ">
-                <div class="input-group datepicker-sizing">
-                    <div class="input-group-prepend">
+            <div className="col-lg-6 d-flex justify-content-md-center input-group ">
+                <div className="input-group datepicker-sizing">
+                    <div className="input-group-prepend">
                         Date:
                     </div>
                 <DatePicker className = "datePickerColor form-control"

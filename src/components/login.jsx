@@ -24,9 +24,9 @@ export default function Login()
   return(
 
       <div className="container-fluid page-container-configuration justify-content-md-center">
-        <div class="row justify-content-md-center">
-          <div class="col-lg-6">
-                <h3 class="configured-page-heading">Welcome Back!</h3>
+        <div className="row justify-content-md-center">
+          <div className="col-lg-6">
+                <h3 className="configured-page-heading">Welcome Back!</h3>
           </div>
         </div>
 
@@ -42,25 +42,25 @@ export default function Login()
                   }
                 }
         }>
-          <div class="configured-form-div justify-content-md-center">
-            <div class="form-group row">  
+          <div className="configured-form-div justify-content-md-center">
+            <div className="form-group row">  
 
-                <label class=" col-sm-4 col-form-label"><h4>Email:</h4></label>
-                <div class="form-group col-sm-12">
+                <label className=" col-sm-4 col-form-label"><h4>Email:</h4></label>
+                <div className="form-group col-sm-12">
                   <input onChange={handleTextChange} type="text" className="Info form-control" id="Email" value={signInData.email.trim() || ''} required/>
 
                 </div>
             </div>
 
-            <div class="form-group row last-line-form">
+            <div className="form-group row last-line-form">
 
-                  <label class="col-sm-4 col-form-label"><h4>Password:</h4></label>
-                  <div class="form-group col-sm-12">
+                  <label className="col-sm-4 col-form-label"><h4>Password:</h4></label>
+                  <div className="form-group col-sm-12">
                   <input onChange={handleTextChange} type="text" className="Info form-control" id="Password" value={signInData.password || ''} required/>
                 </div>
 
             </div>
-            <div class="last-line-form-button">
+            <div className="last-line-form-button">
               <button type="submit" form="login_form" className="btn btn-outline-light btn-lg btn-block">Log in</button>
               </div>
           </div>

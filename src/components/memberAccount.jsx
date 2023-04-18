@@ -23,14 +23,14 @@ import WorkoutContext from '../context/workoutContext';
 
     return(
 
-        <div class="container-fluid page-container-configuration ">
-            <div class="row justify-content-md-center">
-                <div class="col-lg-8 d-flex justify-content-center">
-            <h3 class="configured-page-heading">Member Account</h3>
+        <div className="container-fluid page-container-configuration ">
+            <div className="row justify-content-md-center">
+                <div className="col-lg-8 d-flex justify-content-center">
+            <h3 className="configured-page-heading">Member Account</h3>
             </div>
         </div>
-        <div class="row justify-content-md-center">
-            <div class="col-lg-6 last-line-form-button">
+        <div className="row justify-content-md-center">
+            <div className="col-lg-6 last-line-form-button">
             <button onClick={() => setActivePage('Level')} className='btn btn-outline-light btn-lg btn-block' id='newWorkout'>Start New Workout</button>
             <br/><br/>
 

@@ -146,7 +146,7 @@ function ExerciseList() {
              </div>
              </div>
              <div className='row justify-content-md-center'>
-             <div class="col-lg-6 d-flex justify-content-center bottom-menu-option">
+             <div className="col-lg-6 d-flex justify-content-center bottom-menu-option">
              <button type='submit' id='save' className='saveWorkoutButton2 btn btn-light btn-block' form='exerciseForm' onClick={(e) => {
                 e.preventDefault()
                 if (isMember) {
@@ -179,7 +179,7 @@ function ExerciseList() {
 
 
 
-       <div class="w-100"></div>
+       <div className="w-100"></div>
        <div className='row justify-content-md-center'>
          <div className='col-lg-4 d-flex justify-content-center'>
          <button type='submit' id="saveforlater" className='btn btn-outline-secondary btn-lg btn-block button-color-change-bottom-list' form='exerciseForm' onClick={(e) => {
@@ -194,19 +194,19 @@ function ExerciseList() {
            }
          }}>Save For Future Workout</button>
          </div>
-         <div class="w-100"></div>
-         <div class="col-lg-4 d-flex justify-content-center bottom-menu-option">
+         <div className="w-100"></div>
+         <div className="col-lg-4 d-flex justify-content-center bottom-menu-option">
            {openDropdown === "saveforlater" ? (
              <div className='container-fluid name-workout-drop-down-bottom'>
                <div className="row justify-content-md-center top-save-as-template-row">
-                 <div class="col-lg-8 d-flex justify-content-center top-save-as-template-col">
+                 <div className="col-lg-8 d-flex justify-content-center top-save-as-template-col">
 
                </div>
                </div>
                <div className="row justify-content-md-center">
-               <div class="col-lg-6 d-flex justify-content-center input-group mb-3 middle-save-as-template-col">
-               <div class="input-group">
-                   <div class="input-group-prepend">
+               <div className="col-lg-6 d-flex justify-content-center input-group mb-3 middle-save-as-template-col">
+               <div className="input-group">
+                   <div className="input-group-prepend">
                      Workout Name:
                      </div>
                      </div>
@@ -218,7 +218,7 @@ function ExerciseList() {
 
 
                <div className="row justify-content-md-center">
-               <div class="col-lg-6 d-flex justify-content-center bottom-menu-option-future">
+               <div className="col-lg-6 d-flex justify-content-center bottom-menu-option-future">
                <button type='submit' id="saveforlater" className='saveWorkoutButton2 btn btn-light btn-block' form='exerciseForm' onClick={(e) => {
                 e.preventDefault()
                 if (isMember) {

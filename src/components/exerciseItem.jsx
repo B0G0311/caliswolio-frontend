@@ -74,8 +74,8 @@ function ExerciseItem() {
           const isOpen = openDropdown === exercise.exercise_id;
 
           return (
-            <div >
-              <div class="row justify-content-md-center">
+            <div key={'NoKeyNeeded'}>
+              <div key={'NoKeyNeeded2'} className="row justify-content-md-center">
             <div key={exercise.exercise_id} className='col-lg-8 d-flex justify-content-center '>
               <button className=' btn btn-lg btn-block btn-outline-primary btn-edit-workout-color pt-4 pb-4' onClick={(e) => {
                 e.preventDefault()
@@ -88,10 +88,10 @@ function ExerciseItem() {
               </div>
 
               {isOpen && (
-                <div id={`dropdown_content_${exercise.exercise_id}`} class="row justify-content-md-center ">
-                  <div class="col-lg-8 d-flex justify-content-center ">
-                    <div class='exercise-items-edits-cols'>
-                    <div class='exercise-items-edits-cols-test'>
+                <div id={`dropdown_content_${exercise.exercise_id}`} className="row justify-content-md-center ">
+                  <div className="col-lg-8 d-flex justify-content-center ">
+                    <div className='exercise-items-edits-cols'>
+                    <div className='exercise-items-edits-cols-test'>
                     <p className='exercise-items-edits-cols-top'>Sets: &nbsp; &nbsp;
 
                     {exercise.sets}  &nbsp; &nbsp;
@@ -112,9 +112,9 @@ function ExerciseItem() {
                   </div>
 
 
-                  <div class="col-lg-8 d-flex justify-content-center">
-                  <div class='exercise-items-edits-cols'>
-                  <div class='exercise-items-edits-cols-test'>
+                  <div className="col-lg-8 d-flex justify-content-center">
+                  <div className='exercise-items-edits-cols'>
+                  <div className='exercise-items-edits-cols-test'>
                     <p className='exercise-items-edits-cols-middle'>Reps: &nbsp; {exercise.reps} &nbsp;
                       <button type='button' className='' id='moreReps'  onClick={(e) => {
                       e.preventDefault()
@@ -131,10 +131,10 @@ function ExerciseItem() {
                   </div>
 
 
-                  <div class="col-lg-8 d-flex justify-content-center">
-                  <div class='exercise-items-edits-cols-bottom-button'>
+                  <div className="col-lg-8 d-flex justify-content-center">
+                  <div className='exercise-items-edits-cols-bottom-button'>
                   <p className=''>{exercise.description}</p>
-                  <div class='exercise-items-edits-cols-test-button'>
+                  <div className='exercise-items-edits-cols-test-button'>
                     <button type='button' id='reroll' className='btn btn-light ' onClick={(e) => {
                       e.preventDefault()
                       reroll(exercise.exercise_id)
