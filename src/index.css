@@ -296,6 +296,16 @@ body {
     margin-bottom: -10px;
 }
 
+/* ExerciseItem Page */
+
+#moreReps, #moreSets, #lessReps, #lessSets {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-weight: 900;
+    text-align: center;
+    width: 30px;
+}
+
 /* ExerciseList Page */
 h3.configured-page-heading-primary {
     text-align: center;

@@ -4,15 +4,33 @@ import WorkoutContext from '../context/workoutContext';
 
 export default function Header() { 
     
-    const { setIsMember, setActivePage, setPriorWorkoutListIsLoaded, setWorkoutQueueListIsLoaded, setTemplateWorkoutListIsLoaded, setUser, setSignInData, isMember } = useContext(WorkoutContext)
+    const { setSelectedExercises, setExerciseListIsLoaded, setSelectedCategory, setSelectedLevel, setIsMember, setActivePage, setPriorWorkoutListIsLoaded, setWorkoutQueueListIsLoaded, setTemplateWorkoutListIsLoaded, setUser, setSignInData, isMember } = useContext(WorkoutContext)
 
     function figureOutActivePage() {
         if (isMember) {
             setPriorWorkoutListIsLoaded(false)
             setWorkoutQueueListIsLoaded(false)
             setTemplateWorkoutListIsLoaded(false)
+            setExerciseListIsLoaded(false)
+            setSelectedCategory('')
+            setSelectedLevel(
+                {
+                level_id: 0,
+                name: ''
+                }
+              )
+            setSelectedExercises({'exercises': [],})
             setActivePage('MemberAccount')
         } else {
+            setExerciseListIsLoaded(false)
+            setSelectedCategory('')
+            setSelectedLevel(
+                {
+                level_id: 0,
+                name: ''
+                }
+              )
+            setSelectedExercises({'exercises': [],})
             setActivePage('SignIn')
         }
     }

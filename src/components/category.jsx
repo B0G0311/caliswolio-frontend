@@ -25,7 +25,7 @@ function Category()
 
       <div className="row justify-content-md-center">
         <div className="col-lg-8 d-flex justify-content-center">
-          <h3 className="configured-page-heading">Select Desired Workout Level</h3>
+          <h3 className="configured-page-heading">Select Desired Workout Category</h3>
         </div>
       </div>
       <div className="row justify-content-md-center">
