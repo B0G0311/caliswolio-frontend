@@ -5,13 +5,13 @@ import ExerciseItem from './exerciseItem';
 import PickDate from './datePicker';
 
 function ExerciseList() {
-  function titleCase(str) {
-    return str.toLowerCase().split(' ').map(function(word) {
-      return word.replace(word[0], word[0].toUpperCase());
-    }).join(' ');
-  }
+  // function titleCase(str) {
+  //   return str.toLowerCase().split(' ').map(function(word) {
+  //     return word.replace(word[0], word[0].toUpperCase());
+  //   }).join(' ');
+  // }
 
-  const { selectedLevel, selectedCategory, selectedExercises, setSelectedExercises, setSelectedCategory, setSelectedLevel, setExerciseListIsLoaded, isMember, setActivePage, postPriorWorkout, selectExercises, postTemplateWorkout, postFutureWorkout, setSaveData} = useContext(WorkoutContext)
+  const { workoutQueueExerciseListIsLoaded, setTemplateExerciseListIsLoaded, setTemplateWorkoutListIsLoaded, setWorkoutName, templateExerciseListIsLoaded, selectedLevel, selectedCategory, workoutName, selectedExercises, setSelectedExercises, setSelectedCategory, setSelectedLevel, setExerciseListIsLoaded, isMember, setActivePage, postPriorWorkout, selectExercises, postTemplateWorkout, postFutureWorkout, setSaveData} = useContext(WorkoutContext)
   const [openDropdown, setOpenDropdown] = useState(null);
   const handleTextChange = (e) => {
       setSaveData(e.target.value)
@@ -54,17 +54,68 @@ function ExerciseList() {
     )
   }
 
+  if (templateExerciseListIsLoaded || workoutQueueExerciseListIsLoaded) {
+    return (
+      <div className='container-fluid page-container-configuration '>
+
+        <form id='exerciseForm'>
+          <div className="row justify-content-md-center">
+            <div className="col-lg-8 d-flex justify-content-center">
+              <h3 className='configured-page-heading-primary'>{workoutName}</h3>
+            </div>
+          </div>
+          <ExerciseItem />
+        </form>
+
+      <div className="row justify-content-md-center">
+        <div className="col-lg-4 d-flex justify-content-center">
+          <button type='button' id='rerollAll' className='btn btn-outline-secondary btn-lg btn-block button-color-change-bottom-list' onClick={(e) => {
+            e.preventDefault()
+            rerollExercises()
+            setActivePage('ExerciseList')
+          }}>Reroll All Exercises</button>
+        </div>
+      </div>
+
+
+
+      <div className='row justify-content-md-center'>
+       <div className='col-lg-4 d-flex justify-content-center'>
+       <button type='button' id='complete' className='btn btn-outline-secondary btn-lg btn-block button-color-change-bottom-list' onClick={(e) => {
+         e.preventDefault()
+          postPriorWorkout()
+          setSelectedExercises({
+            exercises: []
+          })
+          setExerciseListIsLoaded(false)
+          setTemplateExerciseListIsLoaded(false)
+          setSelectedCategory('')
+          setSelectedLevel({
+            level_id: 0,
+            name: ''
+          })
+          setWorkoutName('')
+          setActivePage('MemberAccount')
+          setTemplateWorkoutListIsLoaded(false)
+         }
+        }>Complete Workout</button>
+       </div>
+     </div>
+    </div>
+    )
+  }
+
   return (
     <div className='container-fluid page-container-configuration '>
 
         <form id='exerciseForm'>
-        <div class="row justify-content-md-center">
-          <div class="col-lg-8 d-flex justify-content-center">
-            <h3 className='configured-page-heading-primary'>{titleCase(selectedLevel.name)}:</h3>
+        <div className="row justify-content-md-center">
+          <div className="col-lg-8 d-flex justify-content-center">
+            <h3 className='configured-page-heading-primary'>{selectedLevel.name}:</h3>
           </div>
 
-          <div class="col-lg-8 d-flex justify-content-center">
-            <h3 className='configured-page-heading-secondary'>{titleCase(selectedCategory)}</h3>
+          <div className="col-lg-8 d-flex justify-content-center">
+            <h3 className='configured-page-heading-secondary'>{selectedCategory}</h3>
 
           </div>
         </div>
@@ -72,13 +123,13 @@ function ExerciseList() {
 
         </form>
 
-        <div class="row justify-content-md-center">
-          <div class="col-lg-4 d-flex justify-content-center">
+      <div className="row justify-content-md-center">
+        <div className="col-lg-4 d-flex justify-content-center">
           <button type='button' id='rerollAll' className='btn btn-outline-secondary btn-lg btn-block button-color-change-bottom-list' onClick={(e) => {
-          e.preventDefault()
-          rerollExercises()
-          setActivePage('ExerciseList')
-        }}>Reroll All Exercises</button>
+            e.preventDefault()
+            rerollExercises()
+            setActivePage('ExerciseList')
+          }}>Reroll All Exercises</button>
         </div>
       </div>
 
@@ -123,20 +174,20 @@ function ExerciseList() {
            }
          }}>Save As Template</button>
        </div>
-         <div class="w-100"></div>
-        <div class="col-lg-4 d-flex justify-content-center ">
+         <div className="w-100"></div>
+        <div className="col-lg-4 d-flex justify-content-center ">
          {openDropdown === "save" ? (
            <div className='container-fluid name-workout-drop-down save-as-template-div'>
              <div className="row justify-content-md-center top-save-as-template-row">
-             <div class="col-lg-8 d-flex justify-content-center top-save-as-template-col">
+             <div className="col-lg-8 d-flex justify-content-center top-save-as-template-col">
 
              </div>
              </div>
              <div className="row justify-content-md-center">
-             <div class="col-lg-6 d-flex justify-content-center input-group mb-3 top-save-as-template-col">
+             <div className="col-lg-6 d-flex justify-content-center input-group mb-3 top-save-as-template-col">
 
-             <div class="input-group datepicker-sizing">
-                   <div class="input-group-prepend">
+             <div className="input-group datepicker-sizing">
+                   <div className="input-group-prepend">
                         Workout Name:
                         </div>
                         </div>

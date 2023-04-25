@@ -34,7 +34,7 @@ export default function Header() {
             setActivePage('SignIn')
         }
     }
-
+ 
     function logout() {
         setUser({})
         setIsMember(false)

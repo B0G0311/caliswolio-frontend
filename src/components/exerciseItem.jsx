@@ -72,7 +72,6 @@ function ExerciseItem() {
             <div className='container-fluid exercise-items-page-workouts'>
         {selectedExercises.exercises.map((exercise) => {
           const isOpen = openDropdown === exercise.exercise_id;
-
           return (
             <div key={'NoKeyNeeded'}>
               <div key={'NoKeyNeeded2'} className="row justify-content-md-center">

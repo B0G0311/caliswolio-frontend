@@ -32,10 +32,12 @@ export const WorkoutProvider = ({ children }) => {
     'workouts': []
   })
   const [workoutQueueListIsLoaded, setWorkoutQueueListIsLoaded] = useState(false)
+  const [workoutQueueExerciseListIsLoaded, setWorkoutQueueExerciseListIsLoaded] = useState(false)
   const [templateWorkoutItems, setTemplateWorkoutItems] = useState({
     'workouts': []
   })
   const [templateWorkoutListIsLoaded, setTemplateWorkoutListIsLoaded] = useState(false)
+  const [templateExerciseListIsLoaded, setTemplateExerciseListIsLoaded] = useState(false)
   const [registrationForm, setRegistrationForm] = useState({
       email: '',
       password: '',
@@ -44,8 +46,9 @@ export const WorkoutProvider = ({ children }) => {
       gender: 'Male',
       zipcode: 0,
   })
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState(new Date())
   const [saveData, setSaveData] = useState('')
+  const [workoutName, setWorkoutName] = useState('')
 
 
   useEffect(() => {
@@ -127,7 +130,7 @@ const fetchTemplateWorkouts = async() => {
           if (workout.template_id === exercise.template_id) {
             if (exercise.exercise_id === ex.exercise_id) {
               let tempExercise = {
-                'workout template_id': workout.template_id,
+                'workout_template_id': workout.template_id,
                 'template_id': exercise.template_id,
                 'exercise_id': ex.exercise_id,
                 'name': ex.name,
@@ -157,6 +160,49 @@ const fetchTemplateWorkouts = async() => {
 
   setTemplateWorkoutItems(tempWorkoutList)
   setTemplateWorkoutListIsLoaded(true)
+}
+
+const openTemplateWorkout = async(template_id) => {
+  templateWorkoutItems.forEach((workout) => {
+    console.log('test')
+    if (workout.workout.template_id === template_id) {
+      console.log('test2')
+      workout.exercises.forEach((exercise) => {
+        let tempExercise = {
+          'exercise_id': exercise.exercise_id,
+          'name': exercise.name,
+          'category': exercise.category,
+          'level_id': exercise.level_id,
+          'description': exercise.description,
+          'reps': exercise.reps,
+          'sets': exercise.sets,
+        }
+
+        setSelectedExercises(prevState => ({
+          'exercises': [...prevState.exercises, tempExercise]
+        }))
+      })
+
+      var levelName
+
+      if (workout.workout.level_id === 1) {
+        levelName = 'Beginner'
+      } else if (workout.workout.level_id === 2) {
+        levelName = 'Intermediate'
+      } else if (workout.workout.level_id === 3) {
+        levelName = 'Advanced'
+      }
+      
+      setSelectedLevel({
+        'level_id': workout.workout.level_id,
+        'name': levelName
+      })
+      setSelectedCategory(workout.workout.category)
+      setWorkoutName(workout.workout.name)
+      setExerciseListIsLoaded(true)
+      setTemplateExerciseListIsLoaded(true)
+    }
+  })
 }
 
 const fetchQueueWorkouts = async() => {
@@ -203,6 +249,47 @@ const fetchQueueWorkouts = async() => {
 
   setWorkoutQueueItems(tempWorkoutQueueList) 
   setWorkoutQueueListIsLoaded(true)
+}
+
+const openFutureWorkout = (future_workout_id) => {
+  workoutQueueItems.forEach((workout) => {
+    if (workout.workout.future_workout_id === future_workout_id) {
+      workout.exercises.forEach((exercise) => {
+        let tempExercise = {
+          'exercise_id': exercise.exercise_id,
+          'name': exercise.name,
+          'category': exercise.category,
+          'level_id': exercise.level_id,
+          'description': exercise.description,
+          'reps': exercise.reps,
+          'sets': exercise.sets,
+        }
+
+        setSelectedExercises(prevState => ({
+          'exercises': [...prevState.exercises, tempExercise]
+        }))
+      })
+
+      var levelName
+
+      if (workout.workout.level_id === 1) {
+        levelName = 'Beginner'
+      } else if (workout.workout.level_id === 2) {
+        levelName = 'Intermediate'
+      } else if (workout.workout.level_id === 3) {
+        levelName = 'Advanced'
+      }
+      
+      setSelectedLevel({
+        'level_id': workout.workout.level_id,
+        'name': levelName
+      })
+      setSelectedCategory(workout.workout.category)
+      setWorkoutName(workout.workout.name)
+      setExerciseListIsLoaded(true)
+      setWorkoutQueueExerciseListIsLoaded(true)
+    }
+  })
 }
 
   // select the user based on email and password and set the user state with the corresponding data
@@ -290,11 +377,15 @@ const fetchQueueWorkouts = async() => {
         date.getFullYear(),
       ];
 
+      month = month + 1
+      
       if (month < 10) month = '0' + month
       
       if (day < 10) day = '0' + day
 
       let currentDate = `${year}-${month}-${day}`
+
+      console.log(currentDate)
 
       const workout = {
         'member_id': user.member_id.toString(),
@@ -659,16 +750,22 @@ const fetchQueueWorkouts = async() => {
         setTemplateWorkoutItems,
         templateWorkoutListIsLoaded,
         setTemplateWorkoutListIsLoaded,
+        templateExerciseListIsLoaded,
+        setTemplateExerciseListIsLoaded,
         workoutQueueItems,
         setWorkoutQueueItems,
         workoutQueueListIsLoaded,
         setWorkoutQueueListIsLoaded,
+        workoutQueueExerciseListIsLoaded,
+        setWorkoutQueueExerciseListIsLoaded,
         registrationForm,
         setRegistrationForm,
         date,
         setDate,
         saveData,
         setSaveData,
+        workoutName,
+        setWorkoutName,
         //Separate functions
         catchUser,
         validateCredentials,
@@ -687,6 +784,8 @@ const fetchQueueWorkouts = async() => {
         fetchQueueWorkouts,
         postFutureWorkout,
         postFutureWorkoutExercises,
+        openTemplateWorkout,
+        openFutureWorkout,
       }}
     >
       {children}

@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
@@ -9,7 +9,21 @@ const localizer = momentLocalizer(moment);
 
 const WorkoutQueueCalendar = () => {
     const { workoutQueueItems } = useContext(WorkoutContext);
+    const [selectedEvent, setSelectedEvent] = useState(undefined);
     const [events, setEvents] = useState([]);
+    const [modalState, setModalState] = useState(false);
+    const handleSelectedEvent = (event) => {
+        setSelectedEvent(event);
+        setModalState(true);
+    };
+
+    const Modal = () => {
+        return (
+            <div className={`modal-${modalState === true ? 'show' : 'hide'}`}>
+                <h1>Test</h1>
+          </div>
+        )
+    }
 
     useEffect(() => {
         const newEvents = workoutQueueItems.map((item) => {
@@ -26,24 +40,26 @@ const WorkoutQueueCalendar = () => {
     
     return (
     <div className="container-fluid page-container-configuration justify-content-md-center calender-edit-page-full">   
-        <div class="row justify-content-md-center">
-        <div class="col-lg-10">
-                <h3 class="configured-page-heading-calender">Scheduled Workouts</h3>
+        <div className="row justify-content-md-center">
+        <div className="col-lg-10">
+                <h3 className="configured-page-heading-calender">Scheduled Workouts</h3>
         </div>
         </div>
-        <div class="configured-form-div2 justify-content-md-center">
+        <div className="configured-form-div2 justify-content-md-center">
             
-            <div class="form-row calender-sizing-after-tweaks-row">
-                <div class="form-group col-lg-12 calender-sizing-after-tweaks">
+            <div className="form-row calender-sizing-after-tweaks-row">
+                <div className="form-group col-lg-12 calender-sizing-after-tweaks">
+                    {selectedEvent && <Modal />}
                     <Calendar
                         className="page-container-configuration-calender-edits"
                         localizer={localizer}
+                        popup
                         events={events}
                         startAccessor="start"
                         endAccessor="end"
                         views={["month", "agenda"]}
-                        
-                    />
+                        onSelectEvent={(e) => {handleSelectedEvent(e)}
+                        }/>
                 </div>
             </div>
         </div>
