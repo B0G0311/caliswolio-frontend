@@ -38,7 +38,11 @@ const WorkoutQueueCalendar = () => {
         return (
             <Popover id='calendarPopover' className={`modal-${modalState === true ? 'show' : 'hide'}`}>
                 <div className='container-fluid page-ending-fluid-bottom-div-edits'>
-                    <a>Close</a>
+                    <button onClick = {(e) => {
+                        e.preventDefault()
+                        setSelectedEvent(undefined)
+                        setModalState(false)
+                    }}>Close</button>
                     <h1>{selectedWorkout.workout.name}</h1>
                     {selectedWorkout.exercises.map((exercise) => {
                         return(
