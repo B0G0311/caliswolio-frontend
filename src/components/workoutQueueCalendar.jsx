@@ -9,7 +9,16 @@ import Popover from 'react-bootstrap/Popover'
 const localizer = momentLocalizer(moment);
 
 const WorkoutQueueCalendar = () => {
-    const { workoutQueueItems } = useContext(WorkoutContext);
+
+    
+    const { workoutQueueItems, openFutureWorkout, workoutQueueExerciseListIsLoaded, workoutName, exerciseListIsLoaded, setActivePage } = useContext(WorkoutContext);
+    
+    useEffect((e) => {
+        if(workoutQueueExerciseListIsLoaded && workoutName !== '' && exerciseListIsLoaded){
+            setActivePage('ExerciseList')
+        }
+    }, [workoutQueueExerciseListIsLoaded, workoutName, exerciseListIsLoaded, setActivePage]) 
+    
     const [selectedEvent, setSelectedEvent] = useState(undefined);
     const [events, setEvents] = useState([]);
     const [modalState, setModalState] = useState(false);
@@ -18,15 +27,40 @@ const WorkoutQueueCalendar = () => {
             setSelectedEvent(undefined)
             setModalState(false);
         } else{
-        setSelectedEvent(event);
+            setSelectedEvent(event);
         setModalState(true);
         }
     };
 
     const Modal = () => {
+        let selectedWorkout = workoutQueueItems.find((item) => item.workout.future_workout_id === selectedEvent.future_workout_id);
+
         return (
             <Popover id='calendarPopover' className={`modal-${modalState === true ? 'show' : 'hide'}`}>
-                <h1>Test</h1>
+                <div className='container-fluid page-ending-fluid-bottom-div-edits'>
+                    <a>Close</a>
+                    <h1>{selectedWorkout.workout.name}</h1>
+                    {selectedWorkout.exercises.map((exercise) => {
+                        return(
+                            <div className='edit-items-prior-workout w-100'>
+                                <li className="list-group-item bg-transparent border-0 mt-3  pt-0 pb-1">
+                                    <div className="input-group ">
+                                        <div className="input-group-prepend">Exercise:</div>
+                                    </div>
+                                    <label className='form-control edits-for-form-control-prior-workout-dropdown' aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                                        {exercise.name}
+                                    </label>
+                                </li>
+                            </div>
+                        )
+                    })}
+                    <div className="col-lg-4 d-flex justify-content-center">
+                        <button type='button' id='openWorkout' className='btn btn-outline-secondary btn-lg btn-block button-color-change-bottom-list' onClick={(e) => {
+                            e.preventDefault()
+                            openFutureWorkout(selectedWorkout.workout.future_workout_id)
+                        }}>Edit/Use Workout</button>
+                    </div>
+                </div>
             </Popover>
         )
     }
@@ -39,6 +73,7 @@ const WorkoutQueueCalendar = () => {
                 start: startDate,
                 end: startDate,
                 title: item.workout.name,
+                future_workout_id: item.workout.future_workout_id,
             };
         });
         setEvents(newEvents);

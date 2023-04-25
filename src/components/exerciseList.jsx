@@ -5,13 +5,13 @@ import ExerciseItem from './exerciseItem';
 import PickDate from './datePicker';
 
 function ExerciseList() {
-  // function titleCase(str) {
-  //   return str.toLowerCase().split(' ').map(function(word) {
-  //     return word.replace(word[0], word[0].toUpperCase());
-  //   }).join(' ');
-  // }
+  function titleCase(str) {
+    return str.toLowerCase().split(' ').map(function(word) {
+      return word.replace(word[0], word[0].toUpperCase());
+    }).join(' ');
+  }
 
-  const { workoutQueueExerciseListIsLoaded, setTemplateExerciseListIsLoaded, setTemplateWorkoutListIsLoaded, setWorkoutName, templateExerciseListIsLoaded, selectedLevel, selectedCategory, workoutName, selectedExercises, setSelectedExercises, setSelectedCategory, setSelectedLevel, setExerciseListIsLoaded, isMember, setActivePage, postPriorWorkout, selectExercises, postTemplateWorkout, postFutureWorkout, setSaveData} = useContext(WorkoutContext)
+  const { setWorkoutQueueExerciseListIsLoaded, workoutQueueExerciseListIsLoaded, setTemplateExerciseListIsLoaded, setTemplateWorkoutListIsLoaded, setWorkoutName, templateExerciseListIsLoaded, selectedLevel, selectedCategory, workoutName, selectedExercises, setSelectedExercises, setSelectedCategory, setSelectedLevel, setExerciseListIsLoaded, isMember, setActivePage, postPriorWorkout, selectExercises, postTemplateWorkout, postFutureWorkout, setSaveData} = useContext(WorkoutContext)
   const [openDropdown, setOpenDropdown] = useState(null);
   const handleTextChange = (e) => {
       setSaveData(e.target.value)
@@ -49,7 +49,6 @@ function ExerciseList() {
         <div className='saveWrapper'>
           <button type="submit" id="save" className='saveWorkoutButton' form='exerciseForm'>Save workout</button>
         </div>
-
       </div>
     )
   }
@@ -61,7 +60,7 @@ function ExerciseList() {
         <form id='exerciseForm'>
           <div className="row justify-content-md-center">
             <div className="col-lg-8 d-flex justify-content-center">
-              <h3 className='configured-page-heading-primary'>{workoutName}</h3>
+              <h3 className='configured-page-heading-primary'>{titleCase(workoutName)}</h3>
             </div>
           </div>
           <ExerciseItem />
@@ -97,6 +96,7 @@ function ExerciseList() {
           setWorkoutName('')
           setActivePage('MemberAccount')
           setTemplateWorkoutListIsLoaded(false)
+          setWorkoutQueueExerciseListIsLoaded(false)
          }
         }>Complete Workout</button>
        </div>
@@ -111,11 +111,11 @@ function ExerciseList() {
         <form id='exerciseForm'>
         <div className="row justify-content-md-center">
           <div className="col-lg-8 d-flex justify-content-center">
-            <h3 className='configured-page-heading-primary'>{selectedLevel.name}:</h3>
+            <h3 className='configured-page-heading-primary'>{titleCase(selectedLevel.name)}:</h3>
           </div>
 
           <div className="col-lg-8 d-flex justify-content-center">
-            <h3 className='configured-page-heading-secondary'>{selectedCategory}</h3>
+            <h3 className='configured-page-heading-secondary'>{titleCase(selectedCategory)}</h3>
 
           </div>
         </div>

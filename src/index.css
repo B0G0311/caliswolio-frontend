@@ -919,6 +919,12 @@ h3.configured-page-heading-secondary {
     left: 50% !important;
     margin-top: -125px !important;
     margin-left: -100px !important;
-    height: 250px !important;
-    width: 200px !important;
+    height: 500px !important;
+    width: 500px !important;
+    background-color: black;
+    max-width: 500px;
+}
+
+#calendarPopover h1 {
+    text-align: center;
 }

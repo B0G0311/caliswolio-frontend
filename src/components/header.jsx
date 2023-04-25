@@ -4,7 +4,7 @@ import WorkoutContext from '../context/workoutContext';
 
 export default function Header() { 
     
-    const { setSelectedExercises, setExerciseListIsLoaded, setSelectedCategory, setSelectedLevel, setIsMember, setActivePage, setPriorWorkoutListIsLoaded, setWorkoutQueueListIsLoaded, setTemplateWorkoutListIsLoaded, setUser, setSignInData, isMember } = useContext(WorkoutContext)
+    const { setWorkoutQueueExerciseListIsLoaded, setWorkoutQueueItems, setSelectedExercises, setExerciseListIsLoaded, setSelectedCategory, setSelectedLevel, setIsMember, setActivePage, setPriorWorkoutListIsLoaded, setWorkoutQueueListIsLoaded, setTemplateWorkoutListIsLoaded, setUser, setSignInData, isMember } = useContext(WorkoutContext)
 
     function figureOutActivePage() {
         if (isMember) {
@@ -21,6 +21,8 @@ export default function Header() {
               )
             setSelectedExercises({'exercises': [],})
             setActivePage('MemberAccount')
+            setWorkoutQueueItems(false)
+            setWorkoutQueueExerciseListIsLoaded(false)
         } else {
             setExerciseListIsLoaded(false)
             setSelectedCategory('')
