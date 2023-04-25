@@ -1,8 +1,9 @@
-import React, { useContext, useState, useEffect, } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import WorkoutContext from "../context/workoutContext";
+import Popover from 'react-bootstrap/Popover'
 
 
 const localizer = momentLocalizer(moment);
@@ -13,15 +14,20 @@ const WorkoutQueueCalendar = () => {
     const [events, setEvents] = useState([]);
     const [modalState, setModalState] = useState(false);
     const handleSelectedEvent = (event) => {
+        if (modalState) {
+            setSelectedEvent(undefined)
+            setModalState(false);
+        } else{
         setSelectedEvent(event);
         setModalState(true);
+        }
     };
 
     const Modal = () => {
         return (
-            <div className={`modal-${modalState === true ? 'show' : 'hide'}`}>
+            <Popover id='calendarPopover' className={`modal-${modalState === true ? 'show' : 'hide'}`}>
                 <h1>Test</h1>
-          </div>
+            </Popover>
         )
     }
 
@@ -58,8 +64,8 @@ const WorkoutQueueCalendar = () => {
                         startAccessor="start"
                         endAccessor="end"
                         views={["month", "agenda"]}
-                        onSelectEvent={(e) => {handleSelectedEvent(e)}
-                        }/>
+                        onSelectEvent={(e) => {handleSelectedEvent(e)}}
+                    />
                 </div>
             </div>
         </div>

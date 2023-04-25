@@ -912,3 +912,13 @@ h3.configured-page-heading-secondary {
 
     }
 }
+
+#calendarPopover {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    margin-top: -125px !important;
+    margin-left: -100px !important;
+    height: 250px !important;
+    width: 200px !important;
+}
