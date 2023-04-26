@@ -30,8 +30,6 @@ export default function Register(){
     const generateYearOptions = () => {
         const arr = [];
 
-        // For loop that generates the years from minimum 18 years old to current year but returns the years in ascending order
-
         for (let i = new Date().getFullYear(); i >= 1900; i--) {
             arr.push(<option key={i} value={i}>{i}</option>)
         }
