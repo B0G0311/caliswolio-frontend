@@ -5,7 +5,7 @@ import WorkoutContext from "../context/workoutContext";
 
 function Category()
 {
-    const { setSelectedCategory, selectExercises, setActivePage, exerciseListIsLoaded } = useContext(WorkoutContext)
+    const { selectedCategory, setSelectedCategory, selectExercises, setActivePage, exerciseListIsLoaded } = useContext(WorkoutContext)
     
     useEffect(() => {
         if(exerciseListIsLoaded) {
@@ -18,6 +18,10 @@ function Category()
             
             <form id="submit_category" onSubmit={(e) => {
                 e.preventDefault()
+                if (selectedCategory === ''){
+                    alert('Please select a workout category')
+                    return
+                }
                 selectExercises()
                 
             }}>

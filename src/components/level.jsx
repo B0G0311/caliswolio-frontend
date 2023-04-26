@@ -52,6 +52,10 @@ export default function Level()
       <div className="container-fluid page-container-configuration">
            <form id="level_form" onSubmit={(e) => {
                e.preventDefault()
+               if (selectedLevel.level_id === 0){
+                     alert('Please select a workout level')
+                     return
+               }
                setActivePage('Category')
            }}>
 
