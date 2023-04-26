@@ -7,7 +7,7 @@
     background-color: #34374C;
     text-align: left;
     font-size: 1.5rem;
-    position: fixed;
+    position: absolute;
     /* width: 100%; */
     /* bottom: 0; */
     margin-top: 5px;
