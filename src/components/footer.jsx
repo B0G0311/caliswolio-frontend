@@ -5,7 +5,7 @@ import WorkoutContext from "../context/workoutContext";
 
 export default function Navigation()
 {
-    const { activePage, setActivePage, setPriorWorkoutListIsLoaded, setTemplateWorkoutListIsLoaded, setWorkoutQueueListIsLoaded, isMember } = useContext(WorkoutContext)
+    const { activePage, setActivePage, setPriorWorkoutListIsLoaded, setTemplateExerciseListIsLoaded, setSelectedExercises, setSelectedCategory, setSelectedLevel, setExerciseListIsLoaded, setWorkoutName, setWorkoutQueueExerciseListIsLoaded, setTemplateWorkoutListIsLoaded, setWorkoutQueueListIsLoaded, isMember } = useContext(WorkoutContext)
 
     function prevLocation(){
         if (activePage === 'Level') {
@@ -43,8 +43,25 @@ export default function Navigation()
             setActivePage('MemberAccount')
         }
         else if (activePage === 'ContactUs') {
-           setWorkoutQueueListIsLoaded(false)
-           setActivePage('SignIn')
+            if (isMember) {
+                setSelectedExercises({
+                    exercises: []
+                  })
+                setExerciseListIsLoaded(false)
+                setTemplateExerciseListIsLoaded(false)
+                setSelectedCategory('')
+                setSelectedLevel({
+                level_id: 0,
+                name: ''
+                })
+                setWorkoutName('')
+                setActivePage('MemberAccount')
+                setTemplateWorkoutListIsLoaded(false)
+                setWorkoutQueueExerciseListIsLoaded(false)
+                setWorkoutQueueListIsLoaded(false)
+            } else {
+            setActivePage('SignIn')
+            }
          }
     }
 
@@ -64,7 +81,7 @@ export default function Navigation()
         <nav className ='footer-edits'>
            
         {(activePage !== "SignIn" && activePage !== 'ExerciseList' && activePage !== 'MemberAccount') && (
-            <button type="button" onClick={() => prevLocation()} value="Back" className="btn btn-link btn-lg footer-button-edit-color" id="GoBack">Previous</button>
+            <button type="button" onClick={() => prevLocation()} value="Back" className="btn btn-link btn-lg footer-button-edit-color" id="GoBack">Back</button>
         )}
         </nav>
     );

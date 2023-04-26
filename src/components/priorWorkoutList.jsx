@@ -2,6 +2,7 @@ import React from 'react';
 import { useContext } from 'react';
 import PriorWorkoutItem from './priorWorkoutItem';
 import WorkoutContext from '../context/workoutContext';
+import Footer from "./footer";
 
 
 function PriorWorkoutList(){
@@ -10,6 +11,7 @@ function PriorWorkoutList(){
     if (Object.keys(priorWorkoutItems).length === 0) {
         return (
             <div className="container-fluid page-container-configuration-workoutlist ">
+                <Footer/>
             <div className="row justify-content-md-center">
                 <div className="col-lg-8 d-flex justify-content-center">
                 <h3 className="configured-page-heading">Workout Log</h3>
@@ -24,6 +26,7 @@ function PriorWorkoutList(){
 
     return(
         <div className="container-fluid page-container-configuration-workoutlist ">
+            <Footer/>
             <div className="row justify-content-md-center">
                 <div className="col-lg-8 d-flex justify-content-center">
                     <h3 className="configured-page-heading">Workout Log</h3>

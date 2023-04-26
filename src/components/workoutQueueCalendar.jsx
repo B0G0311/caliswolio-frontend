@@ -4,6 +4,7 @@ import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import WorkoutContext from "../context/workoutContext";
 import Popover from 'react-bootstrap/Popover';
+import Footer from "./footer";
 
 
 const localizer = momentLocalizer(moment);
@@ -85,7 +86,8 @@ const WorkoutQueueCalendar = () => {
     }, [workoutQueueItems]);
     
     return (
-    <div className="container-fluid page-container-configuration justify-content-md-center calender-edit-page-full">   
+    <div className="container-fluid page-container-configuration justify-content-md-center calender-edit-page-full">  
+        <Footer/> 
         <div className="row justify-content-md-center">
         <div className="col-lg-10">
                 <h3 className="configured-page-heading-calender">Scheduled Workouts</h3>

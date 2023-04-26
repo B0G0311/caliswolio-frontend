@@ -1,7 +1,7 @@
 import React from 'react';
 import { useContext } from 'react'
 import WorkoutContext  from '../context/workoutContext';
-// import '../css/level.css';
+import Footer from "./footer";
 
 export default function Level()
 {
@@ -50,6 +50,7 @@ export default function Level()
     }
     return(
       <div className="container-fluid page-container-configuration">
+        <Footer/>
            <form id="level_form" onSubmit={(e) => {
                e.preventDefault()
                if (selectedLevel.level_id === 0){

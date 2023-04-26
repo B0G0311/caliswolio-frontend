@@ -1,9 +1,11 @@
 import React from 'react';
+import Footer from "./footer";
 
 export default function ContactUs(){
 
     return (
         <div className="container-fluid page-container-configuration justify-content-md-center">
+            <Footer/>
             <div className="row justify-content-md-center">
                 <div className="col-lg-6">
                     <h3 className="configured-page-heading">Contact Us</h3>

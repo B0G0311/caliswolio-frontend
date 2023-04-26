@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import WorkoutContext from '../context/workoutContext';
+import Footer from "./footer";
 
 export default function Terms(){
   const { setActivePage } = useContext(WorkoutContext)
@@ -11,6 +12,7 @@ export default function Terms(){
       setActivePage('Level')
     }}>
           <div className="container-fluid page-container-configuration">
+            <Footer/>
 
           <div className="row justify-content-md-center">
               <div className="col-lg-6">

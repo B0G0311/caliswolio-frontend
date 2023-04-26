@@ -49,6 +49,20 @@ export default function Header() {
             }
         )
         setActivePage('SignIn')
+        setSelectedExercises({
+            exercises: []
+          })
+        setExerciseListIsLoaded(false)
+        setTemplateExerciseListIsLoaded(false)
+        setSelectedCategory('')
+        setSelectedLevel({
+        level_id: 0,
+        name: ''
+        })
+        setWorkoutName('')
+        setTemplateWorkoutListIsLoaded(false)
+        setWorkoutQueueExerciseListIsLoaded(false)
+        setWorkoutQueueListIsLoaded(false)
     }
 
     return (

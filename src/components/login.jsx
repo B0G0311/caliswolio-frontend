@@ -1,5 +1,6 @@
 import React, {useContext} from "react";
 import WorkoutContext from "../context/workoutContext";
+import Footer from "./footer";
 
 
 export default function Login()
@@ -24,6 +25,7 @@ export default function Login()
   return(
 
       <div className="container-fluid page-container-configuration justify-content-md-center">
+        <Footer/>
         <div className="row justify-content-md-center">
           <div className="col-lg-6">
                 <h3 className="configured-page-heading">Welcome Back!</h3>

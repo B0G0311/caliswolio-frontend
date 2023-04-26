@@ -1,7 +1,7 @@
 import React from "react";
 import { useContext, useEffect } from "react";
 import WorkoutContext from "../context/workoutContext";
-// import '../css/category.css';
+import Footer from "./footer";
 
 function Category()
 {
@@ -15,7 +15,7 @@ function Category()
     
     return(
         <div className="container-fluid page-container-configuration ">
-            
+            <Footer/>
             <form id="submit_category" onSubmit={(e) => {
                 e.preventDefault()
                 if (selectedCategory === ''){

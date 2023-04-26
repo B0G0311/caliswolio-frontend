@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useContext } from 'react';
 import TemplateWorkoutItem from './templateWorkoutItem';
 import WorkoutContext from '../context/workoutContext';
+import Footer from "./footer";
 
 function TemplateWorkoutList(){
     const { templateWorkoutItems, templateExerciseListIsLoaded, setActivePage, workoutName, exerciseListIsLoaded } = useContext(WorkoutContext)
@@ -15,6 +16,7 @@ function TemplateWorkoutList(){
     if (Object.keys(templateWorkoutItems).length === 0) {
         return (
             <div className="container-fluid page-container-configuration-workoutlist ">
+                <Footer/>
                 <div className="row justify-content-md-center">
                     <div className="col-lg-8 d-flex justify-content-center">
                         <h3 className="configured-page-heading">Workout Templates</h3>
@@ -28,6 +30,7 @@ function TemplateWorkoutList(){
 
     return(
         <div className="container-fluid page-container-configuration-workoutlist ">
+            <Footer/>
         <div className="row justify-content-md-center">
             <div className="col-lg-8 d-flex justify-content-center">
                 <h3 className="configured-page-heading">Workout Templates</h3>

@@ -1,5 +1,6 @@
 import React, {useContext, useState} from 'react';
 import WorkoutContext from '../context/workoutContext';
+import Footer from "./footer";
 
 
 export default function Register(){
@@ -83,6 +84,7 @@ export default function Register(){
 
     return(
         <div className="container-fluid page-container-configuration justify-content-md-center">
+            <Footer/>
             <div className="row justify-content-md-center">
                 <div className="col-lg-6">
                     <h3 className="configured-page-heading">Registration</h3>
