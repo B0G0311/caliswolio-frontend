@@ -58,7 +58,7 @@ export default function Login()
 
                   <label className="col-sm-4 col-form-label"><h4>Password:</h4></label>
                   <div className="form-group col-sm-12">
-                  <input onChange={handleTextChange} type="text" className="Info form-control" id="Password" value={signInData.password || ''} required/>
+                  <input onChange={handleTextChange} type="password" className="Info form-control" id="Password" value={signInData.password || ''} required/>
                 </div>
 
             </div>

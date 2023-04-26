@@ -120,11 +120,11 @@ export default function Register(){
                         <div className="form-row">
                             <div className="form-group col-md-6">
                                 <label for="inputPassword4"><h4>Password:</h4></label>
-                                <input onChange={handleTextChange} type="text" className='Info form-control' id='pass' value={registrationForm.password || ''} required/>
+                                <input onChange={handleTextChange} type="password" className='Info form-control' id='pass' value={registrationForm.password || ''} required/>
                             </div>
                             <div className="form-group col-md-6">
                                 <label for="inputPassword4"><h4>Confirm Password:</h4></label>
-                                <input onChange={handleTextChange} type="text" className='Info form-control' id='confirmpass' required/>
+                                <input onChange={handleTextChange} type="password" className='Info form-control' id='confirmpass' required/>
                             </div>
                         </div>
                         <div className="form-row last-line-form">
