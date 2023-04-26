@@ -19,6 +19,9 @@ function ExerciseItem() {
     newObject.forEach(exercise => {
       if (exercise.exercise_id === exerciseID) {
         exercise.reps += num
+        if(exercise.reps < 1) {
+          exercise.reps = 1
+        }
       }
     })
 
@@ -32,6 +35,9 @@ function ExerciseItem() {
     newObject.forEach(exercise => {
       if (exercise.exercise_id === exerciseID) {
         exercise.sets += num
+        if(exercise.sets < 1) {
+          exercise.sets = 1
+        }
       }
     })
 

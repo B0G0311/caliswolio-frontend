@@ -14,7 +14,7 @@ function ExerciseList() {
   const { setWorkoutQueueExerciseListIsLoaded, workoutQueueExerciseListIsLoaded, setTemplateExerciseListIsLoaded, setTemplateWorkoutListIsLoaded, setWorkoutName, templateExerciseListIsLoaded, selectedLevel, selectedCategory, workoutName, selectedExercises, setSelectedExercises, setSelectedCategory, setSelectedLevel, setExerciseListIsLoaded, isMember, setActivePage, postPriorWorkout, selectExercises, postTemplateWorkout, postFutureWorkout, setSaveData} = useContext(WorkoutContext)
   const [openDropdown, setOpenDropdown] = useState(null);
   const handleTextChange = (e) => {
-      setSaveData(e.target.value)
+    setSaveData(e.target.value)
   }
 
     function rerollExercises() {
@@ -191,9 +191,7 @@ function ExerciseList() {
                         Workout Name:
                         </div>
                         </div>
-             <input onChange={handleTextChange} type="text" id="workoutName" name="workoutName" className='workoutSave form-control' aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="" required></input>
-
-
+             <input onChange={handleTextChange} type="text" maxLength={20} id="workoutName" name="workoutName" className='workoutSave form-control' aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="" required></input>
              </div>
              </div>
              <div className='row justify-content-md-center'>
@@ -261,7 +259,7 @@ function ExerciseList() {
                      Workout Name:
                      </div>
                      </div>
-                     <input onChange={handleTextChange} type="text" id="workoutName" name="workoutName" className='workoutSave form-control' aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="" required></input>
+                     <input onChange={handleTextChange} type="text" id="workoutName" maxLength={20} name="workoutName" className='workoutSave form-control' aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="" required></input>
 
                  </div>
                </div>
