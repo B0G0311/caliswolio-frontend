@@ -12,8 +12,6 @@
     bottom: 0;
     margin-left: 0;
     padding-left: 15px;
-
-
 }
 
 .container-fluid {
@@ -25,7 +23,6 @@
     margin-top: 3%;
     color: white;
     font-family: "Montserrat", sans-serif;
-
 }
 
 .page-container-configuration {
@@ -260,7 +257,7 @@ body {
     font-family: "Montserrat", sans-serif;
     line-height: 1.5;
     font-size: 1.7rem;
-    font:black;
+    color:black;
     text-align: left;
     text-decoration: underline;
 }
@@ -269,7 +266,7 @@ body {
     font-family: "Montserrat", sans-serif;
     font-size: 1.5rem;
     line-height: 1.5;
-    font:black;
+    color:black;
     text-align: left;
 }
 
@@ -318,7 +315,7 @@ h3.configured-page-heading-primary {
 }
 h3.configured-page-heading-secondary {
     text-align: center;
-    margin-top: 0%;
+    margin-top: 0;
     color: #F6F6F6;
     font-weight: 900;
     font-size: 3.0rem !important;
@@ -385,8 +382,8 @@ h3.configured-page-heading-secondary {
 }
 
 .datePickerColor.form-control {
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 0;
+    padding-right: 0;
     text-align: center;
 
 }
@@ -493,10 +490,12 @@ h3.configured-page-heading-secondary {
     text-align: center;
 
 }
+
 .row.justify-content-md-center.edits-row-main-button-workout-completed {
     width: 75%;
     margin: auto;
 }
+
 .form-control.edits-for-form-control-prior-workout-dropdown {
     text-align: left;
     width: 350px;
@@ -577,11 +576,6 @@ h3.configured-page-heading-secondary {
     background-color: #2c2e3d ;
 }
 
-
-.rbc-row {
-    font: white;
-}
-
 .rbc-day-bg.rbc-off-range-bg {
     background-color:  #34374C;
 }
@@ -602,9 +596,11 @@ h3.configured-page-heading-secondary {
 h3.configured-page-heading {
     width: 90%;
 }
+
 h3.configured-page-heading-primary {
     font-size: 1.6rem;
 }
+
 h3.configured-page-heading-secondary {
     font-size: 1.4rem;
 }
@@ -632,6 +628,7 @@ h3.configured-page-heading-secondary {
 #save.saveWorkoutButton2.btn.btn-light.btn-block {
     width: 90%;
 }
+
 .rbc-active {
     background-color: #E84D63 !important;
 }
@@ -693,6 +690,7 @@ h3.configured-page-heading-secondary {
     .configured-form-div.justify-content-md-center.adjust-login-width-size {
         width: 90%;
     }
+
     .configured-form-div.justify-content-md-center.adjust-login-width-size h4{
         font-size: 1.3rem;
     }
@@ -722,6 +720,7 @@ h3.configured-page-heading-secondary {
         margin-top: -40px;
         font-size: 1.1rem;
     }
+
     button#checkFWQ.btn.btn-outline-light.btn-lg.btn-block {
         width: 90%;
         margin-left: auto;
@@ -733,43 +732,54 @@ h3.configured-page-heading-secondary {
     .card.bg-light.mb-4.card-design h3 {
         font-size: 1.1rem;
     }
+
     #Beginner.btn.btn-outline-dark.btn-lg.btn-block {
         font-size: 1.1rem;
         padding-top: 5px;
         padding-bottom: 5px;
     }
+
     #Intermediate.btn.btn-outline-dark.btn-lg.btn-block {
         font-size: 1.1rem;
         padding-top: 5px;
         padding-bottom: 5px;
     }
+
     #Advanced.btn.btn-outline-dark.btn-lg.btn-block {
         font-size: 1.1rem;
         padding-top: 5px;
         padding-bottom: 5px;
     }
+
     .container-fluid.page-container-configuration {
         width: 100%;
     }
+
     .col-lg-10.last-line-form-button {
         margin-bottom: 1%;
     }
+
     .row.custom-column-category.justify-content-md-center {
         margin-bottom: 5%;
     }
+
     .card-top.mt-4 i {
         display: none;
         margin: 0;
     }
+
     .card-top.mt-4 {
         margin-top: 0 !important;
     }
+
     .card-body.mt-3 {
         margin-top: 0 !important;
     }
+
     .card.bg-light.mb-4.card-design {
         margin-bottom: 10px !important;
     }
+
     .configured-page-heading-calender {
         font-size: 1.5rem;
         margin-bottom: 6%;
@@ -781,9 +791,11 @@ h3.configured-page-heading-secondary {
         margin-right: auto;
 
     }
+
     .container-fluid.page-container-configuration.justify-content-md-center.calender-edit-page-full {
         width: 100%;
     }
+
     .page-container-configuration-calender-edits.rbc-calendar {
         height: 420px;
 
@@ -813,9 +825,11 @@ h3.configured-page-heading-secondary {
     .col-lg-12.d-flex.justify-content-center.workout-log-div-size-edit {
         width: 100%;
     }
+
     .row.justify-content-md-center.edits-row-main-button-workout-completed {
         width: 100%;
     }
+
     .col-lg-12.d-flex.justify-content-center.edits-row-main-button-workout-completed {
         width: 100%;
         padding: 0;
@@ -838,19 +852,16 @@ h3.configured-page-heading-secondary {
     .footer-edits {
         width: 100%;
     }
+
     .btn.btn-link.btn-lg.footer-button-edit-color {
         color: #9FA6B2;
         background-color: #34374C;
         text-align: left;
         font-size: 1.5rem;
         position: sticky;
-
-        bottom: 0% !important;
-
+        bottom: 0 !important;
         margin-left: 0;
         padding-left: 15px;
-
-
     }
     .row.card-text-width {
         display: none;
@@ -909,7 +920,6 @@ h3.configured-page-heading-secondary {
 
     #contactusform h4 {
         font-size: 1rem;
-
     }
 }
 
@@ -919,12 +929,27 @@ h3.configured-page-heading-secondary {
     left: 50% !important;
     margin-top: -125px !important;
     margin-left: -100px !important;
-    height: 500px !important;
+    /*height: 500px !important;*/
     width: 500px !important;
     background-color: black;
     max-width: 500px;
+    font-family: "Montserrat", sans-serif;
+    padding-bottom: 1% !important;
 }
 
-#calendarPopover h1 {
+#calendarPopover h3 {
     text-align: center;
+    font-size: 2.2rem;
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+}
+
+#openWorkout {
+    margin-top: 10%;
+}
+
+#calendar-popout-button {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }

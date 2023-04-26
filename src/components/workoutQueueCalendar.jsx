@@ -3,7 +3,7 @@ import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import WorkoutContext from "../context/workoutContext";
-import Popover from 'react-bootstrap/Popover'
+import Popover from 'react-bootstrap/Popover';
 
 
 const localizer = momentLocalizer(moment);
@@ -37,13 +37,14 @@ const WorkoutQueueCalendar = () => {
 
         return (
             <Popover id='calendarPopover' className={`modal-${modalState === true ? 'show' : 'hide'}`}>
-                <div className='container-fluid page-ending-fluid-bottom-div-edits'>
-                    <button onClick = {(e) => {
+
+                <div className='container-fluid page-ending-fluid-bottom-div-edits '>
+                    <button type="button" class="btn btn-danger" onClick = {(e) => {
                         e.preventDefault()
                         setSelectedEvent(undefined)
                         setModalState(false)
-                    }}>Close</button>
-                    <h1>{selectedWorkout.workout.name}</h1>
+                    }}>&nbsp;X&nbsp; </button>
+                    <h3>{selectedWorkout.workout.name}</h3>
                     {selectedWorkout.exercises.map((exercise) => {
                         return(
                             <div className='edit-items-prior-workout w-100'>
@@ -58,8 +59,8 @@ const WorkoutQueueCalendar = () => {
                             </div>
                         )
                     })}
-                    <div className="col-lg-4 d-flex justify-content-center">
-                        <button type='button' id='openWorkout' className='btn btn-outline-secondary btn-lg btn-block button-color-change-bottom-list' onClick={(e) => {
+                    <div id="calendar-popout-button" className="col-lg-6 d-flex justify-content-center">
+                        <button type='button' id='openWorkout' className='btn btn-outline-light btn-lg btn-block button-color-change-bottom-list' onClick={(e) => {
                             e.preventDefault()
                             openFutureWorkout(selectedWorkout.workout.future_workout_id)
                         }}>Edit/Use Workout</button>
