@@ -27,6 +27,18 @@ export default function Register(){
         return false;
     }
 
+    const generateYearOptions = () => {
+        const arr = [];
+
+        // For loop that generates the years from minimum 18 years old to current year but returns the years in ascending order
+
+        for (let i = new Date().getFullYear() - 18; i >= 1900; i--) {
+            arr.push(<option key={i} value={i}>{i}</option>)
+        }
+
+        return arr;
+    }
+
     function validateBirthdate() {
         var thisYear = new Date()
         var age = thisYear.getFullYear() - registrationForm.birth_year
@@ -134,7 +146,16 @@ export default function Register(){
                             </div>
                             <div className="form-group col-md-3">
                                 <label ><h4>Birth Year:</h4></label>
-                                <input onChange={handleTextChange} type="number" pattern='[0-9]*' className='Info form-control' max='9999' id='birthyear' value={registrationForm.birth_year || ''} required/>
+                                <select
+                                    className='Info form-control'
+                                    id='birthyear'
+                                    onChange={handleTextChange}
+                                    value={registrationForm.birth_year || ''}
+                                >
+                                    <option value=''>Select Year</option>
+                                    {generateYearOptions()}
+                                </select>
+                                {/* <input onChange={handleTextChange} type="number" pattern='[0-9]*' className='Info form-control' max='9999' id='birthyear' value={registrationForm.birth_year || ''} required/> */}
                             </div>
                             <div className="form-group col-md-2">
                                 <label><h4>Gender:</h4></label>
